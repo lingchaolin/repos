@@ -1,0 +1,14 @@
+package com.aowin;
+
+public class Client0201 {
+/**
+ * 中介者模式--同事对象；
+ * 
+ * @param args
+ */
+	public static void main(String[] args) {
+
+		
+	}
+
+}

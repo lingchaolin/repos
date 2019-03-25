@@ -1,0 +1,178 @@
+package com.aowin.stuff.view;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+import com.aowin.stuff.lisnter.SubListener;
+import com.aowin.stuff.model.Person;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
+
+public class SubFrame {
+//	SubFrame sub;
+	JFrame frame;
+	Container con;
+	JTextField txt0;
+	JTextField txt1;
+	JComboBox jcb2;
+	JComboBox jcb3;
+	JTextField txt4;
+	JComboBox jcb5;
+	
+	DefaultTableModel model;
+	JTable table;
+	JPanel panels[];
+	int selectedId=-1;
+//	public  SubFrame(DefaultTableModel model,JTable table,String title) {
+	public  SubFrame(HomePage hp) {
+		this.model=hp.getModel();//传入model
+		this.table=hp.getTable();//传入table
+		
+		frame=new JFrame();
+		frame.setSize(270,340);
+		frame.setLocation(900,200);
+
+		JLabel  labels[]=new JLabel[6];
+		con =frame.getContentPane();
+		con.setLayout(new GridLayout(7,1));
+		panels=new JPanel[7];
+		for(int i=0;i<panels.length;i++) {
+			panels[i]=new JPanel();
+			panels[i].setLayout(new FlowLayout(FlowLayout.LEFT));
+		}
+		
+		labels[0]=new JLabel("编号:    ");
+		txt0=new JTextField(8);
+		panels[0].add(labels[0]);
+		panels[0].add(txt0);
+		con.add(panels[0]);
+		
+		labels[1]=new JLabel("姓名:    ");
+		txt1=new JTextField(8);
+		panels[1].add(labels[1]);
+		panels[1].add(txt1);
+		con.add(panels[1]);
+		
+		labels[2]=new JLabel("性别:    ");
+		String arr2[]={"","男","女"};
+		jcb2=new JComboBox(arr2) ;
+		panels[2].add(labels[2]);
+		panels[2].add(jcb2);
+		con.add(panels[2]);
+		
+		labels[3]=new JLabel("部门:    ");//默认为空-不选择
+		String arr3[]={"","vendition","lead","secretary"};
+		jcb3=new JComboBox(arr3) ;
+		panels[3].add(labels[3]);
+		panels[3].add(jcb3);
+		con.add(panels[3]);
+		
+		labels[4]=new JLabel("工资:    ");
+		txt4=new JTextField(8);
+		panels[4].add(labels[4]);
+		panels[4].add(txt4);
+		con.add(panels[4]);
+		
+		labels[5]=new JLabel("请选择查询条件:    ");
+		String arr5[]={"and","or"};
+		jcb5=new JComboBox(arr5) ;
+		panels[5].add(labels[5]);
+		panels[5].add(jcb5);
+		con.add(panels[5]);
+		
+		panels[5].setVisible(false);
+//		labels[5].setEnabled(false);
+//		jcb5.setEnabled(false);
+		
+//		添加按钮
+		JButton button1=new JButton("确认");
+		JButton button2=new JButton("取消");
+		button1.addActionListener(new SubListener(this));
+		button2.addActionListener(new SubListener(this));
+		
+		panels[6].add(button1);
+		panels[6].add(button2);
+		con.add(panels[6]);
+//		关闭清空
+		frame.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				txt0.setText("");
+				txt1.setText("");
+				jcb2.setSelectedItem("");
+				jcb3.setSelectedItem("");
+				txt4.setText("");
+			}
+		});
+		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+	}
+
+
+	public int getSelectedId() {
+		return selectedId;
+	}
+
+
+	public void setSelectedId(int selectedId) {
+		this.selectedId = selectedId;
+	}
+
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public Container getCon() {
+		return con;
+	}
+
+	public JTextField getTxt0() {
+		return txt0;
+	}
+
+	public JTextField getTxt1() {
+		return txt1;
+	}
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public JComboBox getJcb2() {
+		return jcb2;
+	}
+
+	public JComboBox getJcb3() {
+		return jcb3;
+	}
+
+	public JTextField getTxt4() {
+		return txt4;
+	}
+
+	public JComboBox getJcb5() {
+		return jcb5;
+	}
+
+	public DefaultTableModel getModel() {
+		return model;
+	}
+
+	public JPanel[] getPanels() {
+		return panels;
+	}
+
+
+	public static void main(String[]args) {
+		SubFrame s=new SubFrame(null,null,"test");
+		System.out.println(s.getCon().getLayout());
+		s.getPanels()[5].setVisible(true);
+		s.getFrame().setVisible(true);
+	}
+}

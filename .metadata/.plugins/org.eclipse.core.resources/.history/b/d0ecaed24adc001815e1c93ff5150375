@@ -1,0 +1,12 @@
+package com.aowin.review;
+
+public class A{
+	static int nnumber=12;
+	private int[] arr=new int;
+	String str="abc";
+	String newstr=new String("abc");
+	public A(){}
+	public static void methodA(){
+		System.out.println("methodA");
+	}
+}

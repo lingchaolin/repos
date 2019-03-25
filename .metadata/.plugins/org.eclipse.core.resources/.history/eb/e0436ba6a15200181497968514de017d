@@ -1,0 +1,59 @@
+package hw17;
+
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+
+/**
+ * 2、能够用DOM对给定的xml文档进行解析，
+ * 如根据config.xml完善jdbc中dbconnection中数据库、用户名、密码的值，
+ * 使其具有通用性。
+ * @author Administrator
+ *
+ */
+public class Two {
+
+	public static void main(String[] args) {
+
+	}
+	public static void read(File file) throws Exception {
+		DocumentBuilder builder=DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		Document doc=builder.parse(file);
+		
+	
+	
+	}
+	
+	static {
+		
+		try {
+			//加载驱动
+			Class.forName("com.mysql.jdbc.Driver");
+			System.out.println("驱动加载成功");
+		} catch (ClassNotFoundException e) {
+			System.err.println("驱动加载失败！原因是:"+e.getMessage());
+			
+		}
+	}
+	public static Connection getCon() {
+		String url="jdbc:mysql://localhost:3306/test";
+		String user="root";
+		String password="123456";
+		Connection con=null;
+		try {
+			con=DriverManager.getConnection(url, user, password);
+			System.out.println("数据库连接成功");
+		} catch (SQLException e) {
+			System.out.println("数据库连接失败:"+e.getMessage());
+			System.out.println("检查代码:\r\nurl:"+url+"\r\nuser:"+user+"\r\npassword:"+password);
+		}
+		return con;
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.aowin.review.A&apos; to &apos;MyOuter&apos;&#x0D;&#x0A;- Original project: &apos;MEMO&apos;&#x0D;&#x0A;- Original element: &apos;com.aowin.review.A&apos;&#x0D;&#x0A;- Renamed element: &apos;com.aowin.review.MyOuter&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;A&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.aowin.review{A.java[A" matchStrategy="1" name="MyOuter" qualified="false" references="true" similarDeclarations="false" stamp="1541036353887" textual="false" version="1.0"/>
+</session>

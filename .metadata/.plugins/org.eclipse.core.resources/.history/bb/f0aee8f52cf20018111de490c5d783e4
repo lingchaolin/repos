@@ -1,0 +1,9 @@
+package com.aowin.javabasic;
+
+public class CopyPic {
+
+	public CopyPic() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

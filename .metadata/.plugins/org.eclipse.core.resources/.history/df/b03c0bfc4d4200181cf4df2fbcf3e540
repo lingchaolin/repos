@@ -1,0 +1,69 @@
+package forIO;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+public class SpliteFile {
+	private String filePath;
+	private int size;
+	private long blockSize;
+	private String fileName;
+	private List<String>blockPath;
+	public SpliteFile(){
+		blockPath=new ArrayList<String>();
+	}
+	public SpliteFile(String filePath){
+		this(filePath,1024);
+	}
+	public SpliteFile(String filePath,long blockSize){
+		this();
+		this.filePath=filePath;
+		this.blockSize=blockSize;
+		init();
+	}
+	public void init(){
+		File src=null;
+		if(null==filePath||!((src=new File(filePath)).exists())){
+			return;
+		}
+		if(src.isDirectory()){
+			return;
+		}
+		this.fileName=src.getName();
+		//计算块数，实际大小
+		long length=src.length();
+		if(this.blockSize>length){
+			this.blockSize=length;
+			
+		}
+		//确定块数
+		size=(int) (Math.ceil(length*1.0/this.blockSize));
+	}
+	private void initPathName(){
+		for(int i=0;i<size;i++){
+			this.blockPath.add(".part"+i);
+		}
+	}
+	/**
+	 * 文件的分割--分割文件存放目录
+	 * 起始位置
+	 * 实际大小
+	 * 处于第几块
+	 * @param destPath
+	 */
+	public void split(String destPath){
+		long beginPos=0;//起始点
+		long actualBlocksize=blockSize;
+		for(int i=0;i<size;i++){
+			splitDetail(i,beginPos,actualBlocksize);
+		}
+	}
+	private void splitDetail(int idx,long beginPos,long actualBlockSize){
+		
+	}
+	public static void main(String[]args){
+		SpliteFile file=new SpliteFile("D:/Class/work/Test/IoOUT.java",5);
+		System.out.println(file.size);
+	}
+}

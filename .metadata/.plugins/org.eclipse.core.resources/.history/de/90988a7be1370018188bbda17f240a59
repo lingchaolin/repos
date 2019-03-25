@@ -1,0 +1,29 @@
+package Game;
+
+import java.awt.Graphics;
+import java.awt.Image;
+
+public class Test extends MyFrame {
+	Image img=GameUtil.getImage("Picture/Back.jpg");
+	Image img2=GameUtil.getImage("Picture/Earth.jpg");
+	static double x=100,y=200;
+	static double long_axis=4,short_axis=2;
+	double pi=0;
+	int degree=1;
+	public static void main(String[]args){
+		Test t=new Test();
+		t.launchFrame();
+		
+	}
+	public void paint(Graphics g){
+		g.drawImage(img, (int)0, (int)0,null);
+		g.drawImage(img2, (int)x, (int)y,null);
+//		x+=long_axis*Math.sin(pi);
+//		y+=short_axis*Math.cos(pi);
+//		pi+=degree*3.14/180;
+//		x+=1;
+		x+=5*Math.sin(pi);
+//		y+=5*Math.cos(pi);
+		pi+=degree*3.14/180;
+	}
+}

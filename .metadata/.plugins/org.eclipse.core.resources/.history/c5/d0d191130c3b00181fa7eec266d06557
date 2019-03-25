@@ -1,0 +1,36 @@
+package forThread;
+/**
+ * 创建多个线程
+ * @author Administrator
+ *
+ */
+public class ForThreadOne {
+	
+	public static void main(String[]args){
+		ThreadTest test=new ThreadTest();
+		test.start();
+//		new ThreadTest().start();;
+	}
+	
+}
+class ThreadTest extends  Thread{
+	public void  run(){
+		while(true){
+			System.out.println("Ok");
+		}
+	}
+}
+/**class paintThread extends Thread{
+		public void run(){
+			while(true){
+				repaint();
+				try {
+					Thread.sleep(40);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+ * 
+ */

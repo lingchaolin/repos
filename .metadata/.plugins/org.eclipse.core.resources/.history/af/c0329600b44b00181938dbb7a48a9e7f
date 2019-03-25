@@ -1,0 +1,11 @@
+package Castle;
+
+public interface Scene {
+//	设置出口
+	
+//	获得出口
+	
+//	房间中的物体
+	
+//	对当前情景的描述
+}

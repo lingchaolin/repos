@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC 
+		"-//mybatis.org//DTD Config 3.4//EN"
+		"http://www.mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+
+	<!-- 别名 -->
+	<typeAliases>
+		<typeAlias type="com.aowin.cmsystem.resource.pojo.Resources" alias="Resources"/>
+		<typeAlias type="com.aowin.cmsystem.operator.pojo.Operators" alias="Operators"/>
+		<typeAlias type="com.aowin.cmsystem.openaccount.pojo.Accounts" alias="Accounts"/>
+		<typeAlias type="com.aowin.cmsystem.openaccount.pojo.Customers" alias="Customers"/>
+		<typeAlias type="com.aowin.cmsystem.openaccount.pojo.Users" alias="Users"/>
+		<typeAlias type="com.aowin.cmsystem.charge.pojo.Charges" alias="Charges"/>
+		<typeAlias type="com.aowin.cmsystem.charge.pojo.Functions" alias="Functions"/>
+		<typeAlias type="com.aowin.cmsystem.charge.pojo.Rules" alias="Rules"/>
+	</typeAliases>
+	
+	<!-- 映射文件 -->
+	<mappers>
+		<mapper resource="com/aowin/cmsystem/charge/pojo/Charges.xml"/>
+		<mapper resource="com/aowin/cmsystem/charge/pojo/Functions.xml"/>
+		<mapper resource="com/aowin/cmsystem/charge/pojo/Rules.xml"/>
+		<mapper resource="com/aowin/cmsystem/openaccount/pojo/Accounts.xml"/>
+		<mapper resource="com/aowin/cmsystem/openaccount/pojo/Customers.xml"/>
+		<mapper resource="com/aowin/cmsystem/openaccount/pojo/Users.xml"/>
+		<mapper resource="com/aowin/cmsystem/operator/pojo/Operators.xml"/>
+		<mapper resource="com/aowin/cmsystem/resource/mapper/ResourcesMapper.xml"/>
+	</mappers>
+	
+	
+	
+
+</configuration>

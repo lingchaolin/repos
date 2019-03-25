@@ -1,0 +1,31 @@
+package com.aowin.javabasic;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+public class CopyPic {
+	public static void main(String[] args) throws Exception {
+		CallThread ct1=new CallThread();
+		//创建执行服务
+		ExecutorService ser=Executors.newFixedThreadPool(3);
+		//提交执行
+		Future<String> result1=ser.submit(ct1);
+		//获取结果
+		String flag=result1.get();
+		//关闭服务，释放资源
+		ser.shutdownNow();
+		System.out.println("finish+"+flag);
+	}
+}
+
+class CallThread implements  Callable<String>/*返回类型*/{
+	@Override
+	public String call() throws Exception {
+		for(int i=0;i<100;i++) {
+			System.out.println("i="+i);
+		}
+		return "ok";//返回值
+	}
+}

@@ -1,0 +1,24 @@
+package dao;
+
+import model.BicycleRecord;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
+
+public interface BicycleRecordMapper {
+
+
+    int addBicycleRecord(BicycleRecord bicycleRecord);
+
+    @Select("select record_id recordId,bicycle_id bicycleId,card_id cardId,rent_time rentTime,rent_pile_id rentPileId" +
+            ",return_time returnTime,return_pile_id returnPileId,money,remark from bicycle_record where bicycle_id=#{bicycleId} and return_time is null")
+    BicycleRecord selectUncompletedRecord(Integer bicycleId);
+
+    @Update("update bicycle_record set money=#{rentFee},return_pile_id=#{pileId},return_time=#{returnTime} where record_id=#{recordId}")
+    void returnBicycle(
+            @Param("recordId") Integer recordId
+            ,@Param("rentFee") double rentFee
+            ,@Param("pileId") Integer pileId
+            ,@Param("returnTime") String returnTime);
+}

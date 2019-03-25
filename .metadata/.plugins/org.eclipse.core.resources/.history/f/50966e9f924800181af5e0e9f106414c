@@ -1,0 +1,27 @@
+package com.aowin.aadprototype;
+
+import java.util.Date;
+
+/**
+ * 原型模式-克隆模式
+ * 
+ * Cloneable		clone()
+ * @author Administrator
+ *
+ */
+public class Client01 {
+	static Date d=new Date(123243123);
+	public static void main(String[]args) throws CloneNotSupportedException {
+		Sheep s1=new Sheep("moli",d);
+		System.out.println(s1);
+		Sheep s2=(Sheep) s1.clone();
+		//没用new创造出新对象，对象和原对象默认保持一致
+		System.out.println(s2);
+		System.out.println(s1.getName().equals(s2.getName()));
+		s2.setName("harry");//可以改变新对象的值
+		System.out.println(s1.getName().equals(s2.getName()));
+		/**
+		 * 浅克隆
+		 */
+	}
+}

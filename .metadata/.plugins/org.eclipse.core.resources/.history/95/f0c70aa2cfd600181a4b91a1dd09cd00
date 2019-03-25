@@ -1,0 +1,9 @@
+package com.aowin.classLoadSort;
+
+public class Demo {
+
+	public Demo() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

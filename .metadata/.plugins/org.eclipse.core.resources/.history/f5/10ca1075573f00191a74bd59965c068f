@@ -1,0 +1,9 @@
+package com.effort.IOC;
+
+public class ConfigTwo {
+
+	public ConfigTwo() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

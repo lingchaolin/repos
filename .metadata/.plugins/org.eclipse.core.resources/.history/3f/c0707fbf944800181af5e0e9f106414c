@@ -1,0 +1,13 @@
+package com.aowin.aadprototype;
+
+public class Client03 {
+/**
+ * 利用序列化和反序列化实现深克隆；
+ * @param args
+ */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,31 @@
+package com.aowin.aadprototype;
+
+public class Client04 {
+
+	public static void main(String[] args) {
+
+	
+	}
+	public static testNew(int size) {
+		long start=System.currentTimeMillis();
+		for(int i=0;i<10;i++) {
+			Laptop t=new Laptop();
+		}
+		long end=System.currentTimeMillis();
+		System.out.println(":"+(end-start));
+	}
+}
+class Laptop{
+	public Laptop() {
+		try {
+			Thread.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	protected Object clone() throws CloneNotSupportedException{
+		Object obj=super.clone();//调用了Object的clone方法
+		return obj;
+	}
+}

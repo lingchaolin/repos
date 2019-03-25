@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;AppraiseMapperTest.java&apos; to &apos;MybatisTest/src/test/java/com.aowin.daobasic&apos;&#x0D;&#x0A;- Original project: &apos;MybatisTest&apos;&#x0D;&#x0A;- Destination element: &apos;MybatisTest/src/test/java/com.aowin.daobasic&apos;&#x0D;&#x0A;- Original element: &apos;com.aowin.dao.AppraiseMapperTest.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src\/test\/java&lt;com.aowin.daobasic" element1="/src\/main\/java&lt;com.aowin.dao{AppraiseMapperTest.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1552484960932" units="1" version="1.0"/>
+</session>

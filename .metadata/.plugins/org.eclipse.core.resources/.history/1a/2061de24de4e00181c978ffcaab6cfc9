@@ -1,0 +1,6 @@
+package com.aowin;
+
+public interface Mediator {
+	void register(String dname,Department d);//名称--部门
+	void command(String dname);//向同事类发出命令
+}

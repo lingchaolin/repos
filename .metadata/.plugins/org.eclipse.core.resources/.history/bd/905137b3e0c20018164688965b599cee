@@ -1,0 +1,5 @@
+package com.aowin.mapper;
+
+public interface TestMapper {
+
+}

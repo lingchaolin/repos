@@ -1,0 +1,87 @@
+package com.aowin.aaa;
+
+import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+public class ItemEventDemo extends Frame implements ItemListener{
+//声明，实现 ItemEventDemo 构造方法
+public ItemEventDemo()
+{
+super(); //调用父类构造方法
+init(); //调用 init 方法
+}
+public static void main(String args[ ])
+{
+new ItemEventDemo(); //实例化 ItemEventDemo 对象
+}
+List list; //声明滚动文本项列表类型域
+Checkbox checkbox1,checkbox2,checkbox3; //声明复选框类型域
+Choice colorChooser; //声明弹出式选择菜单域
+TextArea textarea; //声明文本区域
+public void init( ) {
+setLayout(new GridLayout(4, 1)); //设置窗口布局管理器为 GridLayout
+textarea = new TextArea(); //初始化文本区域 textarea
+add(textarea); //将文本区对象添加到窗口中
+list = new List(4,false); //初始化滚动列表，显示 4 行，允许多选
+list.add("语文"); //在滚动项列表末尾添加“语文”项
+list.add("数学"); //在滚动项列表末尾添加“数学”项
+list.add("英语"); //在滚动项列表末尾添加“英语”项
+list.add("物理"); //在滚动项列表末尾添加“物理”项
+list.add("化学"); //在滚动项列表末尾添加“化学”项
+list.add("历史"); //在滚动项列表末尾添加“历史”项
+list.add("地理"); //在滚动项列表末尾添加“地理”项
+add(list); //在窗口中添加滚动列表
+list.addItemListener(this); //为 list 添加监听器 ItemListener
+Panel panel = new Panel(); //创建，并初始化面板对象 panel
+CheckboxGroup cbg = new CheckboxGroup(); //创建，并初始化一个复选框组 cbg
+checkbox1 = new Checkbox("one", cbg, true); //初始化复选框对象 checkbox1
+checkbox1.addItemListener(this); //为复选框 checkbox1 添加项目监听器 ItemListener
+panel.add(checkbox1); //在面板中添加复选框 checkbox1
+checkbox2 = new Checkbox("two", cbg, false); //初始化复选框对象 checkbox2
+checkbox2.addItemListener(this); //为复选框 checkbox1 添加项目监听器 ItemListener
+panel.add(checkbox2); //在面板中添加复选框 checkbox1
+checkbox3 = new Checkbox("three", cbg, true); //初始化复选框对象 checkbox3
+checkbox3.addItemListener(this); //为复选框 checkbox1 添加项目监听器 ItemListener
+panel.add(checkbox3); //在面板中添加复选框 checkbox1
+add(panel); //将面板添加到窗口
+colorChooser=new Choice(); //初始化菜单 colorChooser
+colorChooser.add("Green"); //将“Green”项添加到 colorChooser 菜单
+colorChooser.add("Red"); //将“Red”项添加到 colorChooser 菜单
+colorChooser.add("Blue"); //将“Blue”项添加到 colorChooser 菜单
+colorChooser.addItemListener(this); //为菜单 colorChooser 添加项目监听器 ItemListener
+add(colorChooser); //将菜单 colorChooser 添加到窗口
+addWindowListener(new WindowAdapter(){
+public void windowClosing(WindowEvent evt) {
+setVisible(false); //设置窗口 f 不可见
+dispose(); //释放窗口及其子组件的屏幕资源
+System.exit(0); //退出程序
+}
+});
+setSize(200, 300); //设置窗口的大小
+setVisible(true); //显示窗口
+}
+public void itemStateChanged(ItemEvent eve) {
+if (eve.getSource() == list)
+{
+textarea.setText(list.getSelectedItem()); //设置文本区 textarea 的内容
+}
+if (eve.getSource() == checkbox1)
+{
+textarea.setText(checkbox1.getLabel()); //设置文本区 textarea 的内容
+}
+if (eve.getSource() == checkbox2)
+{
+textarea.setText(checkbox2.getLabel()); / /设置文本区 textarea 的内容
+}
+if (eve.getSource() == checkbox3)
+{
+textarea.setText("checkbox3.getLabel()"); //设置文本区 textarea 的内容
+}
+if (eve.getSource() == colorChooser)
+{
+textarea.setText(colorChooser.getSelectedItem()); //设置文本区 textarea 的内容
+}
+}
+}

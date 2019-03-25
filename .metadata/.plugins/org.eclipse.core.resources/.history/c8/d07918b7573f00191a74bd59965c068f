@@ -1,0 +1,12 @@
+package com.effort.IOC;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ConfigSum {
+
+	public ConfigSum() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

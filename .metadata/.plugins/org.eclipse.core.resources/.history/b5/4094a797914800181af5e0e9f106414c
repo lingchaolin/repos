@@ -1,0 +1,13 @@
+package com.aowin.aadprototype;
+
+import java.util.Date;
+//Cloneable--空接口，标记接口
+public class Sheep implements Cloneable{
+	private String name;
+	private Date birthday;
+	
+	protected Object clone() throws CloneNotSupportedException{
+		Object obj=super.clone();//调用了Object的clone方法
+		return obj;
+	}
+}

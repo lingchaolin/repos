@@ -1,0 +1,149 @@
+package com.aowin.stuff.dao;
+
+import java.sql.*;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import com.aowin.stuff.jdbconnection.JdbcUtil;
+import com.aowin.stuff.model.Person;
+
+public class PersonDao {
+	Connection con = JdbcUtil.getCon();
+	PreparedStatement ps;
+	Statement sta;
+	String sql;
+	ResultSet rs;
+
+	public void Add(Person person) {
+		// 增加信息--insert
+		try {
+			sql = "insert into person values(?,?,?,?,?)";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, person.getId());
+			ps.setString(2, person.getName());
+			ps.setInt(3, person.getSex());
+			ps.setString(4, person.getDepartment());
+			ps.setInt(5, person.getSalary());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.err.println("向数据库中插入信息失败" + e.getMessage());
+			System.err.println("sql:" + sql);
+		} catch(NumberFormatException e) {
+			JOptionPane.showMessageDialog(null, "请检查数据格式是否正确！","警告",JOptionPane.WARNING_MESSAGE);
+			return ;
+		}finally {
+			JdbcUtil.Close(null, ps, con);
+		}
+	}
+
+	public void Alter(Person person, int id) {
+		try {
+			sql = "update person set id=?,name=?,sex=?,department=?,salary=?  where id=?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, person.getId());
+			ps.setString(2, person.getName());
+			ps.setInt(3, person.getSex());
+			ps.setString(4, person.getDepartment());
+			ps.setInt(5, person.getSalary());
+			ps.setInt(6, id);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.err.println("向数据库中插入信息失败" + e.getMessage());
+			System.err.println("sql:" + sql);
+		}  catch(NumberFormatException e) {
+			JOptionPane.showMessageDialog(null, "请检查数据格式是否正确！","警告",JOptionPane.WARNING_MESSAGE);
+			return;
+		}finally {
+			JdbcUtil.Close(null, ps, con);
+		}
+	}
+
+	public Person Inquire(int no) {
+		// 传入sql并执行
+		Person person = null;
+		try {
+			sql = "select * from person where id=" + no;
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				person = new Person();
+				person.setId(rs.getInt(1));
+				person.setName(rs.getString(2));
+				person.setSex(rs.getInt(3));
+				person.setDepartment(rs.getString(4));
+				person.setSalary(rs.getInt(5));
+			}
+		} catch (SQLException e) {
+			System.err.println("从数据库中查询信息失败" + e.getMessage());
+			System.err.println("sql:" + sql);
+		} finally {
+			JdbcUtil.Close(null, ps, con);
+		}
+		return person;
+	}
+
+
+	public String[][] UpdateInfo(String str) {
+		String arr[][] = null;// 返回字符串类型数组，添加到表格中
+		sql = "select  *  from person " + str;
+		ArrayList<String[]> list = new ArrayList<String[]>();
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				String a[] = new String[5];
+				a[0] = String.valueOf(rs.getInt(1));
+				a[1] = rs.getString(2);
+				a[2] = rs.getInt(3) == 1 ? "男" : "女";
+				a[3] = rs.getString(4);
+				a[4] = String.valueOf(rs.getInt(5));
+				list.add(a);
+			}
+			arr = new String[list.size()][5];
+			JdbcUtil.Close(rs, ps, con);
+			for (int i = 0; i < list.size(); i++) {
+				arr[i] = list.get(i);
+			}
+		} catch (SQLException e) {
+			System.err.println("从数据库中查询信息失败" + e.getMessage());
+			System.err.println("sql:" + sql);
+		} finally {
+			JdbcUtil.Close(null, ps, con);
+		}
+		return arr;
+	}
+
+	public void deleteMessage(String str) {
+		try {
+			sql = "delete from person where " + str;
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			System.out.println(sql);
+		} catch (SQLException e) {
+			System.err.println("从数据库中删除数据失败" + e.getMessage());
+			System.err.println("sql:" + sql);
+		} finally {
+			JdbcUtil.Close(null, ps, con);
+		}
+	}
+
+	public String getPwd(String name) {
+		String pwd = null;
+		try {
+			sql = "select * from administer where name='" + name + "'";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				pwd = rs.getString(2);
+			}
+			JdbcUtil.Close(null, ps, con);
+		} catch (SQLException e) {
+			System.err.println("从数据库中获取密码失败" + e.getMessage());
+			System.err.println("sql:" + sql);
+		} finally {
+			JdbcUtil.Close(rs, ps, con);
+		}
+		return pwd;
+	}
+}

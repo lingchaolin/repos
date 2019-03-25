@@ -1,0 +1,12 @@
+package forIO;
+/**
+ * 三个常量
+ * System.in
+ * System.out
+ * System.err
+ * @author Administrator
+ *
+ */
+public class SystemIO {
+
+}

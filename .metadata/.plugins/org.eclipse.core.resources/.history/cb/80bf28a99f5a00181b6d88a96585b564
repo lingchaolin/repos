@@ -1,0 +1,203 @@
+package com.aowin.stuff.lisnter;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
+import javax.swing.JOptionPane;
+
+import com.aowin.stuff.dao.PersonDao;
+import com.aowin.stuff.model.Person;
+import com.aowin.stuff.view.SubFrame;
+
+public class SubListener implements ActionListener {
+	SubFrame sub;
+	// String title;
+
+	public SubListener(SubFrame sub) {
+		this.sub = sub;
+	}
+
+	public SubListener() {
+		super();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// System.out.println(sub.getFrame().getTitle());
+		switch (sub.getFrame().getTitle()) {
+		case "增加":
+			if (e.getActionCommand().equals("确认")) {
+				if (checkContext()) {
+					try {
+						int salary = Integer.parseInt(sub.getTxt4().getText());
+						int id = Integer.parseInt(sub.getTxt0().getText());
+						if (new PersonDao().Inquire(id) == null) {
+							String name = sub.getTxt1().getText();
+							String sexs = (String) sub.getJcb2().getSelectedItem();
+							String department = (String) sub.getJcb3().getSelectedItem();
+							// 直接向表格中添加数据--未实现--增加数据未能同步
+							Person person = new Person(id, name, "男".equals(sexs) ? 1 : 0, department, salary);
+							new PersonDao().Add(person);
+							sub.getFrame().setVisible(false);
+						} else {
+							JOptionPane.showMessageDialog(null, "id已存在，不能重复添加", "消息框", JOptionPane.WARNING_MESSAGE);
+						}
+						clear();
+						hp.flush(hp);
+					} catch (NumberFormatException e1) {
+						JOptionPane.showMessageDialog(null, "编号栏、工资栏应填入整型数字", "消息框", JOptionPane.WARNING_MESSAGE);
+					}
+				}
+			} else if (e.getActionCommand().equals("取消")) {
+				sub.getFrame().setVisible(false);
+				clear();
+			}
+			break;
+		case "修改":
+			if (e.getActionCommand().equals("确认")) {
+
+				if (checkContext()) {
+					try {
+						int salary = Integer.parseInt(sub.getTxt4().getText());
+						int id = Integer.parseInt(sub.getTxt0().getText());
+						// 到此处数字转型无异常
+						// id没有改变，或者数据库中不存在该ID的情况下都可以进行修改
+						if ((new PersonDao().Inquire(id) == null) || (id == sub.getSelectedId())) {
+							String name = sub.getTxt1().getText();
+							String sexs = (String) sub.getJcb2().getSelectedItem();
+							String department = (String) sub.getJcb3().getSelectedItem();
+							Person person = new Person(id, name, "男".equals(sexs) ? 1 : 0, department, salary);
+							new PersonDao().Alter(person, sub.getSelectedId());
+							sub.getFrame().setVisible(false);
+						} else {
+							JOptionPane.showMessageDialog(null, "id已存在，不能重复添加", "消息框", JOptionPane.WARNING_MESSAGE);
+						}
+						clear();
+					} catch (NumberFormatException e1) {
+						JOptionPane.showMessageDialog(null, "编号栏、工资栏应填入整型数字", "消息框", JOptionPane.WARNING_MESSAGE);
+					}
+				}
+			} else if (e.getActionCommand().equals("取消")) {
+				sub.getFrame().setVisible(false);
+				clear();
+			}
+			break;
+		case "查询":
+			if (e.getActionCommand().equals("确认")) {
+				HashMap map=new HashMap();
+				String logic=(String) sub.getJcb5().getSelectedItem();
+				if (!(sub.getTxt0().getText().equals("") || sub.getTxt0().getText() == null)) {
+					if (sub.getTxt0().getText().length() > 10) {
+						JOptionPane.showMessageDialog(null, "编号不能大于10个字符,请重新输入", "消息框", JOptionPane.WARNING_MESSAGE);
+						sub.getTxt0().setText("");
+					} else {
+						map.put("id", sub.getTxt0().getText());
+					}
+				} 
+				if (!(sub.getTxt1().getText().equals("") || sub.getTxt1().getText() == null)) {
+					if (sub.getTxt1().getText().length() > 10) {
+						JOptionPane.showMessageDialog(null, "姓名不能大于20个字符,请重新输入", "消息框", JOptionPane.WARNING_MESSAGE);
+						sub.getTxt0().setText("");
+					} else {
+						map.put("name", sub.getTxt1().getText());
+					}
+				} 
+				
+				if (!((String) sub.getJcb2().getSelectedItem()).equals("")) {// 如果为默认的""
+					map.put("sex", "男".equals(sub.getJcb2().getSelectedItem())?1:0);
+				} 
+				if (!((String) sub.getJcb3().getSelectedItem()).equals("")) {// 如果为默认的""
+					map.put("department", sub.getJcb3().getSelectedItem());
+				} 
+				
+				if (!(sub.getTxt4().getText().equals("") || sub.getTxt1().getText() == null)) {
+					if (sub.getTxt4().getText().length() > 10) {
+						JOptionPane.showMessageDialog(null, "姓名不能大于20个字符,请重新输入", "消息框", JOptionPane.WARNING_MESSAGE);
+						sub.getTxt0().setText("");
+					} else {
+						map.put("salary", sub.getTxt4().getText());
+					}
+				} 
+				StringBuilder sb=new StringBuilder("");
+				Set set=map.keySet();
+				Iterator it=set.iterator();
+				if(it.hasNext()) {
+					sb.append(" where ");
+				}
+				while(it.hasNext()) {
+					String str =it.next().toString();
+					switch(str) {
+					case "id":
+						sb.append("id="+map.get(str));
+						break;
+					case "name"://模糊查询？
+						sb.append("name='"+map.get(str)+"' or name like '%"+map.get(str)+"%'");
+						break;
+					case "sex":
+						sb.append("sex="+map.get(str));
+						break;
+					case "department":
+						sb.append("department='"+map.get(str)+"'");
+						break;
+					case "salary":
+						sb.append("salary="+map.get(str));
+						break;
+					}
+					System.out.println("要发送的语句:"+sb);
+					if(it.hasNext()) {
+						sb.append(" "+logic+" ");
+					}
+				}
+				String str=new String(sb);
+				String arr[][]=new PersonDao().UpdateInfo(str);
+				sub.getModel().setRowCount(0);
+				if(arr.length>0) {
+					for(int i=0;i<arr.length;i++) {
+						sub.getModel().addRow(arr[i]);
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "没有符合该条件的人,请检查输入的信息是否有误！");
+				}
+				clear();
+			}else {
+				sub.getFrame().setVisible(false);
+				clear();
+			}
+			break;
+		}
+	}
+
+	public void clear() {
+		sub.getTxt0().setText("");
+		sub.getTxt1().setText("");
+		sub.getJcb2().setSelectedItem("");
+		sub.getJcb3().setSelectedItem("");
+		sub.getTxt4().setText("");
+	}
+
+	public boolean checkContext() {
+		if (sub.getTxt0().getText().equals("") || sub.getTxt0().getText() == null) {
+			JOptionPane.showMessageDialog(null, "编号不能为空", "消息框", JOptionPane.WARNING_MESSAGE);
+		} else if (sub.getTxt0().getText().length() > 10) {
+			JOptionPane.showMessageDialog(null, "编号不能大于10个字符,请重新输入", "消息框", JOptionPane.WARNING_MESSAGE);
+			sub.getTxt0().setText("");
+		} else if (sub.getTxt1().getText().equals("") || sub.getTxt1().getText() == null) {
+			JOptionPane.showMessageDialog(null, "姓名不能为空", "消息框", JOptionPane.WARNING_MESSAGE);
+		} else if (sub.getTxt1().getText().length() > 20) {
+			JOptionPane.showMessageDialog(null, "姓名不能大于20个字符,请重新输入", "消息框", JOptionPane.WARNING_MESSAGE);
+			sub.getTxt1().setText("");
+		} else if (((String) sub.getJcb2().getSelectedItem()).equals("")) {// 如果为默认的""
+			JOptionPane.showMessageDialog(null, "请选择性别", "消息框", JOptionPane.WARNING_MESSAGE);
+		} else if (((String) sub.getJcb3().getSelectedItem()).equals("")) {// 如果为默认的""
+			JOptionPane.showMessageDialog(null, "请选择部门", "消息框", JOptionPane.WARNING_MESSAGE);
+		} else if (sub.getTxt4().getText().equals("") || sub.getTxt4().getText() == null) {
+			JOptionPane.showMessageDialog(null, "编号不能为空", "消息框", JOptionPane.WARNING_MESSAGE);
+		} else {// 其余的情况应该就是所有的信息都填入了，等待增加；--注意id/salary的转型问题
+			return true;
+		}
+		return false;
+	}
+}

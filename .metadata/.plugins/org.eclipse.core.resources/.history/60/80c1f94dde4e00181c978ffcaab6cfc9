@@ -1,0 +1,25 @@
+package com.aowin;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public interface Mediator {
+	void register(String dname,Department d);//名称--部门
+	void command(String dname,Department d);//向同事类发出命令
+}
+class President implements Mediator{
+	private Map<String,Department> map=new  HashMap<String,Department>();
+	
+	@Override
+	public void register(String dname, Department d) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void command(String dname,Department d) {
+
+		map.put(dname, d);
+	}
+	
+}

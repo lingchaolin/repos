@@ -1,0 +1,10 @@
+package dao;
+
+import org.apache.ibatis.annotations.ResultType;
+import org.apache.ibatis.annotations.Select;
+
+public interface Card_info_recordMapper {
+	@Select("select CARD_TYPE from CARD where CARD_ID=#{cardID}")
+	
+	public String selectCardType(int cardID);
+}

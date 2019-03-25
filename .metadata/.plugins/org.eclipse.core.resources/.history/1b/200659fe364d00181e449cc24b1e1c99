@@ -1,0 +1,38 @@
+package com.aowin.aaa;
+
+
+import java.awt.Checkbox;
+import java.awt.CheckboxGroup;
+import java.awt.Choice;
+import java.awt.GridLayout;
+import java.awt.List;
+import java.awt.TextArea;
+
+import javax.swing.JFrame;
+
+public class Demo03 extends JFrame{
+	
+	public static void main(String[] args) {
+		List list;
+		Checkbox cho1,cho2,cho3;
+		Choice colorChooser;
+		TextArea textarea=new TextArea();
+		
+		CheckboxGroup cbg=new CheckboxGroup();
+		
+		cho1=new Checkbox("one",cbg,true);
+		cho2=new Checkbox("two",cbg,true);
+		cho3=new Checkbox("three",cbg,true);
+//		cho1.addItemListener(this);
+		list = new List(4, false);
+		
+		
+		
+		JFrame f=new JFrame();
+		f.setSize(500,500);
+		f.setLayout(new GridLayout());
+		f.add(textarea);
+		f.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		f.setVisible(true);
+	}
+}

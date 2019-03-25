@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+    dbcp2:
+      max-total: 80
+      max-idle: 20
+      
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: mysql
+    
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6397
+    timeout: 5000
+    jedis:
+      pool:
+        max-active: 10
+        max-wait: -1
+        max-idle: 5
+        min-idle: 0

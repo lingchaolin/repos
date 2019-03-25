@@ -1,0 +1,48 @@
+package com.aowin.classLoadSort;
+
+public class Demo {
+	public Demo() {
+		System.out.println("Demo构造方法");
+	}
+	public static void main(String[] args) {
+		System.out.println("调用main()方法");
+	}
+	static {
+		System.out.println("这是静态代码块");
+	}
+	public static void StaticMethod (){
+		System.out.println("这是静态方法");
+	}
+}
+class LoadSort {
+	public static String strA="A";
+	public String strB="B";
+	public static int ai=0;
+	public static int bi=0;
+	static {
+		System.out.println("这是静态代码块");
+		System.out.println("strA:"+strA);
+		strA="静态代码块";
+	}
+	{
+		System.out.println("这是普通代码块");
+		System.out.println("strA:"+strA);
+		System.out.println("strB:"+strB);
+		strA="构造方法";
+		strB="构造方法";
+	}
+	public static void method() {
+		System.out.println("这是一个静态方法");
+	}
+	public  void method2() {
+		System.out.println("这是一个普通方法");
+	}
+	public LoadSort() {
+		System.out.println("这是一个无参构造器！");
+		System.out.println("strA:"+strA);
+		System.out.println("strB:"+strB);
+		strA="构造方法";
+		strB="构造方法";
+	}
+	
+}

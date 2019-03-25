@@ -1,0 +1,56 @@
+package com.aowin.aaa;
+
+
+import java.awt.Checkbox;
+import java.awt.CheckboxGroup;
+import java.awt.Choice;
+import java.awt.GridLayout;
+import java.awt.List;
+import java.awt.TextArea;
+import java.awt.event.ItemListener;
+
+import javax.swing.JFrame;
+
+public class Demo03 extends JFrame{
+	
+	public static void main(String[] args) {
+		Demo03 d=new Demo03();
+		d.show();
+	}
+	public void show() {
+		List list;
+		Checkbox cho1,cho2,cho3;
+		Choice colorChooser;
+		TextArea textarea=new TextArea();
+		
+		CheckboxGroup cbg=new CheckboxGroup();
+		cho1=new Checkbox("one",cbg,true);
+		cho2=new Checkbox("two",cbg,true);
+		cho3=new Checkbox("three",cbg,true);
+//		cho1.addItemListener(this);
+		list = new List(4, false);
+		list = new List(4, false); // 初始化滚动列表，显示 4 行，允许多选
+		list.add("语文"); // 在滚动项列表末尾添加“语文”项
+		list.add("数学"); // 在滚动项列表末尾添加“数学”项
+		list.add("英语"); // 在滚动项列表末尾添加“英语”项
+		list.add("物理"); // 在滚动项列表末尾添加“物理”项
+		list.add("化学"); // 在滚动项列表末尾添加“化学”项
+		list.add("历史"); // 在滚动项列表末尾添加“历史”项
+		list.add("地理"); // 在滚动项列表末尾添加“地理”项
+		colorChooser = new Choice(); // 初始化菜单 colorChooser
+		colorChooser.add("Green"); // 将“Green”项添加到 colorChooser 菜单
+		colorChooser.add("Red"); // 将“Red”项添加到 colorChooser 菜单
+		colorChooser.add("Blue"); // 将“Blue”项添加到 colorChooser 菜单
+		
+		JFrame f=new JFrame();
+		f.setLayout(new GridLayout(4,1));
+		f.add(colorChooser); 
+		f.add(list); 
+		f.add(cbg);
+		f.setSize(200,300);
+		
+		f.add(textarea);
+		f.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		f.setVisible(true);
+	}
+}

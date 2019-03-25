@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns:aop="http://www.springframework.org/schema/aop" 
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+							http://www.springframework.org/schema/beans/spring-beans.xsd
+							http://www.springframework.org/schema/aop 
+							http://www.springframework.org/schema/aop/spring-aop.xsd">
+		<!--声明实现类 -->
+		<bean id="testDaoImpl" class="com.aowin.aop.TestDaoImpl"></bean>
+		<!--声明通知类  -->
+		<bean id="infoBeforeAdvice" class="com.aowin.advice.InfoBeforeAdvice"></bean>
+		<aop:config>
+		<!-- 设置切入点  实现类 	execution(* com.aowin.testspring.aop.*.*(..))
+		execution(* com.aowin.testspring.aop.InfoServiceImpl.*(..))
+		-->
+			<aop:pointcut expression="execution(* com.aowin.aop.TestDaoImpl.get*(..))" id="beforepointcut"/>
+			<!-- 设置切面 通知类-->
+			<aop:advisor advice-ref="infoBeforeAdvice" pointcut-ref="beforepointcut"/>
+			<!-- <aop:aspect ref="">
+				<aop:before method="before" pointcut-ref="beforepointcut"/>
+			</aop:aspect> -->
+		</aop:config>
+</beans>

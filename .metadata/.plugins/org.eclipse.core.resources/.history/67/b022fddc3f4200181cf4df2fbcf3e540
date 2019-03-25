@@ -1,0 +1,41 @@
+package forIO;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+/**
+ * 三个常量
+ * System.in
+ * System.out
+ * System.err
+ * @author Administrator
+ *重定向
+ */
+public class SystemIO {
+	public static void main(String[]args) throws IOException{
+		/**
+		 * setIn();
+		 * setOut();
+		 * setErr();
+		 */
+		System.out.println("test");
+		System.setOut(new PrintStream(
+				new BufferedOutputStream(
+						new FileOutputStream("D:/Class/work/Test/IoOUT.java"))));
+	}
+	public void fileInput() throws IOException{
+		//从文件中输入
+		InputStream is;
+		is=new BufferedInputStream(
+				new FileInputStream("D:/Class/work/Test/IoOUT.java"));
+		Scanner scan=new Scanner(is);
+		System.out.println(scan.nextLine());
+	}
+}

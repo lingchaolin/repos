@@ -1,0 +1,9 @@
+package com.effort.IOC;
+
+public class LittleCar {
+
+	public LittleCar() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

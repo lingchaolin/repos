@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;newSCM/src/main/webapp/WEB-INF/sdm-servlet.xml&apos; to &apos;newscm-servlet.xml&apos;" description="Rename resource &apos;sdm-servlet.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/WEB-INF/sdm-servlet.xml" name="newscm-servlet.xml" stamp="1536036938976" updateReferences="true"/>
+</session>

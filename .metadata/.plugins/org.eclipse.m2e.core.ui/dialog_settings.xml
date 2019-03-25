@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+			<item value="com.lin"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="eureka-user-client"/>
+			<item value="config-server"/>
+			<item value="eureka-server"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+			<item value="Jira"/>
+		</list>
+		<list key="issueManagementUrl">
+			<item value="https://jira.springsource.org/browse/SPR"/>
+		</list>
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="D:\Java\job\privateLook\base\common-core"/>
+			<item value="D:\Java\job\springcloud综合小案例\eureka-user-client"/>
+			<item value="D:\Java\job\springcloud综合小案例\config-server"/>
+			<item value="D:\Java\job\springcloud综合小案例\eureka-server"/>
+			<item value="D:\Java\job\Ground"/>
+			<item value="D:\Java\job\Cloud"/>
+			<item value="D:\Java\job\Solar"/>
+			<item value="D:\Java\job\service-tsy-copy"/>
+			<item value="D:\Java\job\privateLook\busi\service-tsy"/>
+			<item value="D:\Java\job\privateLook\busi"/>
+			<item value="D:\Java\Oxygen-Eclipse\library"/>
+			<item value="D:\Java\Oxygen-Eclipse\Mybatis3"/>
+			<item value="D:\Java\Oxygen-Eclipse\testspringJDBC"/>
+			<item value="D:\Java\Oxygen-Eclipse\sql_idus"/>
+			<item value="D:\Java\Oxygen-Eclipse\sdm"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="eureka-server_copy"/>
+			<item value="service-tsy-copy"/>
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item value="All Catalogs" key="catalog"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenModuleWizardParentPage">
+		<list key="moduleName">
+			<item value="Spring-demo-A"/>
+			<item value="springboot_son"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.wizards.CustomArchetypeDialog">
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.preferences.RemoteArchetypeCatalogDialog">
+		<list key="catalogUrl">
+			<item value="http://repo1.maven.org/maven2/archetypecatalog.xml"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="D:\Java\Oxygen-Eclipse\updown"/>
+			<item value="D:\Java\Oxygen-Eclipse\bicycle_rental_system\trunk\bicycle_rental_system"/>
+			<item value="D:\Java\Oxygen-Eclipse\SpringTest"/>
+			<item value="D:\Java\Oxygen-Eclipse\stuservice\pom.xml"/>
+			<item value="D:\Java\Oxygen-Eclipse\stuservice\src\main\resources\applicationContext.xml"/>
+			<item value="D:\Java\Oxygen-Eclipse\sem"/>
+			<item value="D:\Java\Oxygen-Eclipse\sdm\src\main\webapp\WEB-INF\sdm-servlet.xml"/>
+			<item value="D:\Java\Oxygen-Eclipse\sdm\src\main\webapp\index.html"/>
+			<item value="D:\Java\Oxygen-Eclipse\IOC\src\main\java\com\aowin\transaction\PersonTransactionImpl.java"/>
+			<item value="D:\Java\Oxygen-Eclipse\scm-ssm"/>
+			<item value="D:\Java\Oxygen-Eclipse\springboot_parent"/>
+			<item value="D:\Java\Oxygen-Eclipse\sql_idus\src\main\java\com\aowin\dao\TuserMapper.xml"/>
+			<item value="D:\Java\Oxygen-Eclipse\sql_idus\src\main\java\com\aowin\service\Test.java"/>
+			<item value="D:\Java\Oxygen-Eclipse\helloMaven"/>
+			<item value="D:\Java\Oxygen-Eclipse\Struts\src\main\webapp\index.jsp"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>

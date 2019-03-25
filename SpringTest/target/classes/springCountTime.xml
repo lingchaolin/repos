@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns:aop="http://www.springframework.org/schema/aop" 
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+							http://www.springframework.org/schema/beans/spring-beans.xsd 
+							http://www.springframework.org/schema/aop 
+							http://www.springframework.org/schema/aop/spring-aop.xsd">
+							
+	<!-- 声明实现类 -->	
+	<bean id="testdaoimpl" class="com.aowin.aop.TestDaoImpl" />	
+	<!-- 声明通知类 -->
+	<bean id="InfoAroundAdvice" class="com.aowin.annotation.advice.InfoAroundAdvice"></bean>		
+	<!-- 自动代理 
+		proxy-target-class="false"  - 采用jdk动态代理方式
+		proxy-target-class="true"  - 采用cglib动态代理方式
+	-->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>				
+</beans>

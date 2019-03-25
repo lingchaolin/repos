@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1529461811884_5" label="JavaSE" name="JavaSE">
+<item elementID="=testspringJDBC" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/RentBike" type="4"/>
+<item elementID="=springjpa" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SpringTest2" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MybatisDemo" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=updown" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=testajax" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Test" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MybatisTest" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Servers2" type="4"/>
+<item elementID="=smsystem" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SpringTest" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Basic" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=IOC" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=MEMO" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=springbootone" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=upanddown" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=SCM" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Mybatis3" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/RentBicycle" type="4"/>
+<item elementID="=forlook" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1529462066467_7" label="JavaEE" name="JavaEE">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/parent" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/newone" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/son" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1529462146018_8" label="JavaEE_Project" name="JavaEE_Project">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Servers" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1533718126932_11" label="forspring" name="forspring">
+<item elementID="=Solar" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=service-tsy-copy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Ground" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=Cloud" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1552125405230_12" label="Base" name="Base">
+<item elementID="=common-core" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1552128740364_13" label="busi" name="busi">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/service-bx" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/service-organization" type="4"/>
+<item elementID="=service-tsy" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/service-msh" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/service-system" type="4"/>
+<item elementID="=mybatisgeneratornew" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/microcloud" type="4"/>
+<item elementID="=service-jkf" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/service-st" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/service-task" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/service-zc" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/service-orderflow" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/service-xzc" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1552142150168_14" label="microservice" name="microservice">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/config-server" type="4"/>
+<item elementID="=eureka-server" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/eureka-user-client" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1522494381062_0" label="Window Working Set" name="Aggregate for window 1522494381062"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1524922294654_1" label="Window Working Set" name="Aggregate for window 1524922294654"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1524922396366_2" label="Window Working Set" name="Aggregate for window 1524922396366"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1525011028533_3" label="Window Working Set" name="Aggregate for window 1525011028533"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1525012294087_4" label="Window Working Set" name="Aggregate for window 1525012294087"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1532648785117_9" label="Window Working Set" name="Aggregate for window 1532648785117"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1532679225338_10" label="Window Working Set" name="Aggregate for window 1532679225338"/>
+</workingSetManager>

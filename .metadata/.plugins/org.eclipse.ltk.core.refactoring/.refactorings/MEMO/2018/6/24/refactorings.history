@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;com.aowin.Review&apos; to &apos;Robot/src&apos;&#x0D;&#x0A;- Original project: &apos;MEMO&apos;&#x0D;&#x0A;- Destination element: &apos;Robot/src&apos;&#x0D;&#x0A;- Original element: &apos;MEMO/src/com.aowin.Review&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move package" destination="=Robot/src" element1="/src&lt;com.aowin.Review" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1528783496049" version="1.0"/>
+</session>

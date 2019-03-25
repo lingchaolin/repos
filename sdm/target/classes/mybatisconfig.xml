@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC 
+		"-//mybatis.org//DTD Config 3.4//EN"
+		"http://www.mybatis.org/dtd/mybatis-3-config.dtd" >
+	<configuration>
+		<typeAliases>
+		<!-- 	<typeAlias type="com.aowin.scm.purchase.pojo.Poitem" alias="poitem"></typeAlias>
+			<typeAlias type="com.aowin.scm.purchase.pojo.Pomain" alias="pomain"></typeAlias>
+			<typeAlias type="com.aowin.scm.purchase.pojo.Vender" alias="vender"></typeAlias>
+			<typeAlias type="com.aowin.scm.market.pojo.Customer" alias="customer"></typeAlias>
+			<typeAlias type="com.aowin.scm.market.pojo.Soitem" alias="soitem"></typeAlias>
+			<typeAlias type="com.aowin.scm.market.pojo.Somain" alias="somain"></typeAlias>
+			<typeAlias type="com.aowin.scm.inventory.pojo.Category" alias="category"></typeAlias>
+			<typeAlias type="com.aowin.scm.inventory.pojo.Instockrecord" alias="instockrecord"></typeAlias>
+			<typeAlias type="com.aowin.scm.inventory.pojo.Outstockrecord" alias="outstockrecord"></typeAlias>
+			<typeAlias type="com.aowin.scm.inventory.pojo.Product" alias="product"></typeAlias>
+			<typeAlias type="com.aowin.scm.inventory.pojo.Stock" alias="stock"></typeAlias>
+			<typeAlias type="com.aowin.scm.account.pojo.Scmuser" alias="scmuser"></typeAlias>
+			<typeAlias type="com.aowin.scm.account.pojo.Systemmodel" alias="systemmodel"></typeAlias>
+			<typeAlias type="com.aowin.scm.account.pojo.Usermodel" alias="usermodel"></typeAlias> -->
+		</typeAliases>
+		<mappers>
+			<!-- <mapper resource="com/aowin/scm/purchase/pojo/Poitem.xml"/>
+			<mapper resource="com/aowin/scm/purchase/pojo/Pomain.xml"/>
+			<mapper resource="com/aowin/scm/purchase/pojo/Vender.xml"/>
+			<mapper resource="com/aowin/scm/market/pojo/Soitem.xml"/>
+			<mapper resource="com/aowin/scm/market/pojo/Somain.xml"/>
+			<mapper resource="com/aowin/scm/market/pojo/Scmuser.xml"/>
+			<mapper resource="com/aowin/scm/inventory/pojo/Category.xml"/>
+			<mapper resource="com/aowin/scm/inventory/pojo/Instockrecord.xml"/>
+			<mapper resource="com/aowin/scm/inventory/pojo/Outstockrecord.xml"/>
+			<mapper resource="com/aowin/scm/inventory/pojo/Product.xml"/>
+			<mapper resource="com/aowin/scm/inventory/pojo/Stock.xml"/>
+			<mapper resource="com/aowin/scm/account/pojo/Scmuser.xml"/>
+			<mapper resource="com/aowin/scm/account/pojo/Systemmodel.xml"/>
+			<mapper resource="com/aowin/scm/account/pojo/Usermodel.xml"/> -->
+		</mappers>
+	</configuration>
+<!-- 别名
+
+xml文件导入 -->

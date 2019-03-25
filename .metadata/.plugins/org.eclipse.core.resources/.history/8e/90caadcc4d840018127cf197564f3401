@@ -1,0 +1,18 @@
+package com.aowin.log4jtest;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Properties;
+import java.util.Set;
+
+public class MyUtil {
+
+	public static void main(String[] args) {
+		String str="3";
+		Integer integer=
+			
+	}
+}

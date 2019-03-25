@@ -1,0 +1,9 @@
+package com.aowin.proxy2;
+
+public class StockerDynamicProxy {
+	private static StdStocker instance;
+	public StockerDynamicProxy(StockerDynamicProxy stocker) {
+		this.instance=stocker;
+	}
+
+}

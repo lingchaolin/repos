@@ -1,0 +1,24 @@
+package com.aowin.aadprototype;
+
+public class Client04 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+class Laptop{
+	public Laptop() {
+		try {
+			Thread.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	protected Object clone() throws CloneNotSupportedException{
+		Object obj=super.clone();//调用了Object的clone方法
+		return obj;
+	}
+}

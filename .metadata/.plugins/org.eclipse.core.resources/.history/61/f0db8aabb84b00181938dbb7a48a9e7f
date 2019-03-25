@@ -1,0 +1,10 @@
+package Castle;
+
+public class First {
+	String name;
+	int gateNum;
+	Gate gates;
+	public First() {
+		
+	}
+}

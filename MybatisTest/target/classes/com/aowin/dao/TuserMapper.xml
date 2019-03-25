@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aowin.dao.TuserMapper">
+<!--普通的插入方法  -->
+	<insert id="insertUser" parameterType="com.aowin.model.People">
+		insert into 
+			people
+		(id,name,sex,department,salary)
+		values
+		(#{id},#{name},#{sex},#{department},#{salary})
+	</insert>
+
+	<!-- map传值  查询 -->
+	<select id="selectMapUser" parameterType="java.util.Map" resultType="com.aowin.model.People">
+		select id,name,sex,department,salary
+		from people
+		where id=#{id} and name=#{name}
+	</select>
+	
+	<!--模糊查询  -->
+	<select id="selectLikeUser" parameterType="java.util.Map" resultType="com.aowin.model.People">
+		select 
+			id,name,sex,department,salary
+		from 
+			${tablename}
+		where
+			id=#{id}
+		and 
+			salary like concat(#{salary},'%') <!--contact拼接字符串，用于模糊查询  -->
+	</select>
+
+	<!-- param注解传值查询 -->
+	<select id="selectUser" resultType="com.aowin.model.People">
+		select 
+			id,name,sex,department,salary
+		from 
+			people
+		where
+			id=#{id}
+		and 
+			name=#{name}
+	</select>
+	
+	<!--where条件    ps:需要使用<>判断的时候可以用实体代替-->
+	<select id="selectWhereUser" parameterType="java.util.Map" 
+	resultType="com.aowin.model.People">
+		select 
+			id,name,sex,department,salary
+		from 
+			${tablename}
+		<where>
+			<if test="id!=null and id!=''">
+				and id=#{id}
+			</if>
+			<if test="salary!=null and id!=''">
+				and salary like concat(#{salary},'%') 
+				<!-- CDATA 普通字符串 不会解析里面的xml相关的内容
+	 			PCDATA 会解析里面的xml相关的内容
+	 			<![CDATA[里面的内容不会解析成xml]]> 
+	 			例:<![CDATA[#{salary}>2000]]
+	 			-->
+			</if>
+		</where>
+	</select>
+
+	<!--分支语句choose 的用法  -->
+	<select id="selectChooseUser" parameterType="java.util.Map" 
+	resultType="com.aowin.model.People">
+		select 
+			<!-- id,name,sex,department,salary -->
+			<include refid="selectsql"></include><!--调用下边定义的sql语句  -->
+		from 
+			people
+		<where>
+			<choose>
+				<when test="type==1">
+					and sex=1
+				</when>
+				<when test="type==2">
+					and sex=0
+				</when>
+				<otherwise>
+					and sex is not null
+				</otherwise>
+			</choose>
+		</where>
+	</select>
+	<!--定义可以重复使用的语句  -->
+	<sql id="selectsql">
+		id,name,sex,department,salary
+	</sql>
+	
+	<!--set  修改语句  -->
+	<update id="updateUser" parameterType="com.aowin.model.People">
+		update people
+		<set>
+			<if test="rename!=null and rename!=''">
+				name=#{rename},
+			</if>
+			<if test="resex!=null and resex!=''">
+				sex=#{resex},
+			</if>
+		</set>
+		<where>
+			<if test="id!=null and id!=''">
+				id=#{id}
+			</if>
+		</where>
+	</update>
+	
+	<!-- 批量删除    使用foeach循环时  传入的参数是集合时 可以不用设置参数类型-->
+	<delete id="deleteUser" >
+	<!-- 	foeach 循环生成sql
+			collection - 
+				对应集合的类型 传入的参数是集合时就写集合类型 array,list,set
+				名字 传入的参数是一个对象 而对象的属性是一个集合时，就写属性名字
+			open - 遍历出来的sql 是以什么字符开头的
+			close - 遍历出来的sql 是以什么字符结尾的
+			separator - 每个遍历的元素之间的分割符
+			item - 取出来元素对象的名字-->
+		delete from people where id in
+		<foreach collection="list" open="(" close=")" separator="," item="id">
+			#{id}
+		</foreach>
+	</delete>
+	
+	<!--批量新增  -->
+	<insert id="batchInserta">
+		insert into people
+			(id,name,sex,department,salary)
+		values
+		<foreach collection="list"  separator="," item="people">
+			(#{people.id},#{people.name},#{people.sex},#{people.department},#{people.salary})
+		</foreach>
+	</insert>
+	<!--批量新增  -->
+		<insert id="batchInsertb">
+		insert into people
+			(id,name,sex,department,salary)
+		<foreach collection="list"  separator="union all" item="people">
+			select
+			(#{people.id},#{people.name},#{people.sex},#{people.department},#{people.salary})
+			from dual
+		</foreach>
+	</insert>
+	
+	<!-- 查询结果集映射type - 映射的对象的类型 -->
+	 <select id="selectResultMap" parameterType="long" resultMap="PersonResultMap">
+	 select  id,name,sex,department,salary
+		from 
+			people
+		where
+			id=#{id}
+	 </select>
+	 <resultMap type="com.aowin.model.People" id="PersonResultMap">
+	 	<id column="id" property="id"/>
+	 	<result column="name" property="name"/>
+	 	<result column="sex" property="sex"/>
+	 	<result column="department" property="department"/>
+	 	<result column="salary" property="salary"/>
+	 </resultMap>
+	 <!-- 映射集合类型对象   
+	 		property    集合类型的属性名称
+			ofType   设置集合中存放的数据类型
+			参考scm项目中的表格
+			两个id标签-联合主键
+			若某个属性是一个类：用association标签
+			<resultMap type="" id="">
+ 			 <collection property="poitems" ofType="Poitem">
+		 	映射com.aowin.entity.Poitem对象的单一类型
+		 	<id column="poid" property="poid"/>
+		 	<id column="productCode" property="productCode"/>
+		 	<result column="unitPrice" property="unitPrice"/>
+		 	<result column="num" property="num"/>
+		 	映射对象类型对象里的某个属性是对象
+		 	<association property="product" javaType="Product">
+		 		<id column="productCode" property="productCode"/>
+		 		<id column="name" property="name"/>
+		 		<id column="createDate" property="createDate"/>
+		 	</association>
+		 </collection>
+	 </resultMap> -->
+</mapper>

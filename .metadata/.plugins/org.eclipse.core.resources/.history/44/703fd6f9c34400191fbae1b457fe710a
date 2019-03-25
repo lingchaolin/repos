@@ -1,0 +1,19 @@
+package com.aowin.dao;
+
+import javax.swing.Spring;
+
+import org.json.JSONObject;
+
+public class GetJSON {
+
+	public GetJSON() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		GiveJSONObject giveJSONObject=new GiveJSONObject();
+		JSONObject jo = giveJSONObject.giveMessage();
+		System.out.println(jo);
+	}
+
+}

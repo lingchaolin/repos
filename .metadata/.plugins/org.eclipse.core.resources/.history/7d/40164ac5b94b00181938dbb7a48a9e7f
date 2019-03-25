@@ -1,0 +1,36 @@
+package Castle;
+
+import java.util.Arrays;
+
+public class First {
+	String name;
+	int gateNum;
+	Gate gates[];
+	public First() {
+		gates=new Gate[(int) (4*Math.ceil(Math.random())];
+	}
+	
+	public void ToString() {
+//		return "name=" + name + ", gateNum=" + gateNum + ", gates=" + Arrays.toString(gates) + "]";
+		System.out.println("name=" + name + "\r\n gateNum=" + gateNum );
+		for(int i=0;i<1;i++) {
+			switch(gates[i].getDirection()) {
+			case 1:
+				System.out.println("东边的门"+i);
+				break;
+			case 2:
+				System.out.println("南边的门"+i);
+				break;
+			case 3:
+				System.out.println("西边的门"+i);
+				break;
+			case 4:
+				System.out.println("北边的门"+i);
+				break;
+			default:
+				System.err.println("门出错了！");
+			}
+		}
+	}
+	
+}

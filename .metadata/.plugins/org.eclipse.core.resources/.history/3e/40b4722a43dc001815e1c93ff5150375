@@ -1,0 +1,17 @@
+package com.aowin.review;
+
+public class Test {
+
+	public Test() {
+		// TODO Auto-generated constructor stub
+	}
+	public static void main(String[] args) {
+		Integer it1=12,it2=12;
+		System.out.println(it1==it2);
+		Integer it3=new Integer(12);
+		Integer it4=new Integer(12);
+		System.out.println(it3==it4);
+		System.out.println(it1==it2);
+	}
+
+}

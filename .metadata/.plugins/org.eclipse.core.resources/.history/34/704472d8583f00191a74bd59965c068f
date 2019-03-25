@@ -1,0 +1,12 @@
+package com.effort.IOC;
+
+public class BigCar extends Car{
+	String mString="bigCar";
+	public BigCar() {
+		// TODO Auto-generated constructor stub
+	}
+	public void printCar() {
+		System.out.println("bigCar");
+	}
+
+}

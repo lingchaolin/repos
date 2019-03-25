@@ -1,0 +1,42 @@
+package com.aowin.javabasic;
+
+
+public class CopyPic {
+
+	public static void main(String[] args) {
+		//匿名内部类实例化对象
+		Lam lam1=new Lam() {
+			@Override
+			public void getMsg(int a,String str) {
+				System.out.println(a+":"+str);
+			}
+		};
+		//Lambda表达式创建对象
+		Lam lam2=(a,str)->{System.out.println(a+":"+str);};
+		lam2.getMsg(12, "测试");
+		//只有一个对象时 '()'可以省略
+		LamNew ln1=str->{
+			System.out.println(str);
+			return str;
+		};
+		ln1.getMsg("lamNew测试");
+		
+		LamNew ln2=(str)->str;
+		String string=ln2.getMsg("new");
+		System.out.println(string);
+		new Thread().isAlive();
+	}
+}
+
+interface Lam{
+	public abstract void getMsg(int a,String str);
+}
+interface LamNew{
+	public abstract String getMsg(String str);
+}
+class LamTest implements Lam{
+	@Override
+	public void getMsg(int a,String str) {
+		
+	}
+}

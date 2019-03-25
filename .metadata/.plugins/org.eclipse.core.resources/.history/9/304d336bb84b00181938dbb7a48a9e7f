@@ -1,0 +1,16 @@
+package Castle;
+
+public class Gate {
+	double height;
+	double width;
+	public Gate() {
+		this.height = 1.8;
+		this.width = 0.6;
+	}
+	public Gate(double height, double width) {
+		super();
+		this.height = height;
+		this.width = width;
+	}
+	
+}

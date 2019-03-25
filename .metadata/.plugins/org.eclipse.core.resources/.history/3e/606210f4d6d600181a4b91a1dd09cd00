@@ -1,0 +1,46 @@
+package com.aowin.classLoadSort;
+
+public class Demo {
+	public static void main(String[] args) {
+		LoadSon loadSon=new LoadSon();
+		System.out.println("i="+LoadSon.i);
+	}
+}
+class LoadSort {
+	public static int i=100;
+	static {
+		i=1;
+	}
+	static {
+		System.out.println("这是父类静态代码块");
+	}
+	{
+		System.out.println("这是父类普通代码块");
+	}
+	public static void method() {
+		System.out.println("这是一个父类静态方法");
+	}
+	public  void method2() {
+		System.out.println("这是一个父类普通方法");
+	}
+	public LoadSort() {
+		System.out.println("这是一个父类构造器！");
+	}
+}
+class LoadSon extends LoadSort{
+	static {
+		System.out.println("这是子类静态代码块");
+	}
+	{
+		System.out.println("这是子类普通代码块");
+	}
+	public static void method() {
+		System.out.println("这是一个子类静态方法");
+	}
+	public  void method2() {
+		System.out.println("这是一个子类普通方法");
+	}
+	public LoadSon() {
+		System.out.println("这是一个子类构造器！");
+	}
+}

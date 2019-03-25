@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.CardMapper">
+
+	<select id="selectCard" parameterType="java.util.Map"
+		resultType="model.Card">
+		select card_id cardId,
+		card_code cardCode,
+		card_type
+		cardType,
+		name,
+		idcard,
+		decode(sex,0,'女',1,'男') sex,
+		telphone,
+		mobile,
+		email,
+		address,
+		work,
+		zxbj,
+		monthly_money monthlyMoney,
+		frozen_money frozenMoney,
+		wallet_money
+		walletMoney,
+		status
+		from card
+		<include refid="queryMap"></include>
+	</select>
+	<select id="selectCurrentCard" parameterType="java.util.Map"
+		resultType="model.Card">
+		select card_id cardId,
+		card_code cardCode,
+		card_type
+		cardType,
+		name,
+		idcard,
+		decode(sex,0,'女',1,'男') sex,
+		telphone,
+		mobile,
+		email,
+		address,
+		work,
+		zxbj,
+		monthly_money monthlyMoney,
+		frozen_money frozenMoney,
+		wallet_money
+		walletMoney,
+		status
+		from card
+		<include refid="queryMap2"></include>
+	</select>
+	<sql id="queryMap">
+		<where>
+			<if test="card_id!=null and card_id!=''">
+				and card_id like concat('%',concat(#{card_id},'%'))
+			</if>
+			<if test="card_code!=null and card_code!=''">
+				and card_code like concat('%',concat(#{card_code},'%'))
+			</if>
+			<if test="card_type!=null and card_type!=''">
+				and card_type like concat('%',concat(#{card_type},'%'))
+			</if>
+		</where>
+	</sql>
+	<sql id="queryMap2">
+		<where>
+			<if test="name!=null and name!=''">
+				and name like concat('%',concat(#{name},'%')) and card_type!=4 and card_type!=5 
+			</if>
+			<if test="name==null or name==''">
+				and 1=1 and  card_type!=4 and card_type!=5
+			</if>
+		</where>
+	</sql>
+	
+	
+	
+	<insert id="insertCard" parameterType="model.Card">
+		insert into card (
+		card_id,
+		card_code ,
+		card_type ,
+		name ,
+		idcard ,
+		sex ,
+		telphone ,
+		mobile ,
+		email ,
+		address ,
+		work ,
+		zxbj ,
+		monthly_money ,
+		frozen_money ,
+		wallet_money,
+		status
+		)values(#{cardId},#{cardCode
+		,jdbcType=VARCHAR},#{cardType},#{name},#{idcard},#{sex},#{telphone,jdbcType=VARCHAR},
+		#{mobile},#{email},#{address,jdbcType=VARCHAR},#{work,jdbcType=VARCHAR},#{zxbj,jdbcType=CHAR},#{monthlyMoney,jdbcType=NUMERIC},#{frozenMoney,jdbcType=NUMERIC},#{walletMoney,jdbcType=NUMERIC},#{status,jdbcType=INTEGER})
+	</insert>
+
+	<update id="updateCard" parameterType="model.Card">
+		update card set card_code
+		=#{cardCode ,jdbcType=VARCHAR},
+		card_type =#{cardType},
+		name =#{name},
+		idcard =#{idcard},
+		sex =#{sex},
+		telphone =#{telphone,jdbcType=VARCHAR},
+		mobile =#{mobile},
+		email =#{email},
+		address=#{address,jdbcType=VARCHAR},
+		work =#{work,jdbcType=VARCHAR},
+		zxbj =#{zxbj,jdbcType=CHAR},
+		monthly_money=#{monthlyMoney,jdbcType=NUMERIC},
+		frozen_money=#{frozenMoney,jdbcType=NUMERIC},
+		wallet_money=#{walletMoney,jdbcType=NUMERIC},
+		status=#{status,jdbcType=INTEGER}
+		where card_id=#{cardId}
+
+	</update>
+
+    <select id="selectUpdateCard" parameterType="int" resultType="model.Card">
+    select card_id cardId,
+		card_code cardCode,
+		card_type
+		cardType,
+		name,
+		idcard,
+		 sex,
+		telphone,
+		mobile,
+		email,
+		address,
+		work,
+		zxbj,
+		monthly_money monthlyMoney,
+		frozen_money frozenMoney,
+		wallet_money
+		walletMoney,
+		status
+		from card where card_id=#{cardId}  
+    </select>
+    
+     <select id="selectOneCard" parameterType="String" resultType="model.Card">
+    select card_id cardId,
+		card_code cardCode,
+		card_type
+		cardType,
+		name,
+		idcard,
+		 sex,
+		telphone,
+		mobile,
+		email,
+		address,
+		work,
+		zxbj,
+		monthly_money monthlyMoney,
+		frozen_money frozenMoney,
+		wallet_money
+		walletMoney,
+		status
+		from card where card_code=#{cardCode,jdbcType=VARCHAR}  
+    </select>
+ <update id="updateMoney" parameterType="model.Card">
+ 
+		
+		 update card
+    <set >
+      <if test="cardId != null" >
+        card_id = #{cardId},
+      </if>
+      <if test="cardType != null" >
+        card_type = #{cardType},
+      </if>
+      <if test="monthlyMoney != null" >
+     monthly_money=monthly_money+#{monthlyMoney,jdbcType=NUMERIC},
+      </if>
+      <if test="walletMoney != null" >
+     wallet_money=wallet_money+#{walletMoney,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where card_code=#{cardCode ,jdbcType=VARCHAR}
+ </update>
+
+</mapper>

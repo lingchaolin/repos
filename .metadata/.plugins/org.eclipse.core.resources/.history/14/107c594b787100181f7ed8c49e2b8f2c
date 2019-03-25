@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>美团外卖</title>
+		<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+		
+		<link rel="stylesheet" type="text/css" href="css/mystyle.css"/>
+		<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+		<script type="text/javascript" src="js/myjs.js">
+			window.onload=function(){alert("sechi");}
+			
+		</script>
+	</head>
+	<body>
+	<div id="head">
+		<table >
+			<tr>
+				<td width="80px"></td>
+				<td width="510 px" float="right"><img src="img/ceiling-logo2.png"/></td>
+				<td width="300px">
+					<input id="in" size="30px"  type="text" value="搜索商家、美食"/>
+				</td>
+				<td width="455px">
+					<div  id="searching" >搜 索</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+		<div id="shoppingPage" align="left" style="display: none">
+            <table id="shopTable">
+                <tr>
+                    <th>全选<input type="checkbox"  name="selectAll"/></th>
+                    <th>菜品</th>
+                    <th>价格(元/份)</th>
+                    <th>操作</th>
+                </tr>
+            </table>
+            <div id="pageOne">
+                <hr id="hhr" width="1360px"/>
+                <input type="button" id="deleteSeleted" value="删除选中"/>
+                <div id="last">
+                    合计￥<span id="number">0</span>
+                    <input id="jiesuan" type="button" value="结算"/>
+                </div>
+            </div>
+    		<div id="pageTwo" style="display:none">购物车空了!</div>
+            <div id="goonBuy" style="width:100px;">
+                继续任性点餐
+            </div>
+        </div>
+	</body>
+</html>
+
+
+

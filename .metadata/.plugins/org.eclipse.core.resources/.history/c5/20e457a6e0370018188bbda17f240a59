@@ -1,0 +1,8 @@
+package Game;
+
+public class Test extends MyFrame {
+	public static void main(String[]args){
+		Test t=new Test();
+		t.launchFrame();
+	}
+}

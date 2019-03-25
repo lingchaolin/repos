@@ -1,0 +1,61 @@
+1531017631709	Delete element
+1531017641860	Copy file
+1531018155014	Copy compilation unit
+1531018353363	Copy compilation unit
+1531054730796	Copy compilation unit
+1531057100252	Copy file
+1531062122657	Copy file
+1531062130743	Rename resource 'th.jsp'
+1531097239787	Copy file
+1531112149934	Copy compilation unit
+1531121843568	Rename package 'com.aowin.manager.filter'
+1531121909265	Copy compilation unit
+1531124059538	Delete element
+1531124316816	Copy folder
+1531124328947	Copy folder
+1531124349957	Copy folder
+1531124361568	Copy folder
+1531124369556	Rename resource 'buy'
+1531124377617	Rename resource 'keep'
+1531124389958	Rename resource 'manage'
+1531125341635	Move file
+1531125463350	Delete element
+1531125535542	Rename type 'GetAccountMessage'
+1531125684447	Rename type 'DeleteAccount'
+1531125747938	Rename type 'AddOrModifyAccount'
+1531125796032	Rename type 'AccountMessageToPage'
+1531126101396	Rename type 'AddOrModifyAccountToSql'
+1531126148851	Move file
+1531126233981	Move file
+1531126331860	Rename type 'QueryAccount'
+1531126369271	Move file
+1531126509990	Move compilation unit
+1531126530843	Rename type 'checkAccountRepeat'
+1531126618315	Delete element
+1531126694770	Rename type 'GetStockInventoryMessage'
+1531126796802	Rename type 'GetStockInventoryQueryMessage'
+1531126892503	Move files
+1531126993820	Move file
+1531127024902	Move file
+1531127092906	Rename type 'ChangeInStockServ'
+1531127170636	Rename type 'ChangeOutStockServ'
+1531127257040	Rename type 'GetStockInventoryPage'
+1531127330743	Rename type 'GetInStockRecordServ'
+1531127500296	Move file
+1531127549839	Rename type 'AddToCheckStock'
+1531127563702	Rename type 'MaAddToCheckStock'
+1531127858179	Move file
+1531127865197	Move file
+1531127899092	Rename type 'ToQueryInStockServ'
+1531127926797	Move file
+1531128182938	Move files
+1531133396628	Delete element
+1531133403548	Move file
+1531133406919	Move file
+1531133631050	Rename type 'StatementGetStockNumMessage'
+1531133928895	Rename type 'StatementGetMoneyMessage'
+1531136897716	Copy compilation unit
+1531139539414	Copy file
+1531200065103	Delete element
+1531201162625	Delete element
+1531201223841	Move file

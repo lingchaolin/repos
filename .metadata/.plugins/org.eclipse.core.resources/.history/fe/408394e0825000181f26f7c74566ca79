@@ -1,0 +1,10 @@
+package com.aowin.swingone;
+
+public class CaseOne {
+
+	public static void main(String[] args) {
+		
+		
+	}
+
+}

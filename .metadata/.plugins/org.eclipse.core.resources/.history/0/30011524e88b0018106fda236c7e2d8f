@@ -1,0 +1,23 @@
+package com.aowin.sort;
+
+public class Incre {
+
+	//ц╟ещеепР
+	public static void main(String[]args){
+		A(1);
+	}
+	public static void A(int num) {
+		switch(num) {
+		case 1001:
+			return;
+		default:
+			System.out.println(num);
+			A(num+1);
+		}
+	}
+	public static void B(int num) {
+		boolean flag=num==1001?c(){System.out.println(num);return true}:D(){System.out.println(num);return false};
+		
+
+	}
+}

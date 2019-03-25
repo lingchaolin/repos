@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.BicycleDeployMapper">
+	<insert id="insertBicycleRecord" parameterType="model.BicycleDeploy">
+
+
+		<selectKey keyProperty="deployId" resultType="int" order="BEFORE">
+			select MAP_ID.nextval deployId from dual
+		</selectKey>
+
+		insert into bicycle_deploy
+		(deploy_id,bicycle_id,from_pile_id,to_pile_id,from_card_id,from_time,
+		to_card_id,to_time,to_reason,from_reason,remark,status)values(
+		#{deployId},#{bicycleId,jdbcType=INTEGER},#{fromPileId,jdbcType=INTEGER},
+		#{toPileId,jdbcType=INTEGER},#{fromCardId,jdbcType=INTEGER},
+		#{fromTime,jdbcType=VARCHAR},#{toCardId,jdbcType=INTEGER},
+		#{toTime,jdbcType=VARCHAR},#{toReason,jdbcType=VARCHAR},#{fromReason,jdbcType=VARCHAR},
+		#{remark,jdbcType=VARCHAR},#{status,jdbcType=CHAR})
+
+
+	</insert>
+
+   <insert id="addBicycleDeploy" parameterType="model.BicycleDeploy">
+		<selectKey order="BEFORE" resultType="int" keyProperty="deployId">
+			select nextId.nextval deployId from dual
+		</selectKey>
+		insert into BICYCLE_DEPLOY 
+			(DEPLOY_ID,BICYCLE_ID,FROM_PILE_ID,FROM_CARD_ID,FROM_TIME,FROM_REASON,STATUS)
+		values 
+			(#{deployId},#{bicycleId},#{fromPileId},#{fromCardId},#{fromTime},#{fromReason},#{status})
+	</insert>
+
+
+</mapper>

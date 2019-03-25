@@ -1,0 +1,18 @@
+package forTest;
+
+public class Test04 {
+	public static void main(String[]args){
+		//打印99乘法表；
+			System.out.println("……打印99乘法表……");
+		int [][]arra=new int[9][];
+		for(int i=1;i<10;i++){
+			arra[i]=new int[i];
+			for(int j=1;j<=i;j++){
+				arra[i][j]=i*j;
+				//System.out.print(arra[i][j]+" ");
+			}
+			//System.out.println();
+		}
+	}
+
+}

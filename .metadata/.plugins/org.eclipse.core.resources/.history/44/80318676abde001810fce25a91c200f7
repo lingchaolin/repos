@@ -1,0 +1,33 @@
+package com.aowin.review;
+
+public class NewTest {
+
+	public NewTest() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+class Dog implements Comparable{
+	int age;
+	public Dog(int age) {
+		super();
+		this.age = age;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	@Override
+	public int compareTo(Dog dog) {
+		return this.age-d.getA;
+	}
+	
+}

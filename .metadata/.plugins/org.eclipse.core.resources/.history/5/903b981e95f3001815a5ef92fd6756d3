@@ -1,0 +1,16 @@
+package com.aowin.javabasic;
+
+import java.awt.List;
+import java.util.ArrayList;
+
+public class CopyPic {
+	public static void main(String[] args) {
+		ArrayList<Integer>list=new ArrayList<>();
+		list.add(12);
+		list.add(33);
+		list.add(99);
+		list.add(21);
+		list.add(4);
+		System.out.println(list.toArray(null));
+	}
+}

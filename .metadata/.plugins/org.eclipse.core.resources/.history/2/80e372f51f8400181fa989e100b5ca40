@@ -1,0 +1,44 @@
+package com.aowin.log4jtest;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Properties;
+import java.util.Set;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Properties props=new Properties();//extends HashTable   --键值对
+		//写入内容
+		props.put("k1", "value-1");
+		props.put("k2", "value-2");
+		props.put("k3", "value-3");
+		props.put("k4", "value-4");
+		//读取properties文件的内容
+		try {
+			//用输入流读取配置文件的数据，读取键值对，存放到键值对;
+			props.load(new FileReader("src/p.properties"));
+		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
+		}
+		//遍历读取到的内容：1.set  2.entryset
+		System.out.println("set方式");
+		Set set=props.keySet();
+		Iterator it=set.iterator();
+		while(it.hasNext()) {
+			String str=(String) it.next();
+			System.out.println(str+":"+props.getProperty(str));
+		}
+		System.out.println("entryset方式");
+		Set<Entry<Object,Object>> enset=props.entrySet();
+		Iterator<Entry<Object,Object>> it2=enset.iterator();
+		while(it2.hasNext()) {
+			Entry<Object,Object> entry=it2.next();
+			System.out.println(entry.getKey()+":"+entry.getValue());
+		}
+	}
+
+}

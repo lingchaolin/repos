@@ -1,0 +1,14 @@
+package forIO;
+
+import java.io.RandomAccessFile;
+
+/**
+ * RandomAccessFile
+ * @author Administrator
+ *
+ */
+public class IO008 {
+	public static void main(String[]args){
+		RandomAccessFile rnd=new RandomAccessFile("D:/Class/work/Test/IoOUT.java");
+	}
+}

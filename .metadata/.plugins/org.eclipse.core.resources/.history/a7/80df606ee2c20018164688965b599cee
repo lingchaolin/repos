@@ -1,0 +1,12 @@
+package com.aowin.mapper;
+
+import java.util.ArrayList;
+
+import com.aowin.model.People;
+
+public interface TestMapper {
+	public void addPeople(ArrayList<People> list);
+	public void deletePeople(@Param(value="id")Integer id);
+	public void updatePeople(People people);
+	public void selectPeople(People people);
+}

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.BicycleStaMapper">
+    <sql id="queryCondition">
+    <where>
+
+    <if test="startDay != null and startDay != ''">
+    and startDay >= #{startDay}
+    </if>
+    <if test="endDay != null and endDay != ''">
+    and concat(#{endDay},' 23:59:59') >= endDay
+    </if>
+    </where>
+    </sql>
+
+    <!--<insert id="addVender" parameterType="model.Vender">-->
+    <!--<selectKey keyProperty="venderID" resultType="java.lang.String" order="BEFORE">-->
+    <!--select SEQ_LOG.nextval venderID from dual-->
+    <!--</selectKey>-->
+    <!--insert into vender values (#{venderID},#{venderCode},#{venderType},#{venderName},#{address},#{telephone},#{contacts},#{produtsLicense},#{bussinessRegistrationNo}-->
+    <!--,#{registeredCapital},#{userID},#{createTime},#{zxjb}.#{remark})-->
+    <!--</insert>-->
+
+    <!--<select id="bicycleRecordCount" resultType="Integer">-->
+        <!--select count(*) from BICYCLE_RECORD where RENT_TIME >= #{startDay} and #{endDay} >= RETURN_TIME-->
+    <!--</select>-->
+
+    <!--<select id="repairRecordCount" resultType="Integer">-->
+        <!--select count(*) from REPAIR_RECORD where REPAIR_DATE >= #{startDay} and #{endDay} >= REPAIR_DATE-->
+    <!--</select>-->
+
+    <!--<select id="avgRentReturnTime" resultType="String">-->
+        <!--select avg(RETURN_TIME - RENT_TIME) from BICYCLE_RECORD where RENT_TIME >= #{startDay} and #{endDay} >= RETURN_TIME-->
+    <!--</select>-->
+
+    <!--<select id="totalRentFee" resultType="Double">-->
+        <!--select sum(MONEY) from BICYCLE_RECORD where RENT_TIME >= #{startDay} and #{endDay} >= RETURN_TIME-->
+    <!--</select>-->
+
+    <!--<select id="avgRentFee" resultType="Double">-->
+        <!--select avg(MONEY) from BICYCLE_RECORD where RENT_TIME >= #{startDay} and #{endDay} >= RETURN_TIME-->
+    <!--</select>-->
+
+    <!--<select id="totalRepairFee" resultType="Double">-->
+        <!--select sum(FEE) from REPAIR_RECORD where REPAIR_DATE >= #{startDay} and #{endDay} >= REPAIR_DATE-->
+    <!--</select>-->
+
+    <!--<select id="avgRepairFee" resultType="Double">-->
+        <!--select avg(FEE) from REPAIR_RECORD where REPAIR_DATE >= #{startDay} and #{endDay} >= REPAIR_DATE-->
+    <!--</select>-->
+
+    <select id="bicycleSta" resultType="Map">
+        select
+        *
+        from
+        (select
+        count(*) bicycleRecordCount
+        ,round(avg(to_number(TO_DATE(RETURN_TIME,'yyyy-mm-dd hh24:mi:ss')-TO_DATE(RENT_TIME,'yyyy-mm-dd hh24:mi:ss'))*24),2) avgRentReturnTime
+        ,round(sum(to_number(TO_DATE(RETURN_TIME,'yyyy-mm-dd hh24:mi:ss')-TO_DATE(RENT_TIME,'yyyy-mm-dd hh24:mi:ss'))*24),2) totalRentReturnTime
+        ,sum(MONEY) totalRentFee,avg(MONEY)
+        avgRentFee
+        from BICYCLE_RECORD
+        <where>
+            <if test="startDay != null and startDay != ''">
+                and RENT_TIME >= #{startDay}
+            </if>
+            <if test="endDay != null and endDay != ''">
+                and concat(#{endDay},' 23:59:59') >= RETURN_TIME
+            </if>
+        </where>)
+          ,(select
+            count(*) repairRecordCount,sum(FEE) totalRepairFee,avg(FEE) avgRepairFee
+            from REPAIR_RECORD
+        <where>
+            <if test="startDay != null and startDay != ''">
+                and REPAIR_DATE >= #{startDay}
+            </if>
+            <if test="endDay != null and endDay != ''">
+                and concat(#{endDay},' 23:59:59') >= REPAIR_DATE
+            </if>
+        </where>)
+    </select>
+
+    <select id="bicycleInfoSta" parameterType="Integer" resultType="Map">
+        select * from
+        (select
+        count(*) bicycleRecordCount
+        ,round(avg(to_number(TO_DATE(RETURN_TIME,'yyyy-mm-dd hh24:mi:ss')-TO_DATE(RENT_TIME,'yyyy-mm-dd hh24:mi:ss'))*24),2) avgRentReturnTime
+        ,round(sum(to_number(TO_DATE(RETURN_TIME,'yyyy-mm-dd hh24:mi:ss')-TO_DATE(RENT_TIME,'yyyy-mm-dd hh24:mi:ss'))*24),2) totalRentReturnTime
+        ,sum(MONEY) totalRentFee,avg(MONEY) avgRentFee
+        from BICYCLE_RECORD where BICYCLE_ID=#{bicycleId})
+        ,(select
+        count(*) repairRecordCount,sum(FEE) totalRepairFee,avg(FEE) avgRepairFee
+        from REPAIR_RECORD where BICYCLE_ID=#{bicycleId})
+        ,(select count(*) bicycleDeployCount from BICYCLE_DEPLOY where BICYCLE_ID=#{bicycleId})
+    </select>
+</mapper>

@@ -1,0 +1,102 @@
+package com.aowin.stuff.lisnter;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import com.aowin.stuff.dao.PersonDao;
+import com.aowin.stuff.data.ListUtil;
+import com.aowin.stuff.exception.PersonEquNull;
+import com.aowin.stuff.model.Person;
+import com.aowin.stuff.view.HomePage;
+import com.aowin.stuff.view.SubFrame;
+
+@SuppressWarnings("AlibabaClassMustHaveAuthor")
+public class SubListener implements ActionListener {
+	SubFrame sub;
+	HomePage hp;
+	// String title;
+
+	public SubListener(SubFrame sub) {
+		this.sub = sub;
+		this.hp=sub.getHp();
+	}
+
+	public SubListener() {
+		super();
+	}
+
+	@SuppressWarnings("AlibabaRemoveCommentedCode")
+    @Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getActionCommand().equals("确认")) {
+			switch (sub.getFrame().getTitle()) {
+				case "增加":
+					try {
+						if (sub.subFrameToPerson() == null) {
+							throw new PersonEquNull();
+						}
+						Person person = sub.subFrameToPerson();
+						if (new PersonDao().Inquire(person.getId()) == null) {
+							new PersonDao().Add(person);
+							sub.getFrame().setVisible(false);
+						} else {
+							JOptionPane.showMessageDialog(null, "id已存在，不能重复添加", "消息框", JOptionPane.WARNING_MESSAGE);
+						}
+						sub.clear();
+						hp.flush(hp);
+					} catch (Exception e1) {
+					}
+//				}
+					break;
+				case "修改":
+//				mission=JOptionPane.showConfirmDialog(null, "确定修改数据?");
+//				if(mission==0) {
+					try {
+						if (sub.subFrameToPerson() == null) {
+							throw new PersonEquNull();
+						}
+						Person person = sub.subFrameToPerson();
+						if ((new PersonDao().Inquire(person.getId()) == null) || (person.getId() == sub.getSelectedId())) {
+							new PersonDao().Alter(person, sub.getSelectedId());
+							sub.getFrame().setVisible(false);
+						} else {
+							JOptionPane.showMessageDialog(null, "id已存在，不能重复添加", "消息框", JOptionPane.WARNING_MESSAGE);
+						}
+						sub.clear();
+						hp.flush(hp);
+					} catch (Exception e1) {
+					}
+//				}
+					break;
+				case "查询":
+//				mission=JOptionPane.showConfirmDialog(null, "确定查询数据?");
+//				if(mission==0) {
+					if(sub.getCondition()!=null){
+						String str = sub.getCondition();
+						ArrayList<Person> list = new PersonDao().UpdateInfo(str);
+						String[][] arr = ListUtil.ConvertToArray(list);
+						hp.getModel().setRowCount(0);
+						if (arr.length > 0) {
+							for (int i = 0; i < arr.length; i++) {
+								hp.getModel().addRow(arr[i]);
+							}
+						} else {
+							JOptionPane.showMessageDialog(null, "没有符合该条件的人,请检查输入的信息是否正确！");
+						}
+						sub.clear();
+					}
+					break;
+				default:
+					break;
+			}
+		} else if (e.getActionCommand().equals("取消")) {
+			sub.getFrame().setVisible(false);
+			sub.clear();
+		}
+	}
+
+
+}

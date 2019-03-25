@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;People.java&apos; to &apos;MybatisNewTest/src/main/java/com.aowin&apos;&#x0D;&#x0A;- Original project: &apos;MybatisTest&apos;&#x0D;&#x0A;- Destination element: &apos;MybatisNewTest/src/main/java/com.aowin&apos;&#x0D;&#x0A;- Original element: &apos;com.aowin.model.People.java&apos;" description="Copy compilation unit" destination="=MybatisNewTest/src\/main\/java&lt;com.aowin" element1="/src\/main\/java&lt;com.aowin.model{People.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1538112998340" units="1" version="1.0"/>
+</session>

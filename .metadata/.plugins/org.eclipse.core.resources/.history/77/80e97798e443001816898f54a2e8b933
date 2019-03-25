@@ -1,0 +1,13 @@
+package netProgram;
+
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class Inet0001 {
+	public static void main(String[]args) throws IOException{
+		InetAddress addr=InetAddress.getLocalHost();
+		System.out.println(addr.getHostName());
+		System.out.println(addr.getHostAddress());
+	}
+}

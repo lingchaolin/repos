@@ -1,0 +1,17 @@
+package com.aowin.aadprototype;
+
+import java.util.Date;
+
+/**
+ * 原型模式-克隆模式
+ * 
+ * Cloneable		clone()
+ * @author Administrator
+ *
+ */
+public class Client01 {
+	public static void main(String[]args) {
+		Sheep s1=new Sheep("moli",new Date(123243123));
+		System.out.println(s1);
+	}
+}

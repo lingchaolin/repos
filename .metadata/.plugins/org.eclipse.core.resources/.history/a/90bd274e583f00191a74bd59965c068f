@@ -1,0 +1,12 @@
+package com.effort.IOC;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class BuildCar {
+
+	public static void main(String[]args) {
+		AnnotationConfigApplicationContext con=new AnnotationConfigApplicationContext();
+		con.getBean(LittleCar.class);
+		
+	}
+}

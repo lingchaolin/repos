@@ -1,0 +1,9 @@
+package com.aowin.NetConnect;
+
+public class TCP_Server {
+
+	public TCP_Server() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

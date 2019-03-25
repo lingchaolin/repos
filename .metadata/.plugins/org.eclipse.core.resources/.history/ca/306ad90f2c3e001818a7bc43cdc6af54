@@ -1,0 +1,24 @@
+package HomeWork;
+
+import java.util.Scanner;
+
+/**
+ * 从屏幕上输入圆的半径，然后计算并输出该圆的直径、周长和面积。
+ * @author Administrator
+ *
+ */
+public class HomeWork102 {
+	public static void main(String[]args){
+		Scanner s=new Scanner(System.in);
+		System.out.println("请输入半径(单位为cm)：");
+		int r=s.nextInt();
+		while(r>9999||r<=0){
+			System.out.println("请重新输入：");
+			r=s.nextInt();
+		}
+		System.out.println("半径为："+r+"cm");
+		System.out.println("直径为："+2*r+"cm");
+		System.out.println("周长为："+2*Math.PI*r+"cm");
+		System.out.println("面积为："+Math.PI*r*r+"cm^2");
+	}
+}

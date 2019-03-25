@@ -1,0 +1,143 @@
+package com.aowin.stuff.lisnter;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Vector;
+
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
+import com.aowin.stuff.dao.PersonDao;
+import com.aowin.stuff.data.ListUtil;
+import com.aowin.stuff.data.Memory;
+import com.aowin.stuff.model.Person;
+import com.aowin.stuff.model.tableUtil;
+import com.aowin.stuff.view.HomePage;
+
+public class HomeListener implements ActionListener{
+	HomePage hp;
+	public HomeListener(HomePage hp) {
+		this.hp=hp;
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		switch (e.getActionCommand()){
+			case "添加":
+//				添加-可见
+				hp.getSub().getPanels()[5].setVisible(false);
+				hp.getSub().getFrame().setTitle("增加");
+				hp.getSub().getFrame().setVisible(true);
+				break;
+			case "删除":
+				if(hp.getTable().getSelectedRow()==-1) {
+					JOptionPane.showMessageDialog(null, "请选中要删除的数据行");
+					return;
+				}
+				int rows[]=hp.getTable().getSelectedRows();
+				for(int temp:rows) {
+					System.out.println(temp);
+					new PersonDao().deleteMessage("id="+hp.getTable().getValueAt(temp, 0));
+				}
+				hp.flush(hp);
+				break;
+			case "修改":
+				hp.getSub().getPanels()[5].setVisible(false);
+				if(hp.getTable().getSelectedRow()==-1) {
+					JOptionPane.showMessageDialog(null, "请选中要修改的数据行");
+					return;
+				}
+//				System.out.println(hp.getTable().getValueAt(hp.getTable().getSelectedRow(), 0).getClass());
+				int row=hp.getTable().getSelectedRow();
+//				System.out.println(hp.getTable().getValueAt(hp.getTable().getSelectedRow(), 0));
+				int id=Integer.parseInt((String) hp.getTable().getValueAt(hp.getTable().getSelectedRow(), 0));
+				
+				Person person=new PersonDao().Inquire((id));
+				hp.getSub().getTxt0().setText(String.valueOf(person.getId()));
+				hp.getSub().getTxt1().setText(person.getName());
+				hp.getSub().getJcb2().setSelectedItem(person.getSex()==1?"男":"女");
+				hp.getSub().getJcb3().setSelectedItem(person.getDepartment());
+				hp.getSub().getTxt4().setText(String.valueOf(person.getSalary()));
+				
+				hp.getSub().setSelectedId(id);
+				hp.getSub().getFrame().setTitle("修改");
+				hp.getSub().getFrame().setVisible(true);
+				break;
+			case "更新":
+				hp.flush(hp);
+				break;
+			case "查询":
+				hp.getSub().getFrame().setTitle("查询");
+//				显示查询的面板--否则不显示该面板
+				hp.getSub().getPanels()[5].setVisible(true);
+				hp.getSub().getFrame().setVisible(true);
+				break;
+			case "导入":
+			
+				JFileChooser fcIn=new JFileChooser("d:/Class");
+				int state=fcIn.showOpenDialog(null);//--有返回值---可以通过IO流读取数据
+				if(state==0) {
+					ArrayList<Person> listIn = new ArrayList<Person>();
+					hp.getModel().setRowCount(0);
+					File fileIn=fcIn.getSelectedFile();
+					listIn=new Memory().read(fileIn);
+					String[][]brr=ListUtil.ConvertToArray(listIn);
+					for(int i=0;i<brr.length;i++) {
+						hp.getModel().addRow(brr[i]);
+					}
+				}
+				break;
+			case "导出":
+				JFileChooser fcOut=new JFileChooser("D:/Class");
+				int num=fcOut.showSaveDialog(null);
+				if(num==0) {
+					ArrayList<Person> listOut = new ArrayList<Person>();
+					Vector vector= hp.getModel().getDataVector();
+					listOut=ListUtil.getTableContext(hp);//将图表转换为list
+//				获取当前表中的list;
+					File fileOut=fcOut.getSelectedFile();//获取地址
+					new Memory().write(fileOut, listOut);
+					JOptionPane.showMessageDialog(null, "数据导出成功\r\n"+fileOut.getAbsolutePath());
+//					增加到数据库中--是否添加？？--那些数据重复，不能添加
+				}
+				break;
+			case "增加":
+				int statement=JOptionPane.showConfirmDialog(null, "确定要添加到数据库中吗？");//
+				System.out.println(statement);
+				if(statement==0) {
+					ArrayList<Person> list = new ArrayList<Person>();
+					ArrayList<Person> al = new ArrayList<Person>();
+					Vector vector= hp.getModel().getDataVector();
+					list=ListUtil.getTableContext(hp);//将图表转换为list
+					for(int i=0;i<list.size();i++) {
+						if(new PersonDao().Inquire(list.get(i).getId()) != null) {
+							al.add(list.remove(i));//移除重复的项，将重复的项放到一起展示；
+						}else {//考虑一下数据错误的情况，处理异常
+							new PersonDao().Add(list.get(i));
+						}
+					}
+//					显示重复项
+					hp.getModel().setRowCount(0);
+					String[][]brr=ListUtil.ConvertToArray(list);
+					for(int i=0;i<brr.length;i++) {
+						hp.getModel().addRow(brr[i]);
+					}
+				}
+				break;
+			case "保存":
+				
+				break;
+			default :
+				break;
+		}
+	}
+//	public void flush() {
+//		hp.getModel().setRowCount(0);
+//		String arr[][]=new PersonDao().UpdateInfo("");
+//		for(int i=0;i<arr.length;i++) {
+//			hp.getModel().addRow(arr[i]);
+//		}
+//	}
+}

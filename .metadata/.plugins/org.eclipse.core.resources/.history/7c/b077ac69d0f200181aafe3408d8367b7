@@ -1,0 +1,31 @@
+package com.aowin.javabasic;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+public class CopyPic {
+	public static void main(String[] args) throws Exception {
+		CallThread ct1=new CallThread();
+		//创建执行服务
+		ExecutorService ser=Executors.newFixedThreadPool(3);
+		//提交执行
+		Future<Boolean> result1=ser.submit(ct1);
+		//获取结果
+		boolean flag=result1.get();
+		//关闭服务，释放资源
+		ser.shutdownNow();
+	}
+}
+
+class CallThread implements  Callable<Boolean>/*返回类型*/{
+	@Override
+	public Boolean call() throws Exception {
+		for(int i=0;i<100;i++) {
+			System.out.println("i="+i);
+		}
+		return true;
+	}
+	
+}

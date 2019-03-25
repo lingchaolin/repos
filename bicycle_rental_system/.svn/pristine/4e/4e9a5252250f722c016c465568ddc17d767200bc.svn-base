@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN">
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{DEFAULT} [%t] %p %c - %m%n" />
+		</Console>
+		<!-- <RollingFile name="RollingFile" fileName="${web:rootDir}/logs/cmsystem.log"
+			filePattern="${web:rootDir}/logs/cmsystem-%d{yyyy-MM-dd}.log" ignoreExceptions="false">
+			<PatternLayout>
+				<Pattern>%d %p %F:%l %c{1} [%t] %m%n</Pattern>
+			</PatternLayout>
+			<TimeBasedTriggeringPolicy />
+		</RollingFile> -->
+	</Appenders>
+	<Loggers>
+		<Root level="INFO">
+			<AppenderRef ref="console" />
+			<!-- <AppenderRef ref="RollingFile"></AppenderRef> -->
+		</Root>
+	</Loggers>
+</Configuration>

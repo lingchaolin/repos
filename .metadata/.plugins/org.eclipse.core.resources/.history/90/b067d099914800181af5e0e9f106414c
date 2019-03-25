@@ -1,0 +1,11 @@
+package com.aowin.aadprototype;
+/**
+ * 原型模式-克隆模式
+ * 
+ * Cloneable		clone()
+ * @author Administrator
+ *
+ */
+public class Client01 {
+
+}

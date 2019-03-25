@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.BicyclePileMapper">
+
+    <!--<select id="showBicycleStation" resultType="model.Bicycle_station">-->
+        <!--select-->
+        <!--STATION_ID stationId,STATION_CODE stationCode,STATION_NAME stationName,longitude,latitude-->
+         <!--,BICYCLE_PILE_NUM bicyclePileNum,address,PERSON_IN_CHARGE personInCharge,BUILD_TIME buildTime,RUN_TIME runTime-->
+         <!--,USER_ID userId,CREATE_TIME createTime,remark-->
+         <!--from bicycle_station-->
+    <!--</select>-->
+    
+    <select id="hasbicycle" parameterType="int" resultType="int">
+        select status from bicycle_pile where pile_id=#{pileId}
+    </select>
+
+    <select id="selectBicycle" resultType="model.Bicycle_pile">
+    select 
+    pile_id pileId,
+    station_id stationId,
+    vender_id venderId,
+    pile_code pileCode,
+    status,
+    install_time installTime,
+    disassembly_time  disassemblyTime,
+    user_id userId,
+    operator_time operatorTime,
+    bicycle_id bicycleId,
+    remark
+    from 
+    bicycle_pile 
+    </select>
+      <insert id="addBicyclePile" parameterType="java.util.List">
+
+    INSERT INTO BICYCLE_PILE
+    select SEQ_LOG.NEXTVAL pileId,cd.* from(
+    <foreach collection="list" item="item" index="index" separator="union all">
+        select
+        #{item.venderId,jdbcType=NUMERIC},
+        #{item.pileCode,jdbcType=VARCHAR},
+        #{item.stationId,jdbcType=NUMERIC},
+        #{item.status,jdbcType=NUMERIC},
+        #{item.installTime,jdbcType=VARCHAR},
+        #{item.disassemblyTime,jdbcType=VARCHAR},
+        #{item.userId,jdbcType=NUMERIC},
+        #{item.operatorTime,jdbcType=VARCHAR},
+        #{item.bicycleId,jdbcType=NUMERIC},
+        #{item.remark,jdbcType=VARCHAR}
+        from dual
+    </foreach>) cd
+    </insert>
+</mapper>

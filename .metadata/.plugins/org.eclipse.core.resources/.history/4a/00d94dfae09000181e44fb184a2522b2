@@ -1,0 +1,64 @@
+package com.aowin.dao;
+
+import java.awt.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.aowin.model.Scmuser;
+import com.aowin.util.Dbutil;
+
+
+public class ScmuserDao {
+	private static ScmuserDao instance=null;
+	public ScmuserDao() {}
+	public synchronized static ScmuserDao getInstence() {
+		if(instance==null) {
+			instance=new ScmuserDao();
+		}
+		return instance;
+	}
+	public void addSql() {
+		
+	}
+	public ArrayList<Scmuser> selectAccountFromSql(Connection conn) throws SQLException {
+		String sql="select account,password,name,createdate,status from scmuser";
+		PreparedStatement ps= conn.prepareStatement(sql);
+		ResultSet rs=null;
+		rs=ps.executeQuery();
+		ArrayList<Scmuser> list=new ArrayList<Scmuser>();
+		while(rs.next()) {
+		 String account=rs.getString(1);
+		 String password=rs.getString(2);
+		 String name=rs.getString(3);
+		 String createDate=rs.getString(4);
+		 String status=rs.getString(5);
+		 Scmuser user=new Scmuser(account, password, name, createDate, status);
+		 list.add(user);
+		}
+		Dbutil.close(rs, ps, null);
+		return list;
+	}
+	public ArrayList<Scmuser> selectAccountByAccountSql(Connection conn,String acc) throws SQLException {
+		String sql="select account,password,name,createdate,status from scmuser where account=?";
+		PreparedStatement ps= conn.prepareStatement(sql);
+		ResultSet rs=null;
+		ps.setString(1, acc);
+		rs=ps.executeQuery();
+		ArrayList<Scmuser> list=new ArrayList<Scmuser>();
+		while(rs.next()) {
+		 String account=rs.getString(1);
+		 String password=rs.getString(2);
+		 String name=rs.getString(3);
+		 String createDate=rs.getString(4);
+		 String status=rs.getString(5);
+		 Scmuser user=new Scmuser(account, password, name, createDate, status);
+		 list.add(user);
+		}
+		Dbutil.close(rs, ps, null);
+		return list;
+	}
+}

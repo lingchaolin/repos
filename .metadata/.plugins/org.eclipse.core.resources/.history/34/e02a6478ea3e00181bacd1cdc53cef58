@@ -1,0 +1,28 @@
+package forTest;
+
+public class Test05 {
+	public static void main(String args[]){
+		int arr[]={1,2,3};
+		int arr2[]={4,5,6};
+		System.out.print("arr[]为：");
+		for(int i=0;i<3;i++){
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+		System.out.print("arr2[]为：");
+		for(int i=0;i<3;i++){
+			System.out.print(arr2[i]+" ");
+		}
+		arr=arr2;
+		System.out.println();
+		System.out.print("arr[]为：");
+		for(int i=0;i<3;i++){
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+		System.out.print("arr2[]为：");
+		for(int i=0;i<3;i++){
+			System.out.print(arr2[i]+" ");
+		}
+	}
+}

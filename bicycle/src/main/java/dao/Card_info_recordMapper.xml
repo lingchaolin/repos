@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.Card_info_recordMapper">
+
+	<insert id="insertInfoRecord" parameterType="model.Card_info_record">
+		<selectKey order="BEFORE" resultType="int" keyProperty="recordId">
+			select MM_ID.nextval recordId from dual
+		</selectKey>
+		insert into card_info_record
+		(record_id,card_id,info_type,create_time,user_id,remark)
+		values(#{recordId},#{cardId,jdbcType=INTEGER},#{infoType},#{createTime},#{userId,jdbcType=INTEGER},#{remark,jdbcType=VARCHAR})
+	</insert>
+</mapper>

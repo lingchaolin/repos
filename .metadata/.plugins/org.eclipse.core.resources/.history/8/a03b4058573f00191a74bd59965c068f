@@ -1,0 +1,11 @@
+package com.effort.IOC;
+
+public class LittleCar {
+	String mString="LittleCar";
+	public LittleCar() {
+		// TODO Auto-generated constructor stub
+	}
+	public void printCar() {
+		System.out.println("LittleCar");
+	}
+}

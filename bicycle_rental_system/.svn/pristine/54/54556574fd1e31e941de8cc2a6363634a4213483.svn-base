@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns:context="http://www.springframework.org/schema/context" 
+		xmlns:tx="http://www.springframework.org/schema/tx" 
+		xmlns:aop="http://www.springframework.org/schema/aop" 
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+							http://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
+							http://www.springframework.org/schema/context 
+							http://www.springframework.org/schema/context/spring-context-4.3.xsd 
+							http://www.springframework.org/schema/tx 
+							http://www.springframework.org/schema/tx/spring-tx-4.3.xsd 
+							http://www.springframework.org/schema/aop 
+							http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+							
+	
+		
+	<context:component-scan base-package="com.aowin.bicycle"></context:component-scan>
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:database.properties"></property>
+	</bean>
+	
+	<bean id="dbcpds" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="${driver}"></property>
+		<property name="url" value="${url}"></property>
+		<property name="username" value="${username}"></property>
+		<property name="password" value="${password}"></property>
+		<property name="maxTotal" value="80"></property>
+		<property name="maxIdle" value="20"></property>
+	</bean>
+	
+	<bean id="sqlsessionfactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dbcpds"></property>
+		<property name="configLocation" value="classpath:mybatisconfig.xml"></property>
+	</bean>
+	
+	<bean id="sqlsessiontemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlsessionfactory"></constructor-arg>
+	</bean>
+	
+	<bean id="bicyclehiredao" class="com.aowin.bicycle.hire.dao.BicycleHireDaoImpl"></bean>
+	<bean id="bicyclemaintenancedao" class="com.aowin.bicycle.maintenance.dao.BicycleMaintenanceDaoImpl"></bean>
+	<bean id="businessmaintenancedao" class="com.aowin.bicycle.maintenance.dao.BusinessMaintenanceDaoImpl"></bean>
+	<bean id="organizationmaintenancedao" class="com.aowin.bicycle.maintenance.dao.OrganizationMaintenanceDaoImpl"></bean>
+	<bean id="purchasedao" class="com.aowin.bicycle.purchase.dao.PurchaseDaoImpl"></bean>
+	<bean id="bicyclerepairdao" class="com.aowin.bicycle.repair.dao.BicycleRepairDaoImpl"></bean>
+	<bean id="bicycledeploydao" class="com.aowin.bicycle.schedule.dao.BicycleDeployDaoImpl"></bean>
+	
+	
+	<bean id="transactionmanager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		
+		<property name="dataSource" ref="dbcpds"></property>
+	</bean>
+	
+	
+	<tx:annotation-driven transaction-manager="transactionmanager" proxy-target-class="true"/>
+	
+	
+					
+</beans>

@@ -1,0 +1,9 @@
+package com.fuckaowin.sms.operator.controller;
+
+public class LoginController {
+
+	public LoginController() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,69 @@
+package com.aowin.manager.serv;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.aowin.dao.AccountUserDao;
+import com.aowin.manager.model.AccountMessage;
+import com.aowin.manager.model.Page;
+
+public class MaQueryAccount extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String account=request.getParameter("userAccount");
+		String name=request.getParameter("accountName");
+		/*String stdatetime=request.getParameter("stdatetime");
+		String eddatetime=request.getParameter("eddatetime");*/
+		String[] status=request.getParameterValues("y");
+		String[] auths=request.getParameterValues("auth");
+		StringBuffer sb=new StringBuffer();
+		if(!"".equals(account)) {
+			sb.append(" and scmuser.account like '%"+account+"%'");
+		}
+		if(!"".equals(name)) {
+			sb.append(" and name like '%"+name+"%'");
+		}
+		/*if(!"".equals(stdatetime)) {
+			sb.append(" and createdate >'"+stdatetime+"'");
+		}
+		if(!"".equals(eddatetime)) {
+			sb.append(" and createdate <'"+eddatetime+"'");
+		}*/
+		if(status!=null) {
+			sb.append(" and (");
+			for(int i=0;i<status.length;i++) {
+				sb.append(" status="+status[i]);
+				if(i<status.length-1) {
+					sb.append(" or ");
+				}
+			}
+			sb.append(")");
+		}
+		
+		if(auths!=null) {System.out.println("Ö´ÐÐ");
+			sb.append(" and (");
+			for(int i=0;i<auths.length;i++) {
+				sb.append(" usermodel.modelcode="+auths[i]);
+				if(i<auths.length-1) {
+					sb.append(" or ");
+				}
+			}
+			sb.append(")");
+		}
+		String str=new String(sb);
+		System.out.println("str="+str);
+		ArrayList<AccountMessage> amList=AccountUserDao.getAccountSingleSql(str);
+		request.setAttribute("amList", amList);
+		request.getRequestDispatcher("pmanage/th2.jsp").forward(request, response);
+	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
+	}
+}

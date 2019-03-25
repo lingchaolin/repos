@@ -1,0 +1,50 @@
+package com.aowin.stuff.lisnter;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JOptionPane;
+
+import com.aowin.stuff.dao.PersonDao;
+import com.aowin.stuff.view.HomePage;
+import com.aowin.stuff.view.LoginScreen;
+
+public class LoginListener implements ActionListener {
+	private LoginScreen ls;
+	public LoginListener(LoginScreen ls) {
+		this.ls=ls;
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		ls.getLabel().setText("");
+		char[]arr=ls.getPwd().getPassword();
+		String pwd=new String(arr);
+		if("登录".equals(e.getActionCommand())){
+			if(ls.getTxtName().getText().equals("")||ls.getTxtName().getText()==null) {
+				JOptionPane.showMessageDialog(null, "用户名不能为空","消息框",JOptionPane.WARNING_MESSAGE);
+			}else  if("".equals(pwd)||pwd==null) {
+				JOptionPane.showMessageDialog(null, "密码不能为空","消息框",JOptionPane.WARNING_MESSAGE);
+			}else {
+				String name=ls.getTxtName().getText();
+				String password=new PersonDao().getPwd(name);
+				if(password==null||!pwd.equals(password)) {
+					ls.getLabel().setText("密码错误，请重新输入");
+				}else{
+//				叫出主界面
+					System.out.println("调用HomePage方法");
+					HomePage hp=new HomePage("admin");
+					try {
+						Thread.sleep(400);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					ls.getFrame().dispose();
+				}
+			}
+		}else if("游客登录".equals(e.getActionCommand())){
+			HomePage hp=new HomePage("游客模式");
+			ls.getFrame().dispose();
+		}
+	}
+}

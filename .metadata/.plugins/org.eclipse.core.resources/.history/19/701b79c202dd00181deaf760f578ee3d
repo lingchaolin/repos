@@ -1,0 +1,36 @@
+package com.aowin.review;
+
+public class Student {
+
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
+	public static void main(String[] args) {
+/*		Integer t1=12,t2=12;
+		System.out.println(t1==t2);
+		Integer t3=1000,t4=1000;
+		System.out.println(t3==t4);
+		Integer t5=127,t6=127;
+		System.out.println(t5==t6);
+		Integer t7=128,t8=128;
+		System.out.println(t7==t8);*/
+/*		System.out.println(0b10);//2
+		System.out.println(010);//8
+		System.out.println(0x1099);//16
+*/		
+//		System.out.println("结果："+10+5);//105	拼接
+//		System.out.println("结果："+10-5);//报错
+//		System.out.println("结果："+10*5);//50		运算
+//		System.out.println("结果："+10/5);//2			运算
+//		System.out.println("结果："+10%5);//0		运算
+		test:
+		for(int i=0;i<10;i++) {
+			for(int j=0;j<10;j++) {
+				if(j==7) {
+					System.out.println("j==7,结束");
+					break test;
+				}
+			}
+		}
+	}
+}

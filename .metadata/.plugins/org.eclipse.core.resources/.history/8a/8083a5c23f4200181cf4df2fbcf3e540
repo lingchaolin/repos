@@ -1,0 +1,30 @@
+package forIO;
+
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Scanner;
+
+/**
+ * 三个常量
+ * System.in
+ * System.out
+ * System.err
+ * @author Administrator
+ *
+ */
+public class SystemIO {
+	public static void main(String[]args) throws IOException{
+		System.out.println("awda");
+		System.out.println("awdaw");
+		
+		
+		InputStream is;
+		is=new BufferedInputStream(
+				new FileInputStream("D:/Class/work/Test/IoOUT.java"));
+		Scanner scan=new Scanner(is);
+		System.out.println(scan.nextLine());
+	}
+}

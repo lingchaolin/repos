@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="401" key="DIALOG_X_ORIGIN"/>
+		<item value="314" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="selectAppraise" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="selectAppraise"/>
+			<item value="selectUser"/>
+			<item value="ref"/>
+			<item value="refundUnion"/>
+			<item value="refund"/>
+			<item value="appraiseMapper"/>
+			<item value="interceptorNames"/>
+			<item value="Transactional"/>
+			<item value="aowin"/>
+			<item value="concat"/>
+			<item value="newNode"/>
+			<item value="[]"/>
+			<item value="loadFactor"/>
+			<item value="hashcode"/>
+			<item value="code"/>
+		</list>
+		<list key="replacehistory">
+			<item value="smsystem"/>
+			<item value="org.springframework.version"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="573" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="460" key="DIALOG_HEIGHT"/>
+		<item value="9" key="DIALOG_X_ORIGIN"/>
+		<item value="288" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

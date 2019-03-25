@@ -1,0 +1,27 @@
+package forIO;
+/**
+ * 装饰设计模式--改装
+ * @author Administrator
+ *类与类的关系
+ *1.依赖
+ *2.关联：属性
+ *	聚合：
+ *	组合：
+ *3.继承
+ *4.实现
+ */
+/**
+ * 不能将父目录拷贝到子目录中
+ * 	if(dest.getAbsolutePath().contains(src.getAbsolutePath()){
+ * 	System.out.println("不能将父目录拷贝到子目录中");
+ *  return ;
+ * 	}
+ * 解决超长文件夹删除
+ * @author Administrator
+ *
+ */
+public class IO008 {
+	public static void main(String[]args){
+		
+	}
+}

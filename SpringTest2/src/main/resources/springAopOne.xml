@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+							http://www.springframework.org/schema/beans/spring-beans.xsd">
+		<!--声明实现类 -->
+		<bean id="testDaoImpl" class="com.aowin.aop.TestDaoImpl"></bean>
+		<!--声明通知类  -->
+		<bean id="infoBeforeAdvice" class="com.aowin.advice.InfoBeforeAdvice"></bean>
+		<!--声明代理  -->
+		<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+			<!--配置通知类  -->
+			<property name="interceptorNames">
+				<list>
+					<value>infoBeforeAdvice</value>
+				</list>
+			</property>
+			<!--配置通知对象  -->
+			<property name="target" ref="testDaoImpl"></property>
+			<!--代理接口  -->
+			<property name="proxyInterfaces">
+				<list>
+					<value>com.aowin.aop.TestDao</value>
+				</list>
+			</property>
+		</bean>
+</beans>

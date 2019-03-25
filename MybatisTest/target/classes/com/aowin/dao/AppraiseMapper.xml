@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aowin.dao.AppraiseMapper">
+	<resultType type="com.aowin.model.Appraise" id="BaseResultMap">
+	 	<id column="appraise_id" property="appraiseId"/>
+	 	<result column="order_no" property="orderNo"/>
+	 	<result column="obj_id" property="objId"/>
+	 	<result column="is_have_pic" property="isHavePic"/>
+	 	<result column="user_id" property="userId"/>
+	 	<result column="star_class" property="starClass"/>
+	 	<result column="is_reply" property="isReply"/>
+	 </resultType>
+	 
+ 	<sql id="basesql">
+		appraise_id,order_no,obj_id,is_have_pic,user_id,star_class,is_reply
+	</sql>
+	<insert id="insertAppraise" parameterType="com.aowin.model.Appraise">
+		insert into 
+			appraise
+		(appraise_id,order_no,obj_id,is_have_pic,user_id,star_class,is_reply)
+		values
+		(#{appraiseId},#{orderNo},#{objId},#{isHavePic},#{userId},#{starClass},#{isReply})
+	</insert>
+		<insert id="insertAppraiseMap" parameterType="HashMap">
+		insert into 
+			appraise
+		(appraise_id,order_no,obj_id,is_have_pic,user_id,star_class,is_reply)
+		values
+		(#{appraiseId},#{orderNo},#{objId},#{isHavePic},#{userId},#{starClass},#{isReply})
+	</insert>
+	<select id="selectAppraise" parameterType="int" resultType="BaseResultMap">
+		select appraise_id,order_no,obj_id,is_have_pic,user_id,star_class,is_reply
+		from appraise
+		<!-- where appraise_id>#{appraiseId} -->
+	</select>
+</mapper>

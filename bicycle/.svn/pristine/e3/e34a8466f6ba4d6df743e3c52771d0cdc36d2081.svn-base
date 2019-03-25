@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.BicycleInfoMapper">
+
+    <!--<select id="showBicycleStation" resultType="model.Bicycle_station">-->
+        <!--select-->
+        <!--STATION_ID stationId,STATION_CODE stationCode,STATION_NAME stationName,longitude,latitude-->
+         <!--,BICYCLE_PILE_NUM bicyclePileNum,address,PERSON_IN_CHARGE personInCharge,BUILD_TIME buildTime,RUN_TIME runTime-->
+         <!--,USER_ID userId,CREATE_TIME createTime,remark-->
+         <!--from bicycle_station-->
+    <!--</select>-->
+    
+    <select id="selectBicycleByCard" parameterType="java.lang.String" resultType="model.BicycleInfo">
+        select * from bicycle_info where card_id = #{cardId}
+    </select>
+
+    <update id="bicycleRented">
+        update bicycle_info set
+            status=2,pile_id=null,card_id=#{cardId}
+        where
+            bicycle_id=#{bicycleId}
+    </update>
+    <select id="selectPileIdBicycle"  resultType="model.BicycleInfo">
+    select bicycle_id bicycleId,bicycle_code bicycleCode, decode(status, 4,'普通调出') status,pile_id pileId,
+    destory_date destoryDate,user_id userId,operator_time operatorTime,
+    card_id cardId,remark from bicycle_info where status=4
+    </select>
+    
+     <update id="bicycleReturned">
+        update bicycle_info set
+            status=3,pile_id=#{pileId},card_id=null
+        where
+            bicycle_id=#{bicycleId}
+    </update>
+
+    <select id="allBicycleInfo" resultType="model.BicycleInfo">
+        select bicycle_id bicycleId,bicycle_code bicycleCode,status,pile_id pileId
+            ,destory_Date destroyDate,user_id userId,operator_time operatorTime,card_id cardId,remark
+            from bicycle_info
+            <where>
+                <if test="bicycleId != null and bicycleId != ''">
+                    and bicycle_id like '%'||#{bicycleId}||'%'
+                </if>
+            </where>
+    </select>
+</mapper>

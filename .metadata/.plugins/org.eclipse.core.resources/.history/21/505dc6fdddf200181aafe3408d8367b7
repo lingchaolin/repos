@@ -1,0 +1,15 @@
+package com.aowin.javabasic;
+
+
+public class CopyPic {
+
+	public static void main(String[] args) {
+		
+	}
+}
+
+interface Lam{
+	public static void name() {
+		
+	}
+}

@@ -1,0 +1,11 @@
+package Run;
+
+import com.aowin.stuff.view.LoginScreen;
+public class Run {
+	public static void main(String[] args) {
+//		µÇÂ¼½çÃæ
+		LoginScreen mone=new LoginScreen();
+	
+	}
+
+}

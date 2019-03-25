@@ -1,0 +1,9 @@
+package com.aowin.aadprototype;
+
+import java.util.Date;
+//Cloneable--空接口，标记接口
+public class Sheep implements Cloneable{
+	private String name;
+	private Date birthday;
+	
+}

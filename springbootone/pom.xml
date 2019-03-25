@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.fight.springbootone</groupId>
+  <artifactId>springbootone</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  
+  <!-- 父级依赖    整合第三方常用框架的依赖信息-->
+  <parent>
+  	<groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.4.1.RELEASE</version>
+  </parent>
+  
+  <!-- spring web 依赖 -->
+  <!--spring-boot-starter-web  整合web组件      实现原理：Maven依赖继承关系
+  相当于第三方常用maven依赖信息，在parent项目中已经封装好了  
+  springboot中快速开发原理：maven父子依赖关系，springboot对常用依赖封装
+  -->
+  <dependencies>
+  	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+  </dependencies>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<configuration>
+  				<source>1.8</source>
+  				<target>1.8</target>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
+   
+  
+</project>

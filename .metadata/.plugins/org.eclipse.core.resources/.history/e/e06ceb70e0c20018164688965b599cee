@@ -1,0 +1,9 @@
+package com.aowin.util;
+
+public class Dbutil {
+
+	public Dbutil() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

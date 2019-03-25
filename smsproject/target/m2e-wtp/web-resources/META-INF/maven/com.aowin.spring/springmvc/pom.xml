@@ -1,0 +1,149 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.aowin.spring</groupId>
+  <artifactId>springmvc</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>springmvc Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  
+  <!--统一spring版本号  -->
+  <properties>
+  	<org.springframework.ersion>4.3.16.RELEASE</org.springframework.ersion>
+  </properties>
+  <dependencies>
+ <!--    https://mvnrepository.com/artifact/org.springframework/spring-context -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>${org.springframework.ersion}</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-core
+ --><dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>${org.springframework.ersion}</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-web
+ --><dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-web</artifactId>
+    <version>${org.springframework.ersion}</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc
+ --><dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>${org.springframework.ersion}</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop
+ --><dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-aop</artifactId>
+    <version>${org.springframework.ersion}</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects
+ --><dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-aspects</artifactId>
+    <version>${org.springframework.ersion}</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans
+ --><dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-beans</artifactId>
+    <version>${org.springframework.ersion}</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc
+ --><dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>${org.springframework.ersion}</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx
+ --><dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-tx</artifactId>
+    <version>${org.springframework.ersion}</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis
+ --><dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis</artifactId>
+    <version>3.4.6</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring
+ --><dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis-spring</artifactId>
+    <version>1.3.2</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java
+ --><dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>5.1.10</version>
+</dependency>
+<!-- 数据库连接池
+https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-dbcp2</artifactId>
+    <version>2.1.1</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.11.1</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-web</artifactId>
+    <version>2.11.1</version>
+</dependency>
+    
+    
+    
+    
+<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+<dependency>
+    <groupId>org.hibernate.validator</groupId>
+    <artifactId>hibernate-validator</artifactId>
+    <version>6.0.12.Final</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp -->
+<dependency>
+    <groupId>org.apache.tiles</groupId>
+    <artifactId>tiles-jsp</artifactId>
+    <version>3.0.8</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-core -->
+<dependency>
+    <groupId>org.apache.tiles</groupId>
+    <artifactId>tiles-core</artifactId>
+    <version>3.0.8</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-el -->
+<dependency>
+    <groupId>org.apache.tiles</groupId>
+    <artifactId>tiles-el</artifactId>
+    <version>3.0.8</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+<dependency>
+    <groupId>jstl</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+  </dependencies>
+  <build>
+    <finalName>springmvc</finalName>
+  </build>
+</project>

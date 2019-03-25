@@ -1,0 +1,9 @@
+package forIO;
+/**
+ * 关闭流的方法
+ * @author Administrator
+ *
+ */
+public class FileUtil {
+
+}

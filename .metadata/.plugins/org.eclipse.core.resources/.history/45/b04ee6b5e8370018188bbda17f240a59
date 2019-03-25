@@ -1,0 +1,92 @@
+package Game;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+//
+//public class MyFrame  extends JFrame{
+//	public void launchFrame(){
+//		setSize(500 ,500);
+//		setLocation(100, 100);
+//		setVisible(true);
+//		
+////		new PaintThread().start();  //启动重画线程
+////		
+////		addWindowListener(new WindowAdapter() {
+////			@Override
+////			public void windowClosing(WindowEvent e) {
+////				System.exit(0);
+////			}
+////		});
+//	}
+//}
+//	/**
+//	 * 定义一个重画窗口的线程类，是一个内部类
+//	 * @author dell
+//	 *
+//	 */
+//	class PaintThread extends Thread {
+//		
+//		public void run(){
+//			while(true){
+//				repaint();
+//				try {
+//					Thread.sleep(40); //1s = 1000ms
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}   
+//			}
+//		}
+//	}
+
+import java.awt.Frame;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+
+public class MyFrame  extends JFrame {
+	
+	/**
+	 * 加载窗口
+	 */
+	public static void main(String[]args){
+		MyFrame game=new MyFrame();
+		game.launchFrame();
+	}
+	public void launchFrame(){
+		setSize(800, 500);
+		setLocation(0, 0);
+		setVisible(true);
+		
+		new PaintThread().start();  //启动重画线程
+//		new PaintThread().start();
+//		addWindowListener(new WindowAdapter() {//???????
+//			public void windowClosing(WindowEvent e) {
+//				System.exit(0);
+//			}
+//		});
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+	/**
+	 * 定义一个重画窗口的线程类，是一个内部类
+	 * @author dell
+	 *
+	 */
+	class  PaintThread extends Thread {
+		public void run(){
+			while(true){
+//				System.out.println("Test");
+				repaint();
+				try {
+					Thread.sleep(40);//间隔40ms
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+}

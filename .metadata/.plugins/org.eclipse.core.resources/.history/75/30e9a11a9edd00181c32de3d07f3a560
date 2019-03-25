@@ -1,0 +1,17 @@
+package com.aowin.review;
+
+public class Student {
+
+	public Student() {
+		System.out.println("无参构造器");
+	}
+	public Student(int num) {
+		System.out.println("构造器 int:"+num);
+	}
+	public Student(int num,String str) {
+		System.out.println("构造器 int:"+num+"str:"+str);
+	}
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.CardRecordMapper">
+
+
+
+    <insert id="addCardRecord" parameterType="model.Card_record">
+        <selectKey keyProperty="recordId" resultType="int" order="BEFORE">
+            select MAP_ID.nextval recordId from dual
+        </selectKey>
+        insert into card_record (record_id,card_id,fee_type,chg_monthly_money,chg_wallet_money,chg_frozen_money,create_time,user_id,remark,zxbj)
+         values (#{recordId},#{cardId,jdbcType=VARCHAR},#{feeType},#{chgMonthlyMoney,jdbcType=NUMERIC},#{chgWalletMoney,jdbcType=NUMERIC},#{chgFrozenMoney,jdbcType=NUMERIC},#{createTime}
+        ,#{userId,jdbcType=INTEGER},#{remark,jdbcType=VARCHAR},#{zxbj,jdbcType=INTEGER})
+    </insert>
+
+    <select id="selectDate" parameterType="model.Time" resultType="model.Card_record">
+   select record_id,card_id,fee_type,chg_monthly_money,chg_wallet_money,chg_frozen_money,create_time,user_id,remark,zxbj  
+   from card_record where create_time>=#{startTime} and #{endTime}>create_time
+    
+    </select>
+</mapper>

@@ -1,0 +1,26 @@
+package com.aowin.javabasic;
+
+
+public class CopyPic {
+
+	public static void main(String[] args) {
+		Lam lam1=new Lam() {
+			@Override
+			public void getMsg(nt a,String str) {
+				System.out.println(a+":"+b);
+			}
+		};
+		Lam lam2=(a,b)->{System.out.println(a+":"+b);};
+		lam2.
+	}
+}
+
+interface Lam{
+	public abstract void getMsg(int a,String str);
+}
+class LamTest implements Lam{
+	@Override
+	public void getMsg(nt a,String str) {
+		
+	}
+}

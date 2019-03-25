@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC 
+		"-//mybatis.org//DTD Config 3.4//EN"
+		"http://www.mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	<typeAliases>
+		<!-- <typeAlias type="com.aowin.sem.account.pojo.Scmuser" alias="Scmuser"/> -->
+	</typeAliases>
+	<mappers>
+		<!-- <mapper resource="com/aowin/sem/account/pojo/Scmuser.xml"/> -->
+	</mappers>
+</configuration>

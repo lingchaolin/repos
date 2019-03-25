@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC 
+		"-//mybatis.org//DTD Config 3.4//EN"
+		"http://www.mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+<!--别名  -->
+	<typeAliases>
+		<typeAlias type="com.aowin.smsproject.charge.pojo.Charges" alias="Charges"/>
+		<typeAlias type="com.aowin.smsproject.charge.pojo.Functions" alias="Functions"/>
+		<typeAlias type="com.aowin.smsproject.charge.pojo.Rules" alias="Rules"/>
+		<typeAlias type="com.aowin.smsproject.openaccount.pojo.Accounts" alias="Accounts"/>
+		<typeAlias type="com.aowin.smsproject.openaccount.pojo.Customers" alias="Customers"/>
+		<typeAlias type="com.aowin.smsproject.openaccount.pojo.Users" alias="Users"/>
+		<typeAlias type="com.aowin.smsproject.operator.pojo.Operators" alias="Operators"/>
+		<typeAlias type="com.aowin.smsproject.resource.pojo.Resource" alias="Resource"/>
+	</typeAliases>
+	<!--映射文件  -->
+	<mappers>
+		<mapper resource="com/aowin/smsproject/charge/pojo/Charges.xml"/>
+		<mapper resource="com/aowin/smsproject/charge/pojo/Functions.xml"/>
+		<mapper resource="com/aowin/smsproject/charge/pojo/Rules.xml"/>
+		<mapper resource="com/aowin/smsproject/openaccount/pojo/Accounts.xml"/>
+		<mapper resource="com/aowin/smsproject/openaccount/pojo/Customers.xml"/>
+		<mapper resource="com/aowin/smsproject/openaccount/pojo/Users.xml"/>
+		<mapper resource="com/aowin/smsproject/operator/pojo/Operators.xml"/>
+		<mapper resource="com/aowin/smsproject/resource/pojo/Resource.xml"/>
+	</mappers>
+</configuration>

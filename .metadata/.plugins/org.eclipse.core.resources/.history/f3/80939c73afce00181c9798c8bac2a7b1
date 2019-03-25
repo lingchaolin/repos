@@ -1,0 +1,16 @@
+package com.aowin.review.rtti;
+
+public class Demo2 {
+	public  static void write() {
+		System.out.println("类的静态方法");
+		
+	}
+	public Demo2() {
+		System.out.println("类构造器");
+	}
+	public static void main(String[] args) {
+//		System.out.println("main方法");
+		String string="asfsdf";
+		System.out.println(string .value);
+	}
+}

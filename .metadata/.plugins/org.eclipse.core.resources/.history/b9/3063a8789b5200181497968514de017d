@@ -1,0 +1,15 @@
+package hw17;
+/**
+ * 1、写一个至少3层结构的XML，要求能够用DOM创建一个xml文档模型，
+ * 并且写入到文件config.xml中去。
+ * @author Administrator
+ *
+ */
+public class One {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

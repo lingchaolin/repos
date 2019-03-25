@@ -1,0 +1,18 @@
+package forIO;
+
+import java.io.PrintStream;
+
+/**
+ * printStream
+ * ´òÓ¡Á÷
+ * @author Administrator
+ *
+ */
+public class IO006 {
+	public static void main(String[]args){
+		System.out.println("test");
+		PrintStream ps=System.out;
+		ps.println("awe");
+		
+	}
+}

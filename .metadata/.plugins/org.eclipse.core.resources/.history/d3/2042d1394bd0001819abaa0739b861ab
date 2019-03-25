@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC 
+		"-//mybatis.org//DTD Config 3.4//EN"
+		"http://www.mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+<!--别名  -->
+<!--出现该原因，是在配置mybatis构造函数的顺序出现了问题，从而找不到对应的构造函数，检查构造函数的顺序即可。
+	完成该类后再试试看看   结果 成功
+	ps:报错   注释中不允许出现字符串 "--"。
+  -->
+	<typeAliases>
+		<typeAlias type="com.fuckaowin.sms.operator.pojo.Operators" alias="Operators"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="com/fuckaowin/sms/operator/pojo/Operators.xml"/>
+	</mappers>
+</configuration>

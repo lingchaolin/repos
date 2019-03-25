@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="script/common.js" ></script>
+</head>
+<body>
+    <input type="text" name="mydate" readonly="readonly">
+     <span class="requred_symbol">*</span>
+        <a href="javascript:void(0)" onClick="gfPop.fPopCalendar(document.all.mydate);return false;">
+        <img name="popcal"  src="images/selectDate.gif" width="15" height="12" border="0" alt=""></a>
+    
+    
+    <iframe width=174 height=189 name="gToday:normal:agenda.js" id="gToday:normal:agenda.js" src="common/calendar/ipopeng.htm" scrolling="no" frameborder="0" style="visibility:visible; z-index:999; position:absolute; left:-500px; top:0px;"></iframe>
+</body>
+</html>

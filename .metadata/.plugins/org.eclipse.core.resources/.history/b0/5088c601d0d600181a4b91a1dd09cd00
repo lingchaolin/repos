@@ -1,0 +1,30 @@
+package com.aowin.classLoadSort;
+
+public class Demo {
+
+	public Demo() {
+		// TODO Auto-generated constructor stub
+	}
+	public static void main(String[] args) {
+		System.out.println("调用main()方法");
+	}
+
+}
+class LoadSort {
+	static {
+		System.out.println("这是静态块");
+	}
+	{
+		System.out.println("这是普通块");
+	}
+	public static void method() {
+		System.out.println("这是一个静态方法");
+	}
+	public  void method2() {
+		System.out.println("这是一个普通方法");
+	}
+	public LoadSort() {
+		System.out.println("这是一个无参构造器！");
+	}
+	
+}

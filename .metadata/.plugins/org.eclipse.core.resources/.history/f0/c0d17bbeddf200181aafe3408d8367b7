@@ -1,0 +1,66 @@
+package com.aowin.javabasic;
+
+
+public class CopyPic {
+	//不适用不编译  静态内部类
+	static class LamdaTest implements Runnable{
+		@Override
+		public void run() {
+			for(int i=0;i<100;i++) {
+				System.out.println("i="+i);
+			}
+		}
+	}
+	public static void main(String[] args) throws Exception {
+//		new Thread(new LamdaTest2()).start();
+		//局部内部类
+		class LamdaTest2 implements Runnable{
+			@Override
+			public void run() {
+				for(int i=0;i<10;i++) {
+					System.out.println("i="+i);
+				}
+			}
+		}
+		new Thread(new LamdaTest2()).start();
+		
+		//匿名内部类  借助接口或父类
+		new Thread(new Runnable(){
+			@Override
+			public void run() {
+				for(int i=0;i<10;i++) {
+					System.out.println("j="+i);
+				}
+			}
+		}).start();
+		
+		//JDK8Run方法简化 Lamda
+		new Thread(()->{
+				for(int i=0;i<10;i++) {
+					System.out.println("k="+i);
+				}
+		}).start();;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		new Thread(()->{System.out.println("Lamda表达式");}).start();
+	}
+}
+
+

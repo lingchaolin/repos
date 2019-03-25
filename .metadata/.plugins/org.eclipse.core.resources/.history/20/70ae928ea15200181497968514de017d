@@ -1,0 +1,30 @@
+package hw17;
+
+import java.io.File;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+
+/**
+ * 2、能够用DOM对给定的xml文档进行解析，
+ * 如根据config.xml完善jdbc中dbconnection中数据库、用户名、密码的值，
+ * 使其具有通用性。
+ * @author Administrator
+ *
+ */
+public class Two {
+
+	public static void main(String[] args) {
+		
+	}
+	public static void read(File file) throws Exception {
+		DocumentBuilder builder=DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		Document doc=builder.parse(file);
+		
+	
+	
+	}
+}

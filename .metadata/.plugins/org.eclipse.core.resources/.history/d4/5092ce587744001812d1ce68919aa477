@@ -1,0 +1,54 @@
+package homeWork6;
+
+public class HW603{
+/**
+3、创建一个代表商品基本信息的类，具有商品ID、商品名称、
+价格等属性，设计一个带有参数的构造函数，对这些属性进行初始化，
+然后提供一个可以找到最便宜的商品的方法
+
+*/
+	public static void main(String[]args){
+		Merchandise shop=new Merchandise();
+		Merchandise mer=shop.findCheap();
+		System.out.println("查找最便宜的商品-ID:"+mer.ID+",name:"+mer.name+",price:"+mer.price);
+		
+	}
+	
+}
+class Merchandise{
+	String ID;
+	String name;
+	double price;
+	Merchandise mers[];
+	public Merchandise() {
+		mers=new Merchandise[10];
+		mers[0]=new Merchandise("001","手枪",100);
+		mers[1]=new Merchandise("002","砍刀",150);
+		mers[2]=new Merchandise("003","飞剑",1000);
+		mers[3]=new Merchandise("004","弓箭",50);
+		mers[4]=new Merchandise("005","魔杖",1020);
+		mers[5]=new Merchandise("006","水晶球",60);
+		mers[6]=new Merchandise("007","坦克",166);
+		mers[7]=new Merchandise("008","反坦克导弹",40);
+		mers[8]=new Merchandise("009","轰炸机",666);
+		mers[9]=new Merchandise("010","挖掘机",888);
+	}
+	public Merchandise(String ID,String name,double price){
+		this.ID=ID;
+		this.name=name;
+		this.price=price;
+	}
+	public Merchandise findCheap(){
+		Merchandise min=mers[0];
+		int idx=0;
+		Merchandise temp=null;
+		for(int i=1;i<10;i++){
+			if(min.price>mers[i].price){
+				temp=mers[i];
+				mers[i]=min;
+				min=temp;
+			}
+		}
+		return min;
+	}
+}

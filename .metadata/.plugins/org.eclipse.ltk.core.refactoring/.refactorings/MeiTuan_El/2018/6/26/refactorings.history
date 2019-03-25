@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 4 packages to &apos;SCM/src&apos;&#x0D;&#x0A;- Original project: &apos;MeiTuan_El&apos;&#x0D;&#x0A;- Destination element: &apos;SCM/src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     MeiTuan_El/src/com.aowin.serv&#x0D;&#x0A;     MeiTuan_El/src/com.aowin.util&#x0D;&#x0A;     MeiTuan_El/src/com.aowin.model&#x0D;&#x0A;     MeiTuan_El/src/com.aowin.dao" description="Copy packages" destination="=SCM/src" element1="/src&lt;com.aowin.serv" element2="/src&lt;com.aowin.util" element3="/src&lt;com.aowin.model" element4="/src&lt;com.aowin.dao" flags="589830" fragments="4" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1530105394782" version="1.0"/>
+</session>

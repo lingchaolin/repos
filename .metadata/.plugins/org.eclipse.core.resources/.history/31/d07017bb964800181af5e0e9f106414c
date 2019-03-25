@@ -1,0 +1,10 @@
+package com.aowin.aadprototype;
+
+public class Client04 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

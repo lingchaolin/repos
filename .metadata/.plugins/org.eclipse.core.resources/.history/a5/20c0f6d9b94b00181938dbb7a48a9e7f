@@ -1,0 +1,12 @@
+package Castle;
+
+/**心慌方？
+ * 每个房间都有几个出口，玩家可以通过go命令取与这个房间相连的其他房间
+ * 房间有一些物品，玩家可以使用；
+ * 每个房间有自己的描述
+ * @author Administrator
+ *
+ */
+public class WordCastle {
+
+}

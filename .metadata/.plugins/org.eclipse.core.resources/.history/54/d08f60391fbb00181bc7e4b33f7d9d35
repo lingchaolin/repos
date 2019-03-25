@@ -1,0 +1,13 @@
+package com.aowin.review.rtti;
+
+public class Demo {
+
+	public Demo() {
+		// TODO Auto-generated constructor stub
+	}
+	public static void main(String[] args) {
+		String string=null;//输出内容为"null"
+//		String string;//编译异常
+		System.out.println(string);
+	}
+}

@@ -1,0 +1,10 @@
+package forTest;
+
+public class Test01 {
+	public static void main(String[]args){
+		System.out.println("class No.1{");
+		System.out.println("/**");
+		System.out.println("*/");
+		System.out.println("}");
+	}
+}

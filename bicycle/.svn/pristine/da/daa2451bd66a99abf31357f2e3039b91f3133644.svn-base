@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.Bicycle_stationMapper">
+
+	<select id="selectStation" resultType="model.Bicycle_station">
+		select station_id
+		stationId,
+		station_code stationCode,
+		station_name stationName,
+		longitude,
+		latitude,
+		bicycle_pile_num bicyclePileNum,
+		address,
+		person_in_charge personInCharge,
+		build_time buildTime,
+		run_time runTime,
+		user_id userId,
+		create_time createTime,
+		remark from bicycle_station
+	</select>
+	<select id="selectStationByName" resultType="model.Bicycle_station">
+		select 
+			station_id
+			stationId,
+			station_code stationCode,
+			station_name stationName,
+			longitude,
+			latitude,
+			bicycle_pile_num bicyclePileNum,
+			address,
+			person_in_charge personInCharge,
+			build_time buildTime,
+			run_time runTime,
+			user_id userId,
+			create_time createTime,
+			remark 
+		from 
+			bicycle_station 
+			<include refid="queryStation"></include>
+	</select>
+		<sql id="queryStation">
+		<where>
+			<if test="stationName!=null and stationName!=''">
+				and station_name like concat('%',concat(#{stationName},'%'))
+			</if>
+			<if test="address!=null and address!=''">
+				and address like concat('%',concat(#{address},'%'))
+			</if>
+		</where>
+	</sql>
+</mapper>

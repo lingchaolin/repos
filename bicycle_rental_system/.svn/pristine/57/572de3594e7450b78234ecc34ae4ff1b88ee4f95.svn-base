@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC 
+		"-//mybatis.org//DTD Config 3.4//EN"
+		"http://www.mybatis.org/dtd/mybatis-3-config.dtd" >
+		
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.aowin.bicycle.hire.pojo.BicycleDeal" alias="BicycleDeal"/>
+		<typeAlias type="com.aowin.bicycle.hire.pojo.BicycleRecord" alias="BicycleRecord"/>
+		<typeAlias type="com.aowin.bicycle.maintenance.pojo.Authority" alias="Authority"/>
+		<typeAlias type="com.aowin.bicycle.maintenance.pojo.BicycleCatagory" alias="BicycleCatagory"/>
+		<typeAlias type="com.aowin.bicycle.maintenance.pojo.BicyclePile" alias="BicyclePile"/>
+		<typeAlias type="com.aowin.bicycle.maintenance.pojo.BicycleStation" alias="BicycleStation"/>
+		<typeAlias type="com.aowin.bicycle.maintenance.pojo.Card" alias="Card"/>
+		<typeAlias type="com.aowin.bicycle.maintenance.pojo.CardFlowRecord" alias="CardFlowRecord"/>
+		<typeAlias type="com.aowin.bicycle.maintenance.pojo.CardInfoRecord" alias="CardInfoRecord"/>
+		<typeAlias type="com.aowin.bicycle.maintenance.pojo.Permission" alias="Permission"/>
+		<typeAlias type="com.aowin.bicycle.maintenance.pojo.Role" alias="Role"/>
+		<typeAlias type="com.aowin.bicycle.maintenance.pojo.User" alias="User"/>
+		<typeAlias type="com.aowin.bicycle.maintenance.pojo.Vender" alias="Vender"/>
+		<typeAlias type="com.aowin.bicycle.purchase.pojo.BicycleInfo" alias="BicycleInfo"/>
+		<typeAlias type="com.aowin.bicycle.purchase.pojo.BicycleMainOrder" alias="BicycleMainOrder"/>
+		<typeAlias type="com.aowin.bicycle.purchase.pojo.BicycleOrderDetail" alias="BicycleOrderDetail"/>
+		<typeAlias type="com.aowin.bicycle.repair.pojo.BicycleRepairRecord" alias="BicycleRepairRecord"/>
+		<typeAlias type="com.aowin.bicycle.schedule.pojo.BicycleDeploy" alias="BicycleDeploy"/>
+	
+	</typeAliases>
+	
+	<mappers>
+	
+		<mapper resource="com/aowin/bicycle/hire/pojo/BicycleDeal.xml"/>
+		<mapper resource="com/aowin/bicycle/hire/pojo/BicycleRecord.xml"/>
+		<mapper resource="com/aowin/bicycle/maintenance/pojo/Authority.xml"/>
+		<mapper resource="com/aowin/bicycle/maintenance/pojo/BicycleCatagory.xml"/>
+		<mapper resource="com/aowin/bicycle/maintenance/pojo/BicyclePile.xml"/>
+		<mapper resource="com/aowin/bicycle/maintenance/pojo/BicycleStation.xml"/>
+		<mapper resource="com/aowin/bicycle/maintenance/pojo/Card.xml"/>
+		<mapper resource="com/aowin/bicycle/maintenance/pojo/CardFlowRecord.xml"/>
+		<mapper resource="com/aowin/bicycle/maintenance/pojo/CardInfoRecord.xml"/>
+		<mapper resource="com/aowin/bicycle/maintenance/pojo/Permission.xml"/>
+		<mapper resource="com/aowin/bicycle/maintenance/pojo/Role.xml"/>
+		<mapper resource="com/aowin/bicycle/maintenance/pojo/User.xml"/>
+		<mapper resource="com/aowin/bicycle/maintenance/pojo/Vender.xml"/>
+		<mapper resource="com/aowin/bicycle/purchase/pojo/BicycleInfo.xml"/>
+		<mapper resource="com/aowin/bicycle/purchase/pojo/BicycleMainOrder.xml"/>
+		<mapper resource="com/aowin/bicycle/purchase/pojo/BicycleOrderDetail.xml"/>
+		<mapper resource="com/aowin/bicycle/repair/pojo/BicycleRepairRecord.xml"/>
+		<mapper resource="com/aowin/bicycle/schedule/pojo/BicycleDeploy.xml"/>
+		
+		
+	</mappers>
+	
+	
+	
+</configuration>

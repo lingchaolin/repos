@@ -1,0 +1,14 @@
+package com.effort.IOC;
+
+import org.springframework.context.annotation.Bean;
+
+public class ConfigTwo {
+
+	public ConfigTwo() {
+		// TODO Auto-generated constructor stub
+	}
+	@Bean("BigCar")
+	public Car getLittleCar() {
+		return new BigCar();
+	}
+}

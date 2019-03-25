@@ -1,0 +1,61 @@
+package forIO;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+/**
+ * @author Administrator
+ * 处理流：
+ * 1.基本数据类型+String   保留数据+类型
+ * 	输入流：DataInputSStream readXXX;
+ *  输出流：DataOutputStream writeXXX;
+ */
+public class ThirdOperate {
+	public static void main(String []args) throws IOException{
+		write("D:/Class/work/Test/Data.java");
+		read("D:/Class/work/Test/Data.java");
+	}
+	public static void read(String srcPath) throws IOException{
+		double point2;
+		long num2;
+		String str2;
+		
+		File src=new File(srcPath);
+		DataInputStream dis=new DataInputStream(
+				new BufferedInputStream(
+						new FileInputStream(src)));
+		//注意写出的顺序：为读取到的顺序做准备；
+		point2=dis.readDouble();
+		num2=dis.readLong();
+		str2=dis.readUTF();
+		System.out.println(point2);
+		System.out.println(num2);
+		System.out.println(str2);
+		dis.close();
+		
+	}
+	public static void write(String destPath) throws IOException{
+		double point=2.5;
+		long num=100L;
+		String str="数据类型";
+		
+		File dest=new File(destPath);
+		DataOutputStream dos=new DataOutputStream(
+				new BufferedOutputStream(
+						new FileOutputStream(dest)));
+		//注意写出的顺序：为读取到的顺序做准备；
+		dos.writeDouble(point);
+		dos.writeLong(num);
+		dos.writeUTF(str);
+		
+		dos.close();
+		
+	}
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.BicycleStationMapper">
+
+    <select id="showBicycleStation" resultType="model.Bicycle_station">
+        select
+        STATION_ID stationId,STATION_CODE stationCode,STATION_NAME stationName,longitude,latitude
+         ,BICYCLE_PILE_NUM bicyclePileNum,address,PERSON_IN_CHARGE personInCharge,BUILD_TIME buildTime,RUN_TIME runTime
+         ,USER_ID userId,CREATE_TIME createTime,remark
+         from bicycle_station
+    </select>
+
+    <insert id="addBicycleStation" parameterType="model.Bicycle_station">
+        <selectKey keyProperty="stationId" resultType="Integer" order="BEFORE">
+            select SEQ_LOG.nextval stationId from dual
+        </selectKey>
+        insert into bicycle_station values(#{stationId},#{stationCode},#{stationName},#{longitude},#{latitude},#{bicyclePileNum,jdbcType=NUMERIC}
+        ,#{address},#{personInCharge},#{buildTime},#{runTime},#{userId},#{createTime},#{remark})
+    </insert>
+</mapper>

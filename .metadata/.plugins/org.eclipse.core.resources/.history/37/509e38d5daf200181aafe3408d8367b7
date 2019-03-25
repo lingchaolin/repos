@@ -1,0 +1,44 @@
+package com.aowin.javabasic;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+import org.apache.commons.io.FileUtils;
+
+public class CopyPic {
+	public static void main(String[] args) throws Exception {
+		CallThread ct1=new CallThread("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1543394537267&di=d07b6ae366e517085a3b818180febe69&imgtype=0&src=http%3A%2F%2Fupload-images.jianshu.io%2Fupload_images%2F14646071-f302453dd1ee7b65.png", "lib/new.png");
+		CallThread ct2=new CallThread("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1543394538507&di=ac8d6998228af0605e47609c25a7602c&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F3b292df5e0fe99251a10b5753ea85edf8db171f3.jpg", "lib/new2.jpg");
+		ExecutorService ser=Executors.newFixedThreadPool(2);
+		Future f1=ser.submit(ct1);
+		Future f2=ser.submit(ct2);
+		String str1=(String) f1.get();
+		String str2=(String) f2.get();
+		System.out.println(str1);
+		System.out.println(str2);
+		System.out.println("finish");
+	}
+	public static void getPic(String url,String name) throws Exception {
+		FileUtils.copyURLToFile(new URL(url), new File(name));
+	}
+}
+class CallThread implements Callable<String>{
+	String url;
+	String name;
+	public CallThread(String url, String name) {
+		super();
+		this.url = url;
+		this.name = name;
+	}
+	@Override
+	public String call() throws Exception {
+		CopyPic.getPic(url, name);
+		return "Íê³É";
+	}
+}

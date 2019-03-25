@@ -1,0 +1,17 @@
+package forIO;
+/**
+ * 三个常量
+ * System.in
+ * System.out
+ * System.err
+ * @author Administrator
+ *
+ */
+public class SystemIO {
+	public static void main(String[]args){
+		System.out.println("awda");
+		System.out.println("awdaw");
+		System.err.println("ergggg");
+		System.out.println("awdaddd");
+	}
+}

@@ -1,0 +1,58 @@
+package com.aowin.aadprototype;
+
+public class Client04 {
+
+	public static void main(String[] args) throws Exception {
+		testNew(10000);
+		testClone(10000);
+	
+	}
+//	public static void testNew(int size) {
+//		long start=System.currentTimeMillis();
+//		for(int i=0;i<10;i++) {
+//			Laptop t=new Laptop();
+//		}
+//		long end=System.currentTimeMillis();
+//		System.out.println("new耗时:"+(end-start));
+//	}
+//	public static void testClone(int size) throws Exception {
+//		long start=System.currentTimeMillis();
+//		Laptop t=new Laptop();
+//		for(int i=0;i<10;i++) {
+//			Laptop temp=(Laptop) t.clone();
+//		}
+//		long end=System.currentTimeMillis();
+//		System.out.println("clone耗时:"+(end-start));
+//	}
+	public static void testNew(int size) {
+		long start=System.currentTimeMillis();
+		for(int i=0;i<10;i++) {
+			Sheep s=new Sheep();
+		}
+		long end=System.currentTimeMillis();
+		System.out.println("new耗时:"+(end-start));
+	}
+	public static void testClone(int size) throws Exception {
+		long start=System.currentTimeMillis();
+		Sheep t=new Sheep();
+		for(int i=0;i<10;i++) {
+			Sheep temp=(Sheep) t.clone();
+		}
+		long end=System.currentTimeMillis();
+		System.out.println("clone耗时:"+(end-start));
+	}
+}
+class Laptop{
+	public Laptop() {
+		try {
+			Thread.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	protected Object clone() throws CloneNotSupportedException{
+		Object obj=super.clone();//调用了Object的clone方法
+		return obj;
+	}
+}

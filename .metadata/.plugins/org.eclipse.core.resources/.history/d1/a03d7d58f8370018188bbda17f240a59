@@ -1,0 +1,25 @@
+package Game;
+
+import java.awt.Graphics;
+import java.awt.Image;
+
+public class star {
+	Image img=GameUtil.getImage("Picture/Solar.jpg");
+	double x,y;
+	double degree;
+	public void draw(Graphics g){
+		g.drawImage(img, (int)x, (int)y, null);
+	}
+	public star(Image img) {
+		super();
+		this.img = img;
+	}
+	public star(Image img, double x, double y, double degree) {
+		super();
+		this.img = img;
+		this.x = x;
+		this.y = y;
+		this.degree = degree;
+	}
+	
+}

@@ -1,0 +1,9 @@
+package com.fuckaowin.kafka;
+
+public class KafkaConsumer {
+
+	public KafkaConsumer() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

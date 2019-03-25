@@ -1,0 +1,21 @@
+package com.aowin.review.rtti;
+
+public class Demo {
+	static String a1=null;
+	static String a2="";
+	static String a3;
+	String b1=null;
+	String b2="";
+	String b3;
+	public static void main(String[] args) {
+		String c1=null;
+		String c2="";
+		String c3;
+	}
+}
+class NewString{
+//	private final char value[];
+/*	public NewString() {
+		
+	}*/
+}

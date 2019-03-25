@@ -1,0 +1,70 @@
+package forTest;
+
+import java.util.Arrays;
+
+/**
+ * 选择排序
+ * @author Administrator
+ *：对一个长度为 n 的数组进行 n 趟遍历，第一趟遍历选出最大（或者最小）的元素，将之与数组的第
+一个元素交换；然后进行第二趟遍历，再从剩余的元素中选出最大（或者最小）的元素，将
+之与数组的第二个元素交换。这样遍历 n 次后，得到的就为降序（或者升序）数组。
+ 
+ *快速排序
+ */
+public class choiceSort {
+//	public static void main(String[]args){
+//		int arr[]={1,533,23,4545,2,3434,23,432,21,66};
+//	public static void main(String args[ ]){
+//		int [ ]intArray={12,11,45,6,8,43,40,57,3,20};
+//		int keyValue;
+//		int index;
+//		int temp;
+//		System.out.println("排序前的数组:");
+//		for(int i=0;i<intArray.length;i++)
+//			System.out.print(intArray[i]+" ");
+//		
+//		System.out.println();
+//		for(int i=0;i<intArray.length;i++){
+//			index=i;
+//			keyValue=intArray[i];
+//			for(int j=i;j<intArray.length;j++)
+//			if(intArray[j]<keyValue){
+//			index=j;
+//			keyValue=intArray[j];
+//			}
+//			temp=intArray[i];
+//			intArray[i]=intArray[index];
+//			intArray[index]=temp;
+//			}
+//			System.out.println("排序后的数组:");
+//		for(int i=0;i<intArray.length;i++)
+//			System.out.print(intArray[i]+" ");
+//	}
+	public static void main(String[]args){
+		int arr[]={1,533,23,4545,2,3434,23,432,21,66};
+		for(int tmp:arr){
+			System.out.print(tmp+" ");
+		}
+//		for(int i=0;i<10;i++){
+//			for(int j=0;j>i;j++){
+//				
+//			}
+//		}
+		//arr[0]与max置换
+		int temp=0;
+		int index=0;
+		for(int j=0;j<9;j++){
+			if(arr[j]<arr[j+1]){
+				index=j+1;
+			}else{
+				index=j;
+			}
+		}
+		temp=arr[0];
+		arr[0]=arr[index];
+		arr[index]=temp;
+		for(int tmp:arr){
+			System.out.print(temp+" ");
+		}
+	}
+}

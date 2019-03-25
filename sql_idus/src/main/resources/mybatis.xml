@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="jdbc.properties"></properties>
+<!-- 配置分页插件 -->
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<property name="helperDialect" value="mysql"></property>
+		</plugin>
+	</plugins>
+	<!-- 配置数据库的连接环境    default - 默认加载的环境 -->
+	<environments default="development">
+		<!-- 配置环境  id - 给当前环境取一个名字 要求唯一  -->
+		<environment id="development">
+			<!-- transactionManager 设置事务处理器 -->
+			<transactionManager type="JDBC" />
+			<!-- 配置一个数据源对象  type - POOLED 使用数据库连接池-->
+			<dataSource type="POOLED">
+				<!-- 配置属性 -->
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<!-- <mapper resource="com/aowin/dao/TuserMapper.xml" /> -->
+		<mapper class="com.aowin.dao.TuserMapper" />
+	</mappers>
+	
+    
+</configuration>

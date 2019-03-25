@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.aowin.sql&apos; to &apos;com.aowin.bicsql&apos;&#x0D;&#x0A;- Original project: &apos;sqltest&apos;&#x0D;&#x0A;- Original element: &apos;sqltest/src/main/java/com.aowin.sql&apos;&#x0D;&#x0A;- Renamed element: &apos;sqltest/src/main/java/com.aowin.bicsql&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.aowin.sql&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java&lt;com.aowin.sql" name="com.aowin.bicsql" qualified="false" references="true" stamp="1534898405143" textual="false" version="1.0"/>
+</session>

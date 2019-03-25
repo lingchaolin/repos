@@ -1,0 +1,9 @@
+package com.aowin.classLoadSort;
+
+public class NewString {
+
+	public NewString() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

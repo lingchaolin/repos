@@ -1,0 +1,43 @@
+package HomeWork;
+
+import java.util.Scanner;
+
+/**
+ * 计算x+y的值（依次输入数字x、运算符号（如+、-、*、/）、运算数字y，由switch控制进行的运算并得到运算结果）。
+ * @author Administrator
+ *
+ */
+public class HomeWork204 {
+	public static void main(String[]args){
+		double cal;
+		Scanner s=new Scanner(System.in);
+		System.out.println("请输入加数：");
+		double d1=s.nextDouble();
+		System.out.println("请输入运算符号：");
+		String str=s.next();
+		System.out.println("请输入被加数：");
+		double d2=s.nextDouble();
+		switch(str){
+			case"+":
+				cal=d1+d2;
+				break;
+			case"-":
+				cal=d1-d2;
+				break;
+			case"*":
+				cal=d1*d2;
+				break;
+			case"/":
+				cal=d1/d2;
+				break;
+			case"%":
+				cal=d1%d2;
+				break;
+			default:
+				System.out.println("该运算未设置");
+				return ;
+		}
+		System.out.println(d1+str+d2+"="+cal);
+		
+	}
+}

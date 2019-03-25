@@ -1,0 +1,169 @@
+package com.aowin.stuff.view;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.ArrayList;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+
+import com.aowin.stuff.dao.PersonDao;
+import com.aowin.stuff.jdbconnection.JdbcUtil;
+import com.aowin.stuff.lisnter.HomeListemer;
+import com.aowin.stuff.lisnter.mouseListener;
+/**
+ * 表头排序-	int columnAtPoint(Point point) :返回 point 所在的列索引；如果结果不在 [0, getColumnCount()-1] 范围内，则返回 -1。 
+ * 在表格中直接修改、
+ *
+ */
+
+public class HomePage  {
+//	增加……等窗口作为变量
+	SubFrame sub;
+	JFrame frame;
+	JMenuBar bar;
+	JLabel label;
+	DefaultTableModel model;
+	JTable table;
+	public   HomePage() {
+		frame=new JFrame();
+		frame.setTitle("人事管理系统");
+		frame.setSize(700,600);
+		frame.setLocation(300,200);
+//		frame.addMouseListener(new mouseListener(this));
+//		设置容器
+		Container con=frame.getContentPane();
+		con.setLayout(new BorderLayout());
+//		**********************************
+		bar=new JMenuBar();
+		JMenu fileMenu=new JMenu("File");
+		JMenu helpMenu=new JMenu("Help");
+		
+		frame.setJMenuBar(bar);
+		bar.add(fileMenu);
+		bar.add(helpMenu);
+//		bar.setHelpMenu(helpMenu);
+//		菜单项目
+		JMenuItem add=new JMenuItem("增加");
+		JMenuItem delete=new JMenuItem("删除");
+		JMenuItem inquire=new JMenuItem("查询");
+		JMenuItem exit=new JMenuItem("退出");
+		JMenuItem importing=new JMenuItem("导入");
+		JMenuItem outporting=new JMenuItem("导出");
+//		添加快捷键
+		add.setAccelerator(KeyStroke.getKeyStroke('N', java.awt.Event.CTRL_MASK, true)); // 设置加速器
+		delete.setAccelerator(KeyStroke.getKeyStroke('D', java.awt.Event.CTRL_MASK, true)); // 设置加速器
+		inquire.setAccelerator(KeyStroke.getKeyStroke('F', java.awt.Event.CTRL_MASK, true)); // 设置加速器
+		exit.setAccelerator(KeyStroke.getKeyStroke('Q', java.awt.Event.CTRL_MASK, true)); // 设置加速器
+		importing.setAccelerator(KeyStroke.getKeyStroke('I', java.awt.Event.CTRL_MASK, true)); // 设置加速器
+		outporting.setAccelerator(KeyStroke.getKeyStroke('O', java.awt.Event.CTRL_MASK, true)); // 设置加速器
+		
+		
+		
+		add.addActionListener(new HomeListemer(this));
+		delete.addActionListener(new HomeListemer(this));
+		inquire.addActionListener(new HomeListemer(this));
+		exit.addActionListener(new HomeListemer(this));
+		importing.addActionListener(new HomeListemer(this));
+		outporting.addActionListener(new HomeListemer(this));
+		
+		fileMenu.add(add);
+		fileMenu.add(delete);
+		fileMenu.add(inquire);
+		fileMenu.addSeparator();
+		fileMenu.add(exit);
+		fileMenu.add(importing);
+		fileMenu.add(outporting);
+//		添加标题--设置字体
+		label=new JLabel("人事管理系统");
+		Font f=new Font("宋体",Font.PLAIN,30);
+		label.setFont(f);
+		JPanel labelPanel=new JPanel();
+		labelPanel.add(label);
+		con.add(BorderLayout.NORTH,labelPanel);
+//		添加表格
+		String arr[]= {"编号","名字","性别","部门","工资"};
+		model=new DefaultTableModel(arr,0);
+		table=new JTable(model);
+		JScrollPane jspane=new JScrollPane(table);
+		jspane.setPreferredSize(new Dimension(580,440));
+		JPanel tablePanel=new JPanel();
+		tablePanel.add(jspane);
+		con.add(tablePanel);
+		
+		JTableHeader header=table.getTableHeader();
+		header.addMouseListener(new mouseListener(this));
+//		添加按钮
+		JButton buttons[]=new JButton[5];
+		buttons[0]=new JButton("添加");
+		buttons[1]=new JButton("删除");
+		buttons[2]=new JButton("修改");
+		buttons[3]=new JButton("更新");
+		buttons[4]=new JButton("查询");
+		
+		
+//		按钮添加监听器
+		buttons[0].addActionListener(new HomeListemer(this) );
+		buttons[1].addActionListener(new HomeListemer(this) );
+		buttons[2].addActionListener(new HomeListemer(this) );
+		buttons[3].addActionListener(new HomeListemer(this) );
+		buttons[4].addActionListener(new HomeListemer(this) );
+		JPanel panel=new JPanel();
+		panel.add(buttons[0]);
+		panel.add(buttons[1]);
+		panel.add(buttons[2]);
+		panel.add(buttons[3]);
+		panel.add(buttons[4]);
+		con.add(BorderLayout.SOUTH,panel);
+		
+//		sub=new SubFrame(model,table,"");
+		sub=new SubFrame(this);
+//		打开同时更新数据
+		buttons[3].doClick();
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	
+	public void flush(HomePage hp) {
+		hp.getModel().setRowCount(0);
+		String arr[][]=new PersonDao().UpdateInfo("");
+		for(int i=0;i<arr.length;i++) {
+			hp.getModel().addRow(arr[i]);
+		}
+	}
+	public SubFrame getSub() {
+		return sub;
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public JMenuBar getBar() {
+		return bar;
+	}
+
+	public JLabel getLabel() {
+		return label;
+	}
+
+	public DefaultTableModel getModel() {
+		return model;
+	}
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public static void main(String[]args) {
+		HomePage mo2=new HomePage();
+	}
+}

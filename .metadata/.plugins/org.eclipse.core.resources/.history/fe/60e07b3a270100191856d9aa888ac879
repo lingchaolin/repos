@@ -1,0 +1,32 @@
+package httpServer.test;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        File dest=new File("D:/Class/in2.txt");
+        CharIOin(dest);
+        CharIOout(dest);
+  }
+  public static void CharIOin(File file) throws Exception {//字符流读取
+        FileReader fr=new FileReader(file);
+        char arr[]=new char[1024];
+        int len;
+        StringBuilder sb=new StringBuilder();
+        while(-1!=(len=fr.read(arr))) {
+              String Info=new String(arr,0,len);
+              sb.append(Info);
+        }
+        System.out.println(sb);
+        fr.close();
+  }
+  public static void CharIOout(File file) throws IOException {//字符流写出
+        FileWriter fw=new FileWriter(file);
+        fw.write("写出到文件--newTest()");
+        fw.flush();
+        fw.close();
+  }
+}

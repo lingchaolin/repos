@@ -1,0 +1,29 @@
+package httpServer2.one;
+
+import java.util.Date;
+
+public class Response {
+	public static final String CRLF="\r\n";
+	public static final String BLANK=" ";
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	public  void one() {
+		//			响应
+		StringBuilder responseContext=new StringBuilder();
+		responseContext.append("<html><head><title>HTTP响应示例</title>" +
+				"</head><body>Hello bjsxt!</body></html>");
+		StringBuilder response=new StringBuilder();
+		//1)  HTTP协议版本、状态代码、描述
+		response.append("HTTP/1.1").append(BLANK).append("200").append(BLANK).append("OK").append(CRLF);
+		//2)  响应头(Response Head)
+		response.append("Server:bjsxt Server/0.0.1").append(CRLF);
+		response.append("Date:").append(new Date()).append(CRLF);
+		response.append("Content-type:text/html;charset=GBK").append(CRLF);
+		//正文长度 ：字节长度
+		response.append("Content-Length:").append(responseContext.toString().getBytes().length).append(CRLF);
+		//3)正文之前
+		response.append(CRLF);
+	}
+}

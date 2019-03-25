@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.BicycleDeployMapper">
+
+    <insert id="addBicycleDeploy" parameterType="model.BicycleDeploy">
+		<selectKey order="BEFORE" resultType="int" keyProperty="deployId">
+			select nextId.nextval deployId from dual
+		</selectKey>
+		insert into BICYCLE_DEPLOY 
+			(DEPLOY_ID,BICYCLE_ID,FROM_PILE_ID,FROM_CARD_ID,FROM_TIME,FROM_REASON,STATUS)
+		values 
+			(#{deployId},#{bicycleId},#{fromPileId},#{fromCardId},#{fromTime},#{fromReason},#{status})
+	</insert>
+</mapper>

@@ -1,0 +1,37 @@
+package hw24;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
+
+public class SuanFa25 {
+/**
+ * 某个公司采用公用电话传递数据，数据是四位的整数，在传递过程中是加密的，
+	加密规则如下：每位数字都加上5,然后除以10的余数代替该数字，再将第一位和第四位交换， 第二位和第三位交换.
+ */
+	public static void main(String[] args) {
+		System.out.println(getSecret(1234));
+	
+	}
+	public static String getSecret(int num) {
+		String[]strs=String.valueOf(num).split("");
+		if(strs.length!=4) {
+			System.out.println("数字长度不符");
+			return null;
+		}
+		for(int i=0;i<strs.length;i++) {
+			strs[i]=String.valueOf(Integer.parseInt(strs[i])+5);
+		}
+		String str=strs[0];
+		strs[0]=strs[3];
+		strs[3]=str;
+		
+		str=strs[1];
+		strs[1]=strs[2];
+		strs[2]=str;
+		String string=strs[0]+strs[1]+strs[2]+strs[3];
+		return string;
+	}
+}

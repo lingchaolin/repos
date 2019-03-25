@@ -1,0 +1,212 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>提货</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#addTab td{text-align:center;}
+</style>
+<script language="javascript" src="../script/common.js"></script>
+<script language="javascript" type="text/javascript">
+
+function onlo(){
+	var yy=document.getElementById("years");
+	var op=document.createElement("option");
+	op.innerHTML="";
+	yy.appendChild(op);
+	var mm=document.getElementById("months");
+	var op2=document.createElement("option");
+	mm.appendChild(op2);
+	//添加空白项
+	for(var i=1990;i<2030;i++){
+		var opo=document.createElement("option");
+		opo.innerHTML=i;
+		yy.appendChild(opo);
+	}
+	for(var i=1;i<12;i++){
+		var opo=document.createElement("option");
+		opo.innerHTML=i;
+		mm.appendChild(opo);
+	}
+}
+	function clearPage(){//清理页面内容
+		
+	}
+	function setYear(){
+		var yy=document.getElementById("years");
+		document.getElementById("getyear").value=yy.options[yy.selectedIndex].value;
+	}
+	function setMonth(){
+		var mm=document.getElementById("months");
+		document.getElementById("getmonth").value=mm.options[mm.selectedIndex].value;
+	}
+	function subform(){
+		//判断年月是否为空
+  		if(document.getElementById("getyear").value==""){
+			alert("请选择年份");
+			return;
+		}
+		if(document.getElementById("getmonth").value==""){
+			alert("请选择月份");
+			return;
+		}
+		document.getElementById("hiddiv").style.display="block";
+		ajax_getMessage();
+	}
+	function setextend(){//设置付款
+		document.getElementById("gettype").value="付款明细";
+	}
+	function setreceipt(){//收款
+		document.getElementById("gettype").value="收款明细";
+	}
+	function ajax_getMessage(){
+		//用ajax获取数据
+		
+		
+		
+	}
+
+	function jumpToChange(obj){
+		var paroductCode=obj.parentNode.parentNode.cells[0].innerHTML;
+		var stockNum=obj.parentNode.parentNode.cells[2].innerHTML;
+		location="gztm/changeCount.jsp?productCode="+paroductCode+"&stockNum="+stockNum ;
+	}
+	function setCode(obj){
+		document.getElementById("getProductCode").value=obj.innerHTML;
+		document.getElementById("hiddenDiv").style.display="block";
+		getRecord();
+	}
+	function setType(obj){
+		document.getElementById("getRecordType").value=obj.innerHTML;
+		if(document.getElementById("getProductCode")==""){
+			return;
+		}
+		getRecord();
+	}
+	function getRecord(){
+		var tab=document.getElementById("addTab");
+		while(tab.rows.length>1){
+			tab.deleteRow(1);
+		}
+		var httpRequest=new XMLHttpRequest;
+		httpRequest.open("GET","gisrserv?productCode="+document.getElementById("getProductCode").value+"&recordType="+document.getElementById("getRecordType").value,true);
+		httpRequest.onreadystatechange=function(){//可以将方法提取出来
+			if(httpRequest.readyState==4){
+				if(httpRequest.status==200){
+					var jsonstr=httpRequest.responseText;
+					var stus=eval("("+jsonstr+")");
+					for(var i=0;i<stus.length;i++){
+						var tr = tab.insertRow(-1);
+						tr.insertCell(0).innerHTML=stus[i].stockTime;
+						tr.insertCell(1).innerHTML=stus[i].orderCode;
+						tr.insertCell(2).innerHTML=stus[i].createUser;
+						tr.insertCell(3).innerHTML=stus[i].stockNum;
+						tr.insertCell(4).innerHTML=stus[i].stockType;
+					}
+				}
+			}
+		};
+		httpRequest.send(null);
+	}
+</script>
+</head>
+<body onload="onlo()">
+	<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+	  <tr>
+	    <td nowrap class="title1">您的位置：工作台面－－月度收支报表</td>
+	  </tr>
+	</table>
+	<table width="100%"  border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="60px" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)">&nbsp;</td>
+	    <td width="75%" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)">&nbsp;</td> 
+    <td width="20px" nowrap class="toolbar">|</td>
+    <td width="60px" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)"><span onclick="setextend()">付款明细</span></td>
+    <td width="20px" nowrap class="toolbar">|</td>
+    <td width="60px" nowrap class="toolbar" onMouseOver="OMO(event)" onMouseOut="OMOU(event)"><span onclick="setreceipt()">收款明细</span></td>
+    <td width="20px" nowrap class="toolbar">|</td>
+  </tr>
+</table>
+<table width="100%"  border="0" align="center" cellspacing="0">
+	<tr>
+		<td width="35%" ></td>
+	  	<td width="10px" align="center">
+	  		<select id="years" onchange="setYear()"></select>年
+	  	</td>
+	  	<td width="10px" align="center">
+	  		<select id="months" onchange="setMonth()"></select>月
+	  	</td>
+	  	<td width="10px" align="center">
+	  		<input type="button" value="查看报表" onclick="subform()"/>
+	  	</td>
+	  	<td width="35%" ></td>
+  	</tr>
+</table>
+<br/>
+<table width="100%"  border="0" align="center" cellspacing="1" >
+	<tr>
+		<th class="title1" width="25%" >收款总金额</th>
+		<th class="title1" width="25%" >付款总金额</th>
+		<th class="title1" width="25%" >收款交易次数</th>
+		<th class="title1" width="25%" >付款交易次数</th>
+  	</tr>
+  	<tr>
+  		<td></td>
+  		<td></td>
+  		<td></td>
+  		<td></td>
+  	</tr>
+	</table>
+		<form action="StatementGetMoneyMessage">
+			<input type="hidden" id="getyear" name="getyear" />
+			<input type="hidden" id="getmonth" name="getmonth"/>
+			<input type="hidden" id="gettype" name="gettype" value="付款明细"/><!--默认为付款明细-->
+		</form>
+		<br/>
+		<div id="hiddiv"  style="display:none;">
+			<table width="100%"  border="0" align="center" cellspacing="1">
+				<tr>
+					<th class="title1" width="25%" ></th>
+					<th class="title1" width="25%" ></th>
+					<th class="title1" width="25%" ></th>
+					<th class="title1" width="25%" ></th>
+			  	</tr>
+			</table>
+		</div>
+
+	<%-- <table width="100%"  border="0" align="center" cellspacing="1">
+	  <tr>
+	    <td class="title1">产品编号</td>
+		<td class="title1">产品名称</td>
+	    <td class="title1">当前库存</td>
+       	<td class="title1">采购在途数</td>
+       	<td class="title1">预销售数</td>
+	  </tr>
+	  <c:forEach items="${requestScope.fList }" var="per">
+	  <tr>
+	    <td align="center"><a onclick="setCode(this)">${per.productcode }</a></td>
+	    <td align="center">${per.name }</td>
+		<td align="center">${per.num }</td>
+    	<td align="center">${per.ponum }</td>
+		<td align="center">${per.sonum} </td>
+	  </tr>
+	  </c:forEach>
+	</table>
+	<br/>
+	<div id="hiddenDiv" style="display:none;">
+	<table width="100%"  border="0" align="center" cellspacing="1" id="addTab" >
+	  <tr><!--分页  -->
+	    <td class="title1">入库时间</td>
+		<td class="title1">相关采购单号</td>
+	    <td class="title1">入库经手人</td>
+       	<td class="title1">入库数量</td>
+       	<td class="title1">入库类型</td>
+	  </tr>
+	</table> --%>
+	</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+package com.aowin.swingone;
+
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.*;
+public class CaseOne_ButtonIcon extends JPanel implements ActionListener{
+
+	public static void main(String[] args) {
+		JFrame jf=new JFrame();
+		CaseOne_ButtonIcon bi=new CaseOne_ButtonIcon();
+		jf.getContentPane().add(bi);
+		jf.setSize(400,150);
+		jf.setVisible(true);
+		jf.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
+//		jf.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+	}
+	JButton button[];
+	ImageIcon imageIcon[];
+	public CaseOne_ButtonIcon() {
+		super();
+		button=new JButton[3];
+		imageIcon=new ImageIcon[3];
+		//保存三个图标
+		imageIcon[0]=new ImageIcon("images\\first.jpg");
+		imageIcon[1]=new ImageIcon("images\\second.jpg");
+		imageIcon[2]=new ImageIcon("images\\third.jpg");
+		
+		button[0]=new JButton(imageIcon[0]);
+		button[1]=new JButton(imageIcon[1]);
+		button[2]=new JButton(imageIcon[2]);
+		
+		add(button[0]);
+		add(button[1]);
+		add(button[2]);
+		button[0].addActionListener(this);
+		button[1].addActionListener(this);
+		button[2].addActionListener(this);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		ImageIcon imageIconc;
+		if(e.getSource()==button[0]) {
+			for(int i=0;i<3;i++)
+				button[i].setIcon(imageIcon[(i+1)%3]);
+			imageIconc=imageIcon[0];
+			imageIcon[0]=imageIcon[1];
+			imageIcon[1]=imageIcon[2];
+			imageIcon[2]=imageIconc;
+			
+		}
+	}
+
+}

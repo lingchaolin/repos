@@ -1,0 +1,26 @@
+package com.aowin.review;
+
+import java.lang.reflect.Constructor;
+
+public class Student {
+
+	public Student() {
+		System.out.println("无参构造器");
+	}
+	public Student(int num) {
+		System.out.println("构造器 int:"+num);
+	}
+	public Student(int num,String str) {
+		System.out.println("构造器 int:"+num+"str:"+str);
+	}
+	public static void main(String[] args) {
+		try {
+			Class class1=Class.forName("com.aowin.review.Student");
+			Constructor constructor=class1.getConstructors();
+			System.out.println(constructor);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+	}
+}

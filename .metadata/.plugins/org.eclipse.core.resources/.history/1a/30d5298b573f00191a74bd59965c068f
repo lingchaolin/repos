@@ -1,0 +1,9 @@
+package com.effort.IOC;
+
+public class ConfigSum {
+
+	public ConfigSum() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

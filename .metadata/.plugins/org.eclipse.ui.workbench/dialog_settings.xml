@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="workingset_selection_history">
+		<item value="JavaEE_Project"/>
+		<item value="JavaEE"/>
+	</list>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="131" key="DIALOG_X_ORIGIN"/>
+		<item value="26" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.preferences.keysPreferencePage">
+		<item value="true" key="actionSetFilter"/>
+		<item value="true" key="uncategorizedFilter"/>
+		<item value="true" key="internalFilter"/>
+	</section>
+	<section name="EditorSelectionDialog">
+	</section>
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item value="250" key="dialogHeight"/>
+		<item value="350" key="dialogWidth"/>
+		<list key="textEntries">
+			<item value="1"/>
+			<item value="1"/>
+		</list>
+		<list key="orderedElements">
+			<item value="org.eclipse.ui.views.ProblemView"/>
+			<item value="org.eclipse.ui.window.preferences(preferencePageId=org.eclipse.ui.editors.preferencePages.Spelling)"/>
+		</list>
+		<list key="orderedProviders">
+			<item value="org.eclipse.e4.ui.parts"/>
+			<item value="org.eclipse.ui.commands"/>
+		</list>
+		<list key="textArray">
+			<item value="prob"/>
+			<item value="spell"/>
+		</list>
+	</section>
+	<section name="PreferencesImportWizard">
+		<item value="D:\Java\IDLE\Eclipse-oxygen\eclipse\mypluins\Theme\theme-2840.epf" key=""/>
+		<list key="WizardPreferencesExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="D:\Java\IDLE\Eclipse-oxygen\eclipse\mypluins\Theme\theme-2840.epf"/>
+			<item value="D:\Java\IDLE\Eclipse-oxygen\eclipse\mypluins\Theme\theme-32.epf"/>
+			<item value="D:\Java\IDLE\Eclipse-oxygen\eclipse\mypluins\Theme\theme-1.epf"/>
+			<item value="D:\Java\IDLE\Eclipse-oxygen\eclipse\mypluins\Theme\theme-1013.epf"/>
+			<item value="D:\Java\IDLE\Eclipse-oxygen\eclipse\mypluins\Theme\theme-1115.epf"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.junit.wizards.NewTestCaseCreationWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.jdt.ui.java/org.eclipse.jdt.junit"/>
+		</list>
+	</section>
+	<section name="FileSystemExportWizard">
+		<item value="false" key="WizardFileSystemResourceExportPage1.STORE_OVERWRITE_EXISTING_FILES_ID"/>
+		<item value="false" key="WizardFileSystemResourceExportPage1.STORE_RESOLVE_LINKED_RESOURCES_ID"/>
+		<item value="false" key="WizardFileSystemResourceExportPage1.STORE_CREATE_STRUCTURE_ID"/>
+		<list key="WizardFileSystemResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\Administrator\Desktop"/>
+		</list>
+	</section>
+	<section name="InstallationDialogSettings">
+		<item value="820" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="982" key="DIALOG_HEIGHT"/>
+		<item value="-145" key="DIALOG_X_ORIGIN"/>
+		<item value="-5" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="ImportExportAction">
+		<item value="org.eclipse.ui.wizards.export.Preferences" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
+		<item value="org.eclipse.m2e.core.wizards.Maven2ImportWizard" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.m2e"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="PreferencesExportWizard">
+		<item value="D:\Java\IDLE\Eclipse-oxygen\eclipse\mypluins\Theme\aut.epf" key=""/>
+		<item value="false" key="WizardPreferencesExportPage1.STORE_OVERWRITE_EXISTING_FILES_ID"/>
+		<item value="false" key="WizardPreferencesExportPage1.EXPORT_ALL_PREFERENCES_ID"/>
+		<list key="WizardPreferencesExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="D:\Java\IDLE\Eclipse-oxygen\eclipse\mypluins\Theme\aut.epf"/>
+			<item value="D:\Java\IDLE\Eclipse-oxygen\eclipse\mypluins\Theme\aut.xml"/>
+			<item value="D:\Java\IDLE\Eclipse-oxygen\eclipse\mypluins\Theme\aaa.xml"/>
+		</list>
+		<list key="WizardPreferencesExportPage1.TRANSFER_PREFERENCES_NAMES_ID">
+			<item value="org.eclipse.jdt.internal.ui.transfer.codestyle"/>
+			<item value="org.eclipse.jdt.internal.core.transfer.compiler"/>
+			<item value="org.eclipse.ui.ide.transfer.keys"/>
+		</list>
+	</section>
+	<section name="FileSystemImportWizard">
+	</section>
+</section>

@@ -1,0 +1,9 @@
+package com.fuckaowin.sms.operator.pojo;
+
+public class Operators {
+
+	public Operators() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

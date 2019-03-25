@@ -1,0 +1,35 @@
+package Game;
+import java.awt.Image;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+
+public class GameOne extends MyFrame {
+	static double x=100,y=200;
+	static double long_axis=4,short_axis=2;
+	double pi=0;
+	int degree=1;
+	star sun=new star("Picture/Earth.jpg",100.0,100.0);
+	
+	Image img=GameUtil.getImage("Picture/Back.jpg");
+	Image img2=GameUtil.getImage("Picture/Earth.jpg");
+	public static void main(String[]args){
+		GameOne game=new GameOne();
+		game.launchFrame();
+
+	}
+
+	public void paint(Graphics g){
+
+//		Color c =g.getColor();//取色
+//		g.setColor(Color.RED);
+//		g.setColor(c);//回色
+		g.drawImage(img, (int)0, (int)0,null);
+		g.drawImage(img2, (int)x, (int)y,null);
+		sun.draw(g);
+		x+=long_axis*Math.sin(pi);
+		y+=short_axis*Math.cos(pi);
+		pi+=degree*3.14/180;
+	}
+
+}

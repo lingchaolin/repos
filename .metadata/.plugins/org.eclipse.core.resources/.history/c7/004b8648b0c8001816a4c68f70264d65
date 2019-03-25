@@ -1,0 +1,10 @@
+package com.aowin.util;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+public class Dbutil {
+	private static SqlsessionFactory sqlSessionFactory;
+	public Dbutil() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,97 @@
+1530421036718	Copy compilation unit
+1530421242507	Delete element
+1530421292867	Rename package 'com.aowin.manager.serv'
+1530421304886	Rename package 'com.aowin.manager.util'
+1530421333837	Rename package 'com.aowin.serv'
+1530421344966	Rename package 'com.aowin.manager.dao'
+1530433722622	Rename package 'com.aowin.manager.model'
+1530433744315	Copy compilation unit
+1530509238999	Copy compilation unit
+1530509808725	Copy compilation unit
+1530516299140	Copy compilation unit
+1530517897056	Copy compilation unit
+1530522050482	Copy file
+1530536382099	Copy compilation unit
+1530536698846	Copy compilation unit
+1530583380406	Copy compilation unit
+1530589102976	Copy compilation unit
+1530602476573	Copy compilation unit
+1530605764169	Delete element
+1530605799538	Copy file
+1530607645890	Copy compilation unit
+1530622822324	Copy compilation unit
+1530629752547	Delete element
+1530629773407	Copy file
+1530629812044	Copy compilation unit
+1530662910959	Copy compilation unit
+1530665602283	Copy compilation unit
+1530665683862	Copy compilation unit
+1530666572322	Copy compilation unit
+1530666894332	Copy compilation unit
+1530674408922	Copy compilation unit
+1530674749325	Delete element
+1530674868919	Copy compilation unit
+1530674892651	Copy file
+1530676711324	Rename resource 'querygoods.htm'
+1530684476530	Copy compilation unit
+1530702994316	Copy compilation unit
+1530704742900	Copy compilation unit
+1530704817232	Delete element
+1530716056738	Delete element
+1530717156048	Copy file
+1530717269331	Copy compilation unit
+1530717305369	Rename type 'GetSoMainOutStockMessage'
+1530749231055	Move compilation units
+1530749261201	Rename package 'com.aowin.model'
+1530750471570	Rename method 'getPoitemStockSql'
+1530750500671	Rename method 'getPoitemStockSql1'
+1530750544629	Rename type 'GetPoitemMessage'
+1530750577367	Rename type 'GetPoitemMessage1'
+1530752321178	Copy compilation unit
+1530752380592	Rename type 'PoMainUserDao'
+1530756131355	Rename type 'GetSoMainShowMessage'
+1530756564478	Copy compilation unit
+1530756603678	Rename type 'SellShowSellMain'
+1530756855934	Copy compilation unit
+1530757444929	Rename field 'customerName'
+1530757480280	Rename field 'soTotal'
+1530757770482	Rename type 'SoMainOutStockMessage'
+1530758070236	Delete element
+1530759361812	Rename type 'RecordInStockMessage'
+1530759370765	Delete element
+1530759543672	Rename field 'poid'
+1530759586653	Rename type 'PoitemInStockMessage'
+1530759613592	Delete element
+1530760270853	Delete element
+1530761447719	Rename type 'SellUserDao'
+1530761836814	Copy compilation unit
+1530762454829	Rename field 'unitname'
+1530779570033	Rename type 'ConsortiumRegisterSell'
+1530793228300	Copy file
+1530793244371	Delete element
+1530793283304	Copy compilation unit
+1530793301615	Copy compilation unit
+1530793316596	Copy compilation unit
+1530796685107	Delete element
+1530796732997	Copy file
+1530799824610	Copy compilation unit
+1530801958599	Copy compilation unit
+1530802302827	Rename field 'payuser'
+1530803123288	Copy file
+1530839763001	Copy compilation unit
+1530840495269	Delete element
+1530840723019	Rename type 'GetPoMainInStockMessage'
+1530840916011	Rename method 'getPomainStockSql'
+1530843306946	Rename type 'GetPoitemMessage'
+1530843861407	Delete elements
+1530847449664	Rename type 'GetSoMainOutStockMessage'
+1530851396393	Rename type 'GetSoitemMessage'
+1530862574085	Copy compilation unit
+1530867081553	Copy file
+1530867100825	Rename resource 'statementofconsortium.jsp'
+1530967080677	Copy compilation unit
+1530971558687	Copy file
+1530973452778	Copy compilation unit
+1530973763068	Copy compilation unit
+1530974474277	Copy compilation unit
+1530975445578	Delete element

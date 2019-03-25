@@ -1,0 +1,10 @@
+package com.aowin.mapper;
+
+import com.aowin.model.People;
+
+public interface TestMapper {
+	public void addPeople(People people);
+	public void deletePeople(People people);
+	public void updatePeople(People people);
+	public void selectPeople(People people);
+}

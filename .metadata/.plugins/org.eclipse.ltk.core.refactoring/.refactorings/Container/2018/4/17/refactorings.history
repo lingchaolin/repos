@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;com.aowin.ArrayListTe&apos; to &apos;Laboratory/集合框架&apos;&#x0D;&#x0A;- Original project: &apos;Container&apos;&#x0D;&#x0A;- Destination element: &apos;Laboratory/集合框架&apos;&#x0D;&#x0A;- Original element: &apos;Container/src/com.aowin.ArrayListTe&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move package" destination="=Laboratory/集合框架" element1="/src&lt;com.aowin.ArrayListTe" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1524899176528" version="1.0"/>
+</session>

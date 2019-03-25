@@ -1,0 +1,10 @@
+package dao;
+
+import model.Card_record;
+import org.apache.ibatis.annotations.Insert;
+
+public interface CardRecordMapper {
+
+    int addCardRecord(Card_record cardRecord);
+
+}

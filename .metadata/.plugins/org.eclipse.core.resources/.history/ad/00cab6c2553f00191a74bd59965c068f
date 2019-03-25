@@ -1,0 +1,9 @@
+package com.effort.IOC;
+
+public class BuildCar {
+
+	public BuildCar() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

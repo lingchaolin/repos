@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC 
+	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd" >
+<tiles-definitions>
+	<definition  name="base" template="/WEB-INF/jsp/template.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp"></put-attribute>
+		<put-attribute name="title" value="/WEB-INF/jsp/title.jsp"></put-attribute>
+	</definition>
+	<!--main页面  登录成功  -->
+	<definition  name="main" extends="base">
+		<put-attribute name="content" value="/WEB-INF/jsp/main.jsp"></put-attribute>
+	</definition>
+	<!--收费？  -->	
+	<definition  name="Charge"  extends="base">
+		<put-attribute name="content" value="/WEB-INF/jsp/Charge.jsp"></put-attribute>
+	</definition>
+	<!--   -->	
+	<definition  name="comAccount"  extends="base">
+		<put-attribute name="content" value="/WEB-INF/jsp/comAccount.jsp"></put-attribute>
+	</definition>
+	<!--修改用户 -->	
+	<definition  name="modifyOperator"  extends="base">
+		<put-attribute name="content" value="/WEB-INF/jsp/modifyOperator.jsp"></put-attribute>
+	</definition>
+	<!--修改用户 -->	
+	<definition  name="modOperator"  extends="base">
+		<put-attribute name="content" value="/WEB-INF/jsp/modOperator.jsp"></put-attribute>
+	</definition>
+	<!--新增账户 -->	
+	<definition  name="newAccount"  extends="base">
+		<put-attribute name="content" value="/WEB-INF/jsp/newAccount.jsp"></put-attribute>
+	</definition>
+	<!--新增客户 -->	
+	<definition  name="newCustomerone"  extends="base">
+		<put-attribute name="content" value="/WEB-INF/jsp/newCustomerone.jsp"></put-attribute>
+	</definition>
+	<definition  name="newCustomertwo"  extends="base">
+		<put-attribute name="content" value="/WEB-INF/jsp/newCustomertwo.jsp"></put-attribute>
+	</definition>
+		<!--新增操作员 -->	
+	<definition  name="newOperator"  extends="base">
+		<put-attribute name="content" value="/WEB-INF/jsp/newOperator.jsp"></put-attribute>
+	</definition>
+		<!--新增用户 -->	
+	<definition  name="newUser"  extends="base">
+		<put-attribute name="content" value="/WEB-INF/jsp/newUser.jsp"></put-attribute>
+	</definition>
+		<!--资源 -->	
+	<definition  name="Resource"  extends="base">
+		<put-attribute name="content" value="/WEB-INF/jsp/Resource.jsp"></put-attribute>
+	</definition>
+		<!--退出 ??-->	
+	<definition  name="index" template="/index.jsp">
+	</definition>
+	
+</tiles-definitions>	

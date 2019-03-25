@@ -1,0 +1,26 @@
+package com.aowin.review.rtti;
+
+public class ForThread3 {
+/**
+ * 设计 4 个线程，其中两个线程每次对 j增加 1，
+ * 另外两个线程对 j每次减少 1。写出程序。 
+ */
+	public ForThread3() {
+
+	}
+
+	public static void main(String[] args) {
+		int j=0;
+		Thread t1=new Thread(new BaseOne());
+		t1.start();
+	}
+
+}
+class BaseOne implements Runnable{
+	@Override
+	public void run() {
+		for(int i=0;i<10;i++) {
+			System.out.println(Thread.currentThread().getName()+":"+i);
+		}
+	}
+}

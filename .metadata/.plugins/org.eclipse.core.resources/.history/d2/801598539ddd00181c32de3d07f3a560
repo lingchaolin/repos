@@ -1,0 +1,27 @@
+package com.aowin.review;
+
+import org.omg.CORBA.PUBLIC_MEMBER;
+
+public class MyOuter{
+	public static void main(String[] args) {
+		B b=new B() {
+			@Override
+			public int getNum() {
+				return 1;
+			}
+		};
+		try {
+			throw new NullPointerException("úy‘á");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("“Ï≥£≤∂ªÒ");
+		}
+	}
+}
+class A {
+	
+		
+}
+interface 	B{
+	public int getNum();
+}

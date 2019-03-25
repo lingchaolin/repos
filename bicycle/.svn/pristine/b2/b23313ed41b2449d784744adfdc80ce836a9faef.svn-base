@@ -1,0 +1,63 @@
+package dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Select;
+
+import model.Bicycle_station;
+
+public interface Bicycle_stationMapper {
+	//查询所有的车点信息
+	public List<Bicycle_station> selectStation();
+	
+	//根据车点id查询车点运行日期
+	@Select("select RUN_TIME from BICYCLE_STATION where STATION_ID=#{stationId}")
+	public String selectStationDate(Integer stationId);
+	
+	//根据车点地址和名称模糊查询车点
+	/*@Select("select station_id\r\n" + 
+			"		stationId,\r\n" + 
+			"		station_code stationCode,\r\n" + 
+			"		station_name stationName,\r\n" + 
+			"		longitude,\r\n" + 
+			"		latitude,\r\n" + 
+			"		bicycle_pile_num bicyclePileNum,\r\n" + 
+			"		address,\r\n" + 
+			"		person_in_charge personInCharge,\r\n" + 
+			"		build_time buildTime,\r\n" + 
+			"		run_time runTime,\r\n" + 
+			"		user_id userId,\r\n" + 
+			"		create_time createTime,\r\n" + 
+			"		remark "
+			+ "from bicycle_station "
+			+ "where "
+			+ "station_name like concat('%',concat(#{stationName},'%')) "
+			+ "or address like concat('%',concat(#{address},'%'))")*/
+	public List<Bicycle_station> selectStationByName(Bicycle_station bicycle_station);
+	
+/*	//根据车点id查询车点运行日期
+	@Select("select RUN_TIME from BICYCLE_STATION where STATION_ID=#{stationId}")
+	public String selectStationDate(Integer stationId);*/
+	
+	/*//根据车点地址和名称模糊查询车点
+	@Select("select station_id\r\n" + 
+			"		stationId,\r\n" + 
+			"		station_code stationCode,\r\n" + 
+			"		station_name stationName,\r\n" + 
+			"		longitude,\r\n" + 
+			"		latitude,\r\n" + 
+			"		bicycle_pile_num bicyclePileNum,\r\n" + 
+			"		address,\r\n" + 
+			"		person_in_charge personInCharge,\r\n" + 
+			"		build_time buildTime,\r\n" + 
+			"		run_time runTime,\r\n" + 
+			"		user_id userId,\r\n" + 
+			"		create_time createTime,\r\n" + 
+			"		remark "
+			+ "from bicycle_station "
+			+ "where "
+			+ "station_name like concat('%',concat(#{stationName},'%')) "
+			+ "or address like concat('%',concat(#{address},'%'))")
+	public List<Bicycle_station> selectStationByName(Bicycle_station bicycle_station);*/
+}
+

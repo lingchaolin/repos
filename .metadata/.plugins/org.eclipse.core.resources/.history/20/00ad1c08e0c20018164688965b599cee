@@ -1,0 +1,9 @@
+package com.aowin.mapper;
+
+public class TestMapper {
+
+	public TestMapper() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

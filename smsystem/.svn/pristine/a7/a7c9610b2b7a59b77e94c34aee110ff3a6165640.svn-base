@@ -1,0 +1,76 @@
+/**
+ * 
+ */
+package com.aowin.smsystem.operator.contorller;
+
+import javax.validation.Valid;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.aowin.smsystem.operator.dao.OperatorDAO;
+import com.aowin.smsystem.operator.pojo.Operators;
+/**
+ * 操作员管理模块的处理类
+ * @author Administrator
+ *
+ */
+public class OperatorController {
+	/**
+	 * 
+	 */
+	private Logger log=LogManager.getLogger(OperatorController.class);
+	private OperatorDAO operatorDAO;
+	public OperatorController() {
+		// TODO Auto-generated constructor stub
+	}
+	/**
+	 * 操作员添加链接请求
+	 * @param m
+	 * @return tiles name
+	 */
+	@RequestMapping(value="/addoperatorlink")
+	public String addOperatorLink(Model m) {
+		log.info("调用处理方法：addOperatorLink");
+		m.addAttribute("titleinfo","新增操作员");
+		return "newOperator";
+	}
+	@RequestMapping(value="/addoperator",method=RequestMethod.POST)
+	public String addOperator(@Valid Operators o,BindingResult result,Model m) {
+		log.info("调用处理方法: addOperator()");
+		m.addAttribute("titleinfo", "新增操作员");
+		
+		if(result.hasFieldErrors()){
+			FieldError operatorname=result.getFieldError();
+			if(operatorname!=null) {
+				m.addAttribute("operatorname", operatorname.getDefaultMessage());
+			}
+			FieldError username=result.getFieldError();
+			if(operatorname!=null) {
+				m.addAttribute("username", username.getDefaultMessage());
+			}
+			FieldError userpwd=result.getFieldError();
+			if(operatorname!=null) {
+				m.addAttribute("userpwd", userpwd.getDefaultMessage());
+			}
+			o.setOperatorname(o.getOperatorname());
+			o.setUsername(o.getUsername());
+			o.setUserpwd(o.getUserpwd());
+			m.addAttribute("operatorvalid", o);
+			return "newOperator";
+		}
+		try {
+			operatorDAO.insertOperator(o);
+			m.addAttribute("operatorinfo", "操作员添加成功");
+		} catch (Exception e) {
+			log.warn("操作员添加失败："+e);
+			m.addAttribute("operatorinfo", "操作员添加失败");
+		}
+		return "newOperator";
+	}
+}

@@ -1,0 +1,32 @@
+package com.aowin.classLoadSort;
+
+public class Demo {
+	public static void main(String[] args) {
+//		System.out.println("调用main()方法");
+		LoadSort loadSort=new LoadSort();
+		
+	}
+}
+class LoadSort {
+	public static String A;
+	public static String B="B";
+	public  String C;
+	public  String D="D";
+	static {
+		System.out.println("这是静态代码块");
+	}
+	{
+		System.out.println(C+D);
+		A=C;
+		System.out.println("这是普通代码块");
+	}
+	public static void method() {
+		System.out.println("这是一个静态方法");
+	}
+	public  void method2() {
+		System.out.println("这是一个普通方法");
+	}
+	public LoadSort() {
+		System.out.println("这是一个无参构造器！");
+	}
+}

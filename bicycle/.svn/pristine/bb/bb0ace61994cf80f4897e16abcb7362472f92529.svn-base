@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.VenderMapper">
+    <!--<sql id="queryCondition">-->
+        <!--<where>-->
+            <!--<if test="title != null and title != ''">-->
+                <!--and title like concat('%',concat(#{title},'%'))-->
+            <!--</if>-->
+            <!--<if test="content != null and content != ''">-->
+                <!--and content like concat('%',concat(#{content},'%'))-->
+            <!--</if>-->
+            <!--<if test="startDay != null and startDay != ''">-->
+                <!--and startDay >= #{startDay}-->
+            <!--</if>-->
+            <!--<if test="endDay != null and endDay != ''">-->
+                <!--and concat(#{endDay},' 23:59:59') >= endDay-->
+            <!--</if>-->
+        <!--</where>-->
+    <!--</sql>-->
+
+    <!--<insert id="addVender" parameterType="model.Vender">-->
+        <!--<selectKey keyProperty="venderID" resultType="java.lang.String" order="BEFORE">-->
+            <!--select SEQ_LOG.nextval venderID from dual-->
+        <!--</selectKey>-->
+        <!--insert into vender values (#{venderID},#{venderCode},#{venderType},#{venderName},#{address},#{telephone},#{contacts},#{produtsLicense},#{bussinessRegistrationNo}-->
+        <!--,#{registeredCapital},#{userID},#{createTime},#{zxjb}.#{remark})-->
+    <!--</insert>-->
+
+    
+    <select id="showVender" parameterType="java.util.Map" resultType="model.Vender">
+        select
+            vender_id venderID,vender_code venderCode,vender_type venderType,vender_name venderName
+            ,address,telephone,contacts,product_license productLicense,BUSSINESS_REGISTRATION_NO bussinessRegistrationNo
+            ,registered_capital registeredCapital,USER_ID userID,CREATE_TIME createTime,zxbj,remark
+        from vender
+
+    </select>
+
+</mapper>

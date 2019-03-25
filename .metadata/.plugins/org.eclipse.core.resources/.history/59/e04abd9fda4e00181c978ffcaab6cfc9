@@ -1,0 +1,35 @@
+package com.aowin;
+
+public class forIteratorTest {
+/**
+ * 迭代器模式
+ * 聚合对象--存数据
+ * 迭代器--遍历数据
+ * 游标cursor模式
+ * @param args
+ */
+	public static void main(String[] args) {
+//聚合
+		ConcreteMy con=new ConcreteMy();
+		con.addObject("aa");
+		con.addObject("bb");
+		con.addObject("cc");
+		con.addObject("dd");
+		MyIterator it=con.createIterator();
+		while(it.hashNext()) {
+			System.out.println(it.getCurrrentObj());
+			it.next();
+		}
+		
+	}
+
+}
+interface MyIterator{
+	void first();//将游标指向第一个
+	void next();//指向下一个
+	boolean hashNext();//是否有下一个？
+	boolean isFirst();
+	boolean isLast();
+	Object getCurrrentObj();//获得当前游标对象
+	
+}

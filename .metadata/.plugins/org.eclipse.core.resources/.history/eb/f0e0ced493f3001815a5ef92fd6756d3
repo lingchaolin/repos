@@ -1,0 +1,16 @@
+package com.aowin.javabasic;
+
+
+public class CopyPic {
+
+	public static void main(String[] args) {
+		
+	}
+}
+interface intA{
+	public abstract void MeOne();
+	public  void MeTwo();
+	public default void MeThree() {
+		System.out.println(this.toString());
+	}
+}

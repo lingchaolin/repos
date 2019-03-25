@@ -1,0 +1,24 @@
+package com.aowin.aadprototype;
+
+import java.util.Date;
+
+/**
+ * 原型模式-克隆模式
+ * 
+ * Cloneable		clone()
+ * @author Administrator
+ *
+ */
+public class Client02 {
+	static Date date=new Date(123243123L);
+	public static void main(String[]args) throws CloneNotSupportedException {
+		Sheep2 s1=new Sheep2("moli",date);
+		System.out.println(s1);
+		System.out.println(s1.getName());
+		System.out.println(s1.getBirthday());
+		Sheep2 s2=(Sheep2) s1.clone();
+		System.out.println(s2);
+		System.out.println(s2.getName());
+		System.out.println(s2.getBirthday());
+	}
+}

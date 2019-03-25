@@ -1,0 +1,51 @@
+package controller;
+
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import model.Bicycle_pile;
+import model.Bicycle_station;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import service.IBicycle_StationService;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+import java.util.Map;
+
+@Controller
+public class Bicycle_stationController {
+	@Autowired
+	private IBicycle_StationService bicycle_StationService;
+
+	@RequestMapping("/station")
+	public void selectStation(HttpServletResponse response) throws IOException  {
+		response.setContentType("text/plain;charset=utf-8");
+		List<Bicycle_station> bList = bicycle_StationService.selectStation();
+		StringBuffer sb = new StringBuffer();
+		sb.append(JSONArray.toJSONString(bList));
+		PrintWriter out = response.getWriter();
+		out.print(sb.toString());
+		out.flush();
+		out.close();
+	}
+
+	@RequestMapping("/showaddbicyclestation")
+	public String showAddBicycleStation() {
+
+		return "/WEB-INF/bicyclestation/addbicyclestation.jsp";
+	}
+
+	@RequestMapping(value="/addbicyclestation")
+	@ResponseBody
+	public String addBicycleStation(@RequestParam Map params){
+		Bicycle_station bicycle_station = JSONObject.parseObject(params.get("bicycleStation").toString(), Bicycle_station.class);
+		List<Bicycle_pile> bicyclePiles = JSONArray.parseArray(params.get("bicyclePiles").toString(), Bicycle_pile.class);
+		bicycle_StationService.addBicyleStaion(bicycle_station,bicyclePiles);
+		return "OK";
+	}
+}

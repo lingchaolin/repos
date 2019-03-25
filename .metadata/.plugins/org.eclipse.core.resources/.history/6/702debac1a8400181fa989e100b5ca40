@@ -1,0 +1,30 @@
+package com.aowin.log4jtest;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Properties;
+import java.util.Set;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Properties props=new Properties();//extends HashTable   --键值对
+		//读取properties文件的内容
+		try {
+			//用输入流读取配置文件的数据，读取键值对，存放到键值对;
+			props.load(new FileReader("src/p.properties"));
+		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
+		}
+		//遍历读取到的内容：1.set  2.entryset
+		Set set=props.keySet();
+		Iterator it=set.iterator();
+		while(it.hasNext()) {
+			it=it.next();
+			System.out.println(it.next()+":"+props.getProperty((String) it.next()));
+		}
+	}
+
+}

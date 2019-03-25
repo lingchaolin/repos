@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+							http://www.springframework.org/schema/context
+							http://www.springframework.org/schema/context/spring-context-4.3.xsd
+							http://www.springframework.org/schema/tx
+							http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+							http://www.springframework.org/schema/aop
+							http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+		<!-- 扫描组件启用基础注解 -->
+		<!--加载属性文件  -->
+		<!-- 数据连接池 -->
+		<!-- 配置SqlSessionFactory -->
+		<!-- 配置SqlSessionTemplate -->
+		<!-- 配置Mapper接口 -->
+		<!-- 配置实现类 -->
+		<!-- 自动代理，Annotation完成事务处理 -->
+		<!-- AOP事务处理 -->
+		<!-- 事务管理器 -->
+</beans>

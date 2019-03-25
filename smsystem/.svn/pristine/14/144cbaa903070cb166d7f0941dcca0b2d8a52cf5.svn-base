@@ -1,0 +1,67 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<HTML>
+<HEAD>
+<TITLE>中国移动业务管理系统</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+body {
+	background-color: #CCCCCC;
+	margin-top: 10px;
+}
+-->
+</style>
+<link href="style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+body,td,th {
+	font-family: Verdana;
+}
+</style>
+</HEAD>
+<BODY LEFTMARGIN=0 MARGINWIDTH=0>
+<TABLE WIDTH=750 BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
+	<TR>
+		<TD ROWSPAN=2>
+			<IMG SRC="images/index_01.gif" WIDTH=444 HEIGHT=237 ALT=""></TD>
+		<TD>
+			<IMG SRC="images/index_02.gif" WIDTH=306 HEIGHT=99 ALT=""></TD>
+	</TR>
+	<TR>
+		<TD>
+			<IMG SRC="images/index_03.gif" WIDTH=306 HEIGHT=138 ALT=""></TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=2>
+			<IMG SRC="images/index_04.gif" WIDTH=444 HEIGHT=363 ALT=""></TD>
+		<TD width="306" height="185" background="images/index_05.gif"><table width="250" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+            <form action="" method=post name=login>
+              
+                <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                  <tr height="30">
+                    <td width="30%"><div align="right"><strong>用&nbsp;户&nbsp;名:</strong></div></td>
+                    <td width="70%"><INPUT name=username type="text" value="Tom"></td>
+                  </tr>
+                  <tr height="30">
+                    <td><div align="right"><strong>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</strong></div></td>
+                    <td><INPUT name=passwords type=password value="111111"></td>
+                  </tr>
+                  <tr height="30">
+                    <td>&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;<INPUT class=f2 type=submit size=4 value=进入系统 name=Submit></td>
+                  </tr>
+                </table>
+                
+            </form></td>
+          </tr>
+        </table></TD>
+	</TR>
+	<TR>
+		<TD>
+			<IMG SRC="images/index_06.gif" WIDTH=306 HEIGHT=178 ALT=""></TD>
+	</TR>
+</TABLE>
+</BODY>
+</HTML>

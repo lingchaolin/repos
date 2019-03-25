@@ -1,0 +1,9 @@
+package com.aowin.review;
+
+public class Test {
+
+	public Test() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,88 @@
+package com.aowin.daobasic;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.apache.ibatis.session.SqlSession;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import com.aowin.dao.TuserMapper;
+import com.aowin.model.People;
+import com.aowin.util.Dbutil;
+
+class TuserMapperTest {
+	SqlSession sqlsession;
+	TuserMapper mapper;
+	@BeforeEach
+	void setUp() throws Exception {
+		sqlsession=Dbutil.openSession();
+		mapper=sqlsession.getMapper(TuserMapper.class);
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+	}
+
+	@Test
+	void testInsertUser() {
+		People people=new People("ÕÅÈý2018", 1, "home", 1231);
+		mapper.insertUser(people);
+	}
+
+	@Test
+	void testBatchInserta() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testBatchInsertb() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testUpdateUser() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testDeleteUser() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSelectUser() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSelectMapUser() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSelectLikeUser() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSelectWhereUser() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSelectChooseUser() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSelectUriUser() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSelectResultMap() {
+		fail("Not yet implemented");
+	}
+
+}

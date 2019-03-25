@@ -1,0 +1,18 @@
+package Castle;
+
+public class Gate {
+	double height;
+	double width;
+	int direction;//´úÌæ·½Ïò
+	public Gate() {
+		this.height = 1.8;
+		this.width = 0.6;
+		this.direction=(int) (4*Math.ceil(Math.random()));
+	}
+	public Gate(double height, double width) {
+		super();
+		this.height = height;
+		this.width = width;
+	}
+	
+}

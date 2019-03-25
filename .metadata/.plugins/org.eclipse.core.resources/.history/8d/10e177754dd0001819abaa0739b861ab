@@ -1,0 +1,9 @@
+package com.fuckaowin.sms.operator.dao;
+
+public class OperatorDAOImpl {
+
+	public OperatorDAOImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

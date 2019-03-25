@@ -1,0 +1,16 @@
+package forIO;
+
+import java.io.File;
+
+public class IO144 {
+	public void main(String []args){
+		String path="D:/Class/Test.txt";
+		File src=new File(path);
+		System.out.println(src.getAbsolutePath());
+		System.out.println(src.getName());
+		System.out.println(src.getParent());
+		System.out.println(src.getPath());
+	
+	
+	}
+}

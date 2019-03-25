@@ -1,0 +1,31 @@
+package com.aowin.javabasic;
+
+import junit.framework.Test;
+
+public class CopyPic {
+
+	public static void main(String[] args) {
+		TestA a=new TestA();
+		a.MeOne();
+		a.MeTwo();
+		a.MeThree();
+	}
+}
+interface intA{
+	public  void MeTwo();
+	public abstract void MeOne();
+	public default void MeThree() {
+		System.out.println(this.toString());
+	}
+}
+class TestA implements intA{
+	@Override
+	public void MeOne() {
+		System.out.println("MeOne");
+		
+	}
+	@Override
+	public void MeTwo() {
+		System.out.println("MeTwo");
+	}
+}

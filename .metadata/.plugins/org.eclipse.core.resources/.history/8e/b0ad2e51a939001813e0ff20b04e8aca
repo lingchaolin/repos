@@ -1,0 +1,6 @@
+package ContainerOne;
+
+public class Student {
+	private Object javase;
+	private Object oracle;
+}

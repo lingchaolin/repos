@@ -1,0 +1,36 @@
+package forIO;
+/**
+ * 序列化、反序列化
+ * @author Administrator
+ *输入流--反序列化--ObjectInputStream---readObject
+ *输出流--序列化---Object OutputStream-writeObject
+ *序列化，后反序列化--前后顺序要一致
+ *不是所有的对象都可以序列化--java.io.Serizable--空接口，只是作为标识；
+ *不是所有的属性都需要序列化--transient
+ */
+public class FourthOperate implements java.io.Serializable{
+	private transient String name;
+	private double salary;
+	
+	public FourthOperate() {
+		super();
+	}
+	public FourthOperate(String name, double salary) {
+		super();
+		this.name = name;
+		this.salary = salary;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getSalary() {
+		return salary;
+	}
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+	
+}

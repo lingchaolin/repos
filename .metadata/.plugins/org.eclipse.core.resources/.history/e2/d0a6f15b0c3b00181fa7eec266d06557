@@ -1,0 +1,39 @@
+package forThread;
+/**
+ * 创建多个线程
+ * @author Administrator
+ *
+ */
+public class ForThreadOne {
+	
+	public static void main(String[]args){
+		ThreadTest test=new ThreadTest();
+		test.start();
+	}
+	
+}
+class ThreadTest extends  Thread{
+//	public void  run(){
+		
+//		while(true){
+//			System.out.println("Ok");
+//		}
+//		ThreadTest(){}
+//		ThreadTest(String szNname){
+//	   	super(szName);
+//	   }
+	   
+	   public void run(){
+	   	for(int count=1,row=1;row<10;row++,count++){
+				for(int i=0;i<count;i++){
+					System.out.print('*');
+				}
+				System.out.println();
+			}
+	   }
+//	   public static void main(String[]argv){
+//			ThreadDemo1 td=new ThreadDemo1();
+//			td.start();
+//		}
+//	}
+}

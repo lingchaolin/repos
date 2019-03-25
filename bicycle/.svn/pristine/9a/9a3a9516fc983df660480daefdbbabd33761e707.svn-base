@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.BicycleDealMapper">
+
+    <insert id="addBicycleDeal" parameterType="model.BicycleDeal">
+        <selectKey keyProperty="dealId" resultType="int" order="BEFORE">
+            select nextId.nextval dealId from dual
+        </selectKey>
+        insert into bicycle_deal values(#{dealId},#{createTime},#{dealName},#{dealType},#{recordId,jdbcType=NUMERIC}
+        ,#{cardId},#{idFee},#{chgMoney},#{feeType,jdbcType=NUMERIC},#{bicycleId},#{pileId},#{userId})
+    </insert>
+    
+    <select id="selectBicycleDealType" parameterType="Integer" resultMap="resultMap">
+		select 
+		  	bdeal.deal_type,count(*) typeSum 
+		from 
+		    (select 
+		          bd.* 
+		      from 
+		          BICYCLE_STATION bs,BICYCLE_PILE bp,BICYCLE_DEAL bd 
+		      where 
+		          bs.station_id=bp.station_id and bp.pile_id=bd.PILE_ID and bs.station_id=#{stationId}) bdeal
+		group by 
+	      	bdeal.deal_type
+	</select>
+	<resultMap type="HashMap" id="resultMap">
+		<result property="dealType" column="deal_type"/>
+		<result property="typeSum" column="typeSum"/>
+	</resultMap>
+</mapper>

@@ -1,0 +1,90 @@
+package com.aowin.stuff.data;
+
+import java.util.ArrayList;
+import java.util.Vector;
+
+import javax.swing.JOptionPane;
+
+import com.aowin.stuff.jdbconnection.JdbcUtil;
+import com.aowin.stuff.model.Person;
+import com.aowin.stuff.view.HomePage;
+
+//工具类
+public class ListUtil {
+	public static void main(String[] args) {
+
+	}
+	/**将数组转换成list列表
+	 * 
+	 */
+	public static ArrayList<Person> ConvertToList(String[][] arr) {
+		ArrayList<Person> list=new ArrayList<Person>();
+		for(int i=0;i<arr.length;i++) {
+			Person person =new Person();
+			person.setId(Integer.parseInt(arr[i][0]));
+			person.setName(arr[i][1]);
+			person.setSex("男".equals(arr[i][2])?1:0);
+			person.setDepartment(arr[i][3]);
+			person.setSalary(Integer.parseInt(arr[i][4]));
+			list.add(person);
+		}
+		return list;
+	}
+	
+//	public static ArrayList<String> ConvertToList(String[][] arr) {
+//		ArrayList<Person> list=new ArrayList<Person>();
+//		for(int i=0;i<arr.length;i++) {
+//			Person person =new Person();
+//			person.setId(Integer.parseInt(arr[i][0]));
+//			person.setName(arr[i][1]);
+//			person.setSex("男".equals(arr[i][2])?1:0);
+//			person.setDepartment(arr[i][3]);
+//			person.setSalary(Integer.parseInt(arr[i][4]));
+//			list.add(person);
+//		}
+//		return list;
+//	}
+	/**将list列表转换成数组
+	 * 
+	 */
+	public static String[][] ConvertToArray(ArrayList<Person> list) {
+		String[][] arr=new String[list.size()][5];
+		for (int i = 0; i < list.size(); i++) {
+			Person person=list.get(i);
+			arr[i][0]=String.valueOf(person.getId());
+			arr[i][1]=person.getName();
+			arr[i][2]=person.getSex()==1?"男":"女";
+			arr[i][3]=person.getDepartment();
+			arr[i][4]=String.valueOf(person.getSalary());
+		}
+		return arr;
+	}
+	public static void ArrayToPerson(String arr[]) {
+		
+	}
+	public static void PersonToArray(Person person) {
+		
+	}
+	
+	public static ArrayList<Person> getTableContext(HomePage hp) {
+		ArrayList<Person> list = new ArrayList<Person>();
+		Vector vector= hp.getModel().getDataVector();
+		try {
+			for(int i=0;i<vector.size();i++) {
+				Person per=new Person();
+				Vector v=(Vector) vector.get(i);
+				per.setId(Integer.parseInt((String) v.get(0)));
+				per.setName((String)v.get(1));
+				per.setSex("男".equals((String)v.get(2))?1:0);
+				per.setDepartment((String)v.get(3));
+				per.setSalary(Integer.parseInt((String)v.get(4)));
+				list.add(per);
+			}
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(null, "请检查数据格式是否正确！","警告",JOptionPane.WARNING_MESSAGE);
+			return ;
+		}
+		return list;
+	}
+	
+}
